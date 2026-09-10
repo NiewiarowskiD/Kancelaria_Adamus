@@ -52,7 +52,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               component="img"
               src="/logo-proposal-3.svg"
               alt="Kancelaria Radcy Prawnego"
-              sx={{ height: { xs: 84, md: 112 }, width: 'auto', display: 'block' }}
+              sx={{ height: { xs: 92, md: 134 }, width: 'auto', display: 'block' }}
             />
           </Box>
 

@@ -29,12 +29,12 @@ export default function Footer({ onNavigate }: FooterProps) {
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <BalanceIcon sx={{ color: 'secondary.main', fontSize: 52, mb: 1 }} aria-label="Logo Kancelarii" />
-            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', maxWidth: 300 }}>
-              Kancelaria Radcy Prawnego oferuje profesjonalną pomoc prawną w szerokim
-              zakresie dziedzin prawa. Gwarantujemy dyskrecję i indywidualne podejście
-              do każdego klienta.
-            </Typography>
+            <Box
+              component="img"
+              src="/logo-proposal-3.svg"
+              alt="Kancelaria Radcy Prawnego"
+              sx={{ height: { xs: 92, md: 134 }, width: 'auto', display: 'block' }}
+            />
           </Grid>
 
           <Grid size={{ xs: 12, md: 4 }}>
@@ -105,7 +105,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           }}
         >
           <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.5)' }}>
-            © {new Date().getFullYear()} Kancelaria Radcy Prawnego. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk. Wszelkie prawa zastrzeżone.
           </Typography>
         </Box>
       </Box>
