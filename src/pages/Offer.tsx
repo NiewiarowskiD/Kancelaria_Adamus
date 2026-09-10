@@ -18,11 +18,11 @@ interface OfferProps {
 }
 
 const services = [
-  { icon: <FamilyRestroomIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo rodzinne', desc: 'Rozwody, separacje, alimenty, podział majątku, opieka nad dziećmi.' },
-  { icon: <BusinessIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo gospodarcze', desc: 'Zakładanie i obsługa spółek, umowy handlowe, rejestracja działalności.' },
-  { icon: <GavelIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo cywilne', desc: 'Odszkodowania, spadki, zniesienie współwłasności, ochrona dóbr osobistych.' },
+  { icon: <FamilyRestroomIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo rodzinne', desc: 'W zakresie prawa rodzinnego wspieramy klientów w sprawach o rozwód i separację, podział majątku wspólnego, alimenty, władzę rodzicielską oraz kontakty z dziećmi. Do każdej sprawy podchodzimy z wyczuciem sytuacji rodzinnej, dbając zarówno o skuteczność działań prawnych, jak i o dobro najbliższych osób, których sprawa dotyczy.' },
+  { icon: <BusinessIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo gospodarcze', desc: 'W zakresie upadłości konsumenckiej pomagamy osobom fizycznym nieprowadzącym działalności gospodarczej w przygotowaniu i złożeniu wniosku o ogłoszenie upadłości, reprezentujemy klientów w toku całego postępowania upadłościowego oraz doradzamy przy ustalaniu planu spłaty wierzycieli. Naszym celem jest pomoc osobom znajdującym się w trudnej sytuacji finansowej w skutecznym wyjściu z zadłużenia i odzyskaniu stabilności finansowej.danie i obsługa spółek, umowy handlowe, rejestracja działalności.' },
+  { icon: <GavelIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo cywilne', desc: 'W zakresie prawa cywilnego pomagamy w sprawach dotyczących umów i ich wad, dochodzenia roszczeń i odszkodowań, odpowiedzialności cywilnej oraz spraw mieszkaniowych i dotyczących nieruchomości. Zajmujemy się również sporami z zakresu prawa budowlanego pomiędzy inwestorem a wykonawcą — w tym dotyczącymi wad wykonawczych, opóźnień w realizacji inwestycji, rozliczenia wynagrodzenia oraz kar umownych. Reprezentujemy klientów zarówno na etapie negocjacji, jak i w postępowaniu sądowym i egzekucyjnym.' },
   { icon: <WorkIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo pracy', desc: 'Umowy o pracę, zwolnienia, mobbing, sporządzanie regulaminów pracowniczych.' },
-  { icon: <HomeWorkIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo nieruchomości', desc: 'Transakcje kupna-sprzedaży, najem, dzierżawa, współwłasność, służebności.' },
+  { icon: <HomeWorkIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Prawo spadkowe', desc: 'W zakresie prawa spadkowego pomagamy w sprawach o stwierdzenie nabycia spadku i dział spadku, doradzamy przy sporządzaniu testamentów, prowadzimy sprawy o zachowek oraz reprezentujemy klientów w sporach między spadkobiercami. Zapewniamy wsparcie zarówno na etapie planowania sukcesji majątku, jak i w toku już toczącego się postępowania spadkowego.' },
   { icon: <BalanceIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, title: 'Reprezentacja w sądzie', desc: 'Pełna reprezentacja procesowa przed sądami wszystkich instancji.' },
 ];
 
@@ -66,8 +66,7 @@ export default function Offer({ onNavigate }: OfferProps) {
                 Nie znalazłeś swojej sprawy?
               </Typography>
               <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
-                Skontaktuj się z nami — chętnie odpowiemy na każde pytanie i pomożemy
-                znaleźć najlepsze rozwiązanie prawne.
+                Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę. Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej skuteczne w Państwa sytuacji.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
                 <Button

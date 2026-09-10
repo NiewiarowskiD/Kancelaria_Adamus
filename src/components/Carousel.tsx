@@ -6,8 +6,8 @@ import Fade from '@mui/material/Fade';
 const slides = [
   {
     image: '/carousel-1.webp',
-    title: 'Profesjonalna pomoc prawna',
-    subtitle: 'Doświadczenie i zaangażowanie w każdej sprawie',
+    title: '„Ius est ars boni et aequi”',
+    subtitle: '— prawo jest sztuką tego, co dobre i słuszne.',
   },
   {
     image: '/carousel-2.webp',

@@ -37,8 +37,7 @@ export default function Home({ onNavigate }: HomeProps) {
             Twoje prawa w dobrych rękach
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
-            Kancelaria Radcy Prawnego oferuje kompleksową pomoc prawną dla osób fizycznych
-            i przedsiębiorców. Łączymy dogłębną wiedzę prawną z praktycznym podejściem
+            Rzetelna pomoc prawna dla osób i firm — od negocjacji po salę sądową. Łączymy fachową wiedzę z indywidualnym podejściem, by skutecznie chronić Twoje interesy na każdym etapie sprawy.
             do każdej sprawy.
           </Typography>
         </Box>
@@ -69,7 +68,6 @@ export default function Home({ onNavigate }: HomeProps) {
               </Typography>
               <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
                 Skontaktuj się z nami już dziś i umów się na konsultację.
-                Pierwsza rozmowa jest zawsze bezpłatna.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
                 <Button

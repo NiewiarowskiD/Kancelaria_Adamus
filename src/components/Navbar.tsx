@@ -19,7 +19,7 @@ interface NavbarProps {
 
 const navItems: { key: PageKey; label: string }[] = [
   { key: 'home', label: 'Strona Główna' },
-  { key: 'about', label: 'O mnie' },
+  { key: 'about', label: 'O Kancelarii' },
   { key: 'offer', label: 'Oferta' },
   { key: 'online', label: 'Porady online' },
   { key: 'blog', label: 'Blog' },
