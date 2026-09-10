@@ -6,7 +6,6 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import BalanceIcon from '@mui/icons-material/Balance';
 import type { PageKey } from '../lib/supabase';
 
 interface FooterProps {
