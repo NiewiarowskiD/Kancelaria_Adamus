@@ -23,6 +23,7 @@ import AddIcon from '@mui/icons-material/Add';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LockIcon from '@mui/icons-material/Lock';
 import { supabase, isSupabaseConfigured, type BlogArticle } from '../lib/supabase';
+import RichTextEditor from '../components/RichTextEditor';
 
 const categoryOptions = [
   'Prawo Cywilne',
@@ -434,15 +435,11 @@ export default function Admin() {
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                   helperText="Link do zdjęcia nagłówkowego (opcjonalne)"
                 />
-                <TextField
-                  label="Treść artykułu"
-                  required
-                  fullWidth
-                  multiline
-                  rows={8}
-                  value={formData.content}
-                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                />
+                <RichTextEditor
+  label="Treść artykułu"
+  value={formData.content}
+  onChange={(html) => setFormData({ ...formData, content: html })}
+/>
                 <FormControlLabel
                   control={
                     <Switch

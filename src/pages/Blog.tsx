@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { supabase, type BlogArticle } from '../lib/supabase';
+import DOMPurify from 'dompurify';
 
 const defaultCategories = [
   'Wszystkie',
@@ -116,12 +117,20 @@ export default function Blog() {
             </Typography>
           )}
 
-          <Typography
-            variant="body1"
-            sx={{ whiteSpace: 'pre-line', lineHeight: 1.8, color: 'text.primary' }}
-          >
-            {selectedArticle.content || 'Brak treści artykułu.'}
-          </Typography>
+          <Box
+  sx={{
+    lineHeight: 1.8,
+    color: 'text.primary',
+    '& p': { mb: 2 },
+    '& h2, & h3': { mt: 3, mb: 1.5, fontWeight: 600 },
+    '& ul, & ol': { pl: 3, mb: 2 },
+    '& strong': { fontWeight: 700 },
+    '& a': { color: 'secondary.main' },
+  }}
+  dangerouslySetInnerHTML={{
+    __html: DOMPurify.sanitize(selectedArticle.content || 'Brak treści artykułu.'),
+  }}
+/>
         </Box>
       </Box>
     );
