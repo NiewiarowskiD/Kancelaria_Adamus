@@ -24,7 +24,7 @@ export default function About() {
             <Card sx={{ height: '100%', bgcolor: 'primary.main', color: 'common.white' }}>
               <CardContent sx={{ p: 4 }}>
                 <Typography variant="h5" sx={{ color: 'secondary.main', mb: 2 }}>
-                  Magister Anna Kowalska
+                  Radca Prawny Katarzyna Adamus-Mielniczuk.
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.85)', mb: 2 }}>
                   Radca Prawny nr wpisu WA-12345
