@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -25,8 +25,8 @@ interface SubSpecialization {
 interface Specialization {
   title: string;
   Icon: SvgIconComponent;
-  description?: string; // Używane dla standardowych sekcji
-  subItems?: SubSpecialization[]; // Używane dla zagnieżdżonych podsekcji
+  description?: string;
+  subItems?: SubSpecialization[];
 }
 
 const specializations: Specialization[] = [
@@ -216,9 +216,37 @@ export default function Specializations() {
   const [expanded, setExpanded] = useState<number | false>(false);
   const [expandedSub, setExpandedSub] = useState<number | false>(false);
 
+  // Nasłuchuje na zmiany hasha (np. kliknięcie z nawigacji)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#spec-')) {
+        const index = parseInt(hash.replace('#spec-', ''), 10);
+        if (!isNaN(index) && index < specializations.length) {
+          setExpanded(index);
+          
+          // Krótkie opóźnienie, by DOM zdążył wyrenderować otwarty akordeon
+          setTimeout(() => {
+            const element = document.getElementById(`spec-${index}`);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 150);
+        }
+      }
+    };
+
+    // Uruchom podczas pierwszego renderowania
+    handleHashChange();
+
+    // Reaguj na zmiany URL w trakcie przebywania na stronie
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const handleChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
-    setExpandedSub(false); // Resetuje zagnieżdżone panele przy zmianie głównej kategorii
+    setExpandedSub(false); 
   };
 
   const handleSubChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -247,6 +275,7 @@ export default function Specializations() {
             return (
               <Accordion
                 key={title}
+                id={`spec-${index}`} // Identyfikator potrzebny do automatycznego scrollowania
                 expanded={isExpanded}
                 onChange={handleChange(index)}
                 disableGutters
@@ -289,7 +318,6 @@ export default function Specializations() {
                 </AccordionSummary>
                 <AccordionDetails sx={{ p: { xs: 2, md: 4 }, pt: 0 }}>
                   
-                  {/* Standardowy opis (jeśli istnieje) */}
                   {description && (
                     <Box
                       sx={{ color: 'text.secondary', lineHeight: 1.8, ...richTextStyles }}
@@ -297,7 +325,6 @@ export default function Specializations() {
                     />
                   )}
 
-                  {/* Zagnieżdżone podstrony / pod-akordeony (jeśli istnieją) */}
                   {subItems && (
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 1 }}>
                       {subItems.map((sub, subIdx) => {
