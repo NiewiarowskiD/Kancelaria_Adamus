@@ -16,6 +16,7 @@ import BalanceIcon from '@mui/icons-material/Balance';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import type { SvgIconComponent } from '@mui/icons-material';
 import { richTextStyles } from '../styles/richTextStyles';
+import { Button, Card, CardContent, Stack } from '@mui/material';
 
 interface SubSpecialization {
   title: string;
@@ -216,7 +217,6 @@ export default function Specializations() {
   const [expanded, setExpanded] = useState<number | false>(false);
   const [expandedSub, setExpandedSub] = useState<number | false>(false);
 
-  // Nasłuchuje na zmiany hasha (np. kliknięcie z nawigacji)
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
@@ -225,7 +225,6 @@ export default function Specializations() {
         if (!isNaN(index) && index < specializations.length) {
           setExpanded(index);
           
-          // Krótkie opóźnienie, by DOM zdążył wyrenderować otwarty akordeon
           setTimeout(() => {
             const element = document.getElementById(`spec-${index}`);
             if (element) {
@@ -236,10 +235,8 @@ export default function Specializations() {
       }
     };
 
-    // Uruchom podczas pierwszego renderowania
     handleHashChange();
 
-    // Reaguj na zmiany URL w trakcie przebywania na stronie
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -252,6 +249,10 @@ export default function Specializations() {
   const handleSubChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpandedSub(isExpanded ? panel : false);
   };
+
+  function onNavigate(arg0: string): void {
+    throw new Error('Function not implemented.');
+  }
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
@@ -275,8 +276,7 @@ export default function Specializations() {
             return (
               <Accordion
                 key={title}
-                id={`spec-${index}`} // Identyfikator potrzebny do automatycznego scrollowania
-                expanded={isExpanded}
+                id={`spec-${index}`} 
                 onChange={handleChange(index)}
                 disableGutters
                 elevation={0}
@@ -373,7 +373,27 @@ export default function Specializations() {
                 </AccordionDetails>
               </Accordion>
             );
+
           })}
+          <Box sx={{ mt: { xs: 6, md: 10 }, textAlign: 'center' }}>
+          <Card sx={{ bgcolor: 'primary.main', color: 'common.white', py: { xs: 5, md: 7 }, px: { xs: 3, md: 5 } }}>
+            <CardContent>
+              <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
+                Skontaktuj się z nami
+              </Typography>
+              <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
+                Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę. Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej skuteczne w Państwa sytuacji.
+              </Typography>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+                <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
+                [dane kontaktowe: telefon / e-mail / adres kancelarii]
+              </Typography>
+                
+          
+              </Stack>
+            </CardContent>
+          </Card>
+        </Box>
         </Box>
       </Box>
     </Box>
