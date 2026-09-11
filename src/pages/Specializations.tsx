@@ -14,15 +14,19 @@ import WorkIcon from '@mui/icons-material/Work';
 import DescriptionIcon from '@mui/icons-material/Description';
 import BalanceIcon from '@mui/icons-material/Balance';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import type { SvgIconComponent } from '@mui/icons-material';
 import { richTextStyles } from '../styles/richTextStyles';
 
+interface SubSpecialization {
+  title: string;
+  description: string;
+}
+
 interface Specialization {
   title: string;
-  description: string; // HTML
   Icon: SvgIconComponent;
+  description?: string; // Używane dla standardowych sekcji
+  subItems?: SubSpecialization[]; // Używane dla zagnieżdżonych podsekcji
 }
 
 const specializations: Specialization[] = [
@@ -56,55 +60,58 @@ const specializations: Specialization[] = [
   {
     title: 'Prawo karne',
     Icon: BalanceIcon,
-    description: `
-      <p>Zapewniamy obronę na każdym etapie postępowania — od pierwszego przesłuchania i ewentualnego tymczasowego aresztowania, przez postępowanie przygotowawcze, aż po rozprawę główną i środki odwoławcze. Bronimy klientów oskarżonych między innymi o:</p>
-      <ul>
-        <li>przestępstwa narkotykowe</li>
-        <li>niealimentację</li>
-        <li>bójkę i pobicie</li>
-        <li>oszustwo</li>
-        <li>kradzież</li>
-        <li>zgwałcenie</li>
-        <li>przestępstwa na tle seksualnym wobec małoletnich</li>
-        <li>prowadzenie pojazdu pod wpływem alkoholu lub środków odurzających oraz spowodowanie wypadku pod wpływem takich środków</li>
-        <li>inne przestępstwa drogowe</li>
-        <li>przestępstwa gospodarcze</li>
-      </ul>
-    `,
-  },
-  {
-    title: 'Reprezentacja pokrzywdzonych',
-    Icon: VolunteerActivismIcon,
-    description: `
-      <p>Stajemy również po stronie osób pokrzywdzonych, pomagając im aktywnie uczestniczyć w postępowaniu — w tym w charakterze oskarżyciela posiłkowego — oraz dochodzić należnego zadośćuczynienia i odszkodowania. Reprezentujemy pokrzywdzonych w szczególności w sprawach dotyczących:</p>
-      <ul>
-        <li>stalkingu (uporczywego nękania)</li>
-        <li>znęcania się nad osobą najbliższą lub osobą pozostającą w stosunku zależności</li>
-        <li>zgwałcenia</li>
-        <li>przestępstw na tle seksualnym wobec małoletnich</li>
-        <li>niealimentacji</li>
-        <li>bójki i pobicia</li>
-        <li>wypadków drogowych spowodowanych przez sprawcę będącego pod wpływem alkoholu lub środków odurzających</li>
-        <li>przestępstw gospodarczych na szkodę przedsiębiorcy lub spółki</li>
-      </ul>
-    `,
-  },
-  {
-    title: 'Sprawy, które znamy najlepiej',
-    Icon: WorkspacePremiumIcon,
-    description: `
-      <ul>
-        <li><strong>Przestępstwa narkotykowe.</strong> Prowadzimy sprawy dotyczące posiadania, udzielania, wytwarzania i obrotu środkami odurzającymi lub substancjami psychotropowymi. Znamy niuanse kwalifikacji prawnej tych czynów — w tym różnicę między „wypadkiem mniejszej wagi” a przestępstwem podstawowym — co ma kluczowe znaczenie dla wymiaru odpowiedzialności.</li>
-        <li><strong>Bójka i pobicie.</strong> Reprezentujemy zarówno osoby oskarżone o udział w bójce lub pobiciu, jak i osoby pokrzywdzone takim zdarzeniem, dochodząc dla nich odszkodowania i zadośćuczynienia za doznaną krzywdę.</li>
-        <li><strong>Oszustwo.</strong> Prowadzimy sprawy dotyczące oszustw (art. 286 k.k.) — od jednostkowych przypadków po bardziej złożone schematy wyłudzeń — zarówno w obronie osób oskarżonych, jak i w interesie pokrzywdzonych dochodzących zwrotu utraconego mienia.</li>
-        <li><strong>Kradzież.</strong> Zapewniamy obronę w sprawach o kradzież oraz kradzież z włamaniem, a także reprezentujemy pokrzywdzonych w dochodzeniu zwrotu mienia lub jego równowartości.</li>
-        <li><strong>Przestępstwa na tle seksualnym.</strong> Sprawy dotyczące zgwałcenia oraz czynów na szkodę małoletnich wymagają szczególnej wrażliwości, dyskrecji i doświadczenia — zarówno przy obronie osoby oskarżonej, jak i przy reprezentacji pokrzywdzonego. Do każdej takiej sprawy podchodzimy z pełnym zrozumieniem jej ciężaru, dbając o godność i bezpieczeństwo naszego klienta na każdym etapie postępowania.</li>
-        <li><strong>Prowadzenie pojazdu pod wpływem i wypadki drogowe.</strong> Reprezentujemy klientów w sprawach o prowadzenie pojazdu w stanie nietrzeźwości lub pod wpływem środków odurzających, a także w sprawach o spowodowanie wypadku pod wpływem takich środków. Doradzamy również w zakresie konsekwencji dodatkowych, takich jak zakaz prowadzenia pojazdów czy przepadek pojazdu.</li>
-        <li><strong>Przemoc domowa: znęcanie i stalking.</strong> Sprawy o znęcanie się nad osobą najbliższą oraz o uporczywe nękanie (stalking) prowadzimy z uwzględnieniem szczególnej sytuacji osób pokrzywdzonych, pomagając im nie tylko w postępowaniu karnym, ale i w skoordynowaniu działań z innymi środkami ochrony prawnej (np. nakazem opuszczenia lokalu).</li>
-        <li><strong>Niealimentacja.</strong> Prowadzimy sprawy o przestępstwo niealimentacji (art. 209 k.k.) — zarówno po stronie osoby oskarżonej o uchylanie się od obowiązku alimentacyjnego, jak i po stronie osoby uprawnionej do alimentów, dla której postępowanie karne bywa skutecznym narzędziem wsparcia w wyegzekwowaniu należnych świadczeń.</li>
-        <li><strong>Przestępstwa gospodarcze.</strong> Reprezentujemy przedsiębiorców i osoby zarządzające spółkami w sprawach dotyczących przestępstw przeciwko obrotowi gospodarczemu — w tym działania na szkodę spółki, wyrządzenia szkody majątkowej, wyłudzenia kredytu, prania pieniędzy czy fałszowania dokumentów finansowych. Dzięki równoległemu doświadczeniu w bieżącej obsłudze prawnej firm rozumiemy specyfikę relacji biznesowych, co pozwala nam skutecznie bronić klientów w sprawach o dużym stopniu złożoności, a także reprezentować przedsiębiorstwa pokrzywdzone działaniem nieuczciwych kontrahentów, wspólników lub pracowników.</li>
-      </ul>
-    `,
+    subItems: [
+      {
+        title: 'Obrona w sprawach karnych',
+        description: `
+          <p>Zapewniamy obronę na każdym etapie postępowania — od pierwszego przesłuchania i ewentualnego tymczasowego aresztowania, przez postępowanie przygotowawcze, aż po rozprawę główną i środki odwoławcze. Bronimy klientów oskarżonych między innymi o:</p>
+          <ul>
+            <li>przestępstwa narkotykowe</li>
+            <li>niealimentację</li>
+            <li>bójkę i pobicie</li>
+            <li>oszustwo</li>
+            <li>kradzież</li>
+            <li>zgwałcenie</li>
+            <li>przestępstwa na tle seksualnym wobec małoletnich</li>
+            <li>prowadzenie pojazdu pod wpływem alkoholu lub środków odurzających oraz spowodowanie wypadku pod wpływem takich środków</li>
+            <li>inne przestępstwa drogowe</li>
+            <li>przestępstwa gospodarcze</li>
+          </ul>
+        `,
+      },
+      {
+        title: 'Reprezentacja pokrzywdzonych',
+        description: `
+          <p>Stajemy również po stronie osób pokrzywdzonych, pomagając im aktywnie uczestniczyć w postępowaniu — w tym w charakterze oskarżyciela posiłkowego — oraz dochodzić należnego zadośćuczynienia i odszkodowania. Reprezentujemy pokrzywdzonych w szczególności w sprawach dotyczących:</p>
+          <ul>
+            <li>stalkingu (uporczywego nękania)</li>
+            <li>znęcania się nad osobą najbliższą lub osobą pozostającą w stosunku zależności</li>
+            <li>zgwałcenia</li>
+            <li>przestępstw na tle seksualnym wobec małoletnich</li>
+            <li>niealimentacji</li>
+            <li>bójki i pobicia</li>
+            <li>wypadków drogowych spowodowanych przez sprawcę będącego pod wpływem alkoholu lub środków odurzających</li>
+            <li>przestępstw gospodarczych na szkodę przedsiębiorcy lub spółki</li>
+          </ul>
+        `,
+      },
+      {
+        title: 'Sprawy, które znamy najlepiej',
+        description: `
+          <ul>
+            <li><strong>Przestępstwa narkotykowe.</strong> Prowadzimy sprawy dotyczące posiadania, udzielania, wytwarzania i obrotu środkami odurzającymi lub substancjami psychotropowymi. Znamy niuanse kwalifikacji prawnej tych czynów — w tym różnicę między „wypadkiem mniejszej wagi” a przestępstwem podstawowym — co ma kluczowe znaczenie dla wymiaru odpowiedzialności.</li>
+            <li><strong>Bójka i pobicie.</strong> Reprezentujemy zarówno osoby oskarżone o udział w bójce lub pobiciu, jak i osoby pokrzywdzone takim zdarzeniem, dochodząc dla nich odszkodowania i zadośćuczynienia za doznaną krzywdę.</li>
+            <li><strong>Oszustwo.</strong> Prowadzimy sprawy dotyczące oszustw (art. 286 k.k.) — od jednostkowych przypadków po bardziej złożone schematy wyłudzeń — zarówno w obronie osób oskarżonych, jak i w interesie pokrzywdzonych dochodzących zwrotu utraconego mienia.</li>
+            <li><strong>Kradzież.</strong> Zapewniamy obronę w sprawach o kradzież oraz kradzież z włamaniem, a także reprezentujemy pokrzywdzonych w dochodzeniu zwrotu mienia lub jego równowartości.</li>
+            <li><strong>Przestępstwa na tle seksualnym.</strong> Sprawy dotyczące zgwałcenia oraz czynów na szkodę małoletnich wymagają szczególnej wrażliwości, dyskrecji i doświadczenia — zarówno przy obronie osoby oskarżonej, jak i przy reprezentacji pokrzywdzonego. Do każdej takiej sprawy podchodzimy z pełnym zrozumieniem jej ciężaru, dbając o godność i bezpieczeństwo naszego klienta na każdym etapie postępowania.</li>
+            <li><strong>Prowadzenie pojazdu pod wpływem i wypadki drogowe.</strong> Reprezentujemy klientów w sprawach o prowadzenie pojazdu w stanie nietrzeźwości lub pod wpływem środków odurzających, a także w sprawach o spowodowanie wypadku pod wpływem takich środków. Doradzamy również w zakresie konsekwencji dodatkowych, takich jak zakaz prowadzenia pojazdów czy przepadek pojazdu.</li>
+            <li><strong>Przemoc domowa: znęcanie i stalking.</strong> Sprawy o znęcanie się nad osobą najbliższą oraz o uporczywe nękanie (stalking) prowadzimy z uwzględnieniem szczególnej sytuacji osób pokrzywdzonych, pomagając im nie tylko w postępowaniu karnym, ale i w skoordynowaniu działań z innymi środkami ochrony prawnej (np. nakazem opuszczenia lokalu).</li>
+            <li><strong>Niealimentacja.</strong> Prowadzimy sprawy o przestępstwo niealimentacji (art. 209 k.k.) — zarówno po stronie osoby oskarżonej o uchylanie się od obowiązku alimentacyjnego, jak i po stronie osoby uprawnionej do alimentów, dla której postępowanie karne bywa skutecznym narzędziem wsparcia w wyegzekwowaniu należnych świadczeń.</li>
+            <li><strong>Przestępstwa gospodarcze.</strong> Reprezentujemy przedsiębiorców i osoby zarządzające spółkami w sprawach dotyczących przestępstw przeciwko obrotowi gospodarczemu — w tym działania na szkodę spółki, wyrządzenia szkody majątkowej, wyłudzenia kredytu, prania pieniędzy czy fałszowania dokumentów finansowych. Dzięki równoległemu doświadczeniu w bieżącej obsłudze prawnej firm rozumiemy specyfikę relacji biznesowych, co pozwala nam skutecznie bronić klientów w sprawach o dużym stopniu złożoności, a także reprezentować przedsiębiorstwa pokrzywdzone działaniem nieuczciwych kontrahentów, wspólników lub pracowników.</li>
+          </ul>
+        `,
+      },
+    ],
   },
   {
     title: 'Prawo rodzinne',
@@ -206,11 +213,16 @@ const specializations: Specialization[] = [
 ];
 
 export default function Specializations() {
-  // Przechowuje indeks aktualnie otwartego panelu. 'false' oznacza, że wszystkie są zamknięte.
   const [expanded, setExpanded] = useState<number | false>(false);
+  const [expandedSub, setExpandedSub] = useState<number | false>(false);
 
-  const handleChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
+    setExpandedSub(false); // Resetuje zagnieżdżone panele przy zmianie głównej kategorii
+  };
+
+  const handleSubChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpandedSub(isExpanded ? panel : false);
   };
 
   return (
@@ -229,7 +241,7 @@ export default function Specializations() {
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {specializations.map(({ title, Icon, description }, index) => {
+          {specializations.map(({ title, Icon, description, subItems }, index) => {
             const isExpanded = expanded === index;
 
             return (
@@ -246,7 +258,7 @@ export default function Specializations() {
                   bgcolor: 'background.paper',
                   transition: 'all 0.3s ease',
                   '&:before': {
-                    display: 'none', // Usuwa domyślną linię separatora MUI
+                    display: 'none',
                   },
                   '&:hover': {
                     borderColor: 'secondary.main',
@@ -276,10 +288,61 @@ export default function Specializations() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ p: { xs: 2, md: 4 }, pt: 0 }}>
-                  <Box
-                    sx={{ color: 'text.secondary', lineHeight: 1.8, ...richTextStyles }}
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
-                  />
+                  
+                  {/* Standardowy opis (jeśli istnieje) */}
+                  {description && (
+                    <Box
+                      sx={{ color: 'text.secondary', lineHeight: 1.8, ...richTextStyles }}
+                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+                    />
+                  )}
+
+                  {/* Zagnieżdżone podstrony / pod-akordeony (jeśli istnieją) */}
+                  {subItems && (
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 1 }}>
+                      {subItems.map((sub, subIdx) => {
+                        const isSubExpanded = expandedSub === subIdx;
+                        return (
+                          <Accordion
+                            key={sub.title}
+                            expanded={isSubExpanded}
+                            onChange={handleSubChange(subIdx)}
+                            disableGutters
+                            elevation={0}
+                            sx={{
+                              border: '1px solid',
+                              borderColor: 'divider',
+                              borderRadius: '6px !important',
+                              bgcolor: 'transparent',
+                              '&:before': { display: 'none' },
+                            }}
+                          >
+                            <AccordionSummary
+                              expandIcon={
+                                isSubExpanded ? (
+                                  <RemoveIcon fontSize="small" sx={{ color: 'secondary.main' }} />
+                                ) : (
+                                  <AddIcon fontSize="small" sx={{ color: 'secondary.main' }} />
+                                )
+                              }
+                              sx={{ minHeight: 48, '& .MuiAccordionSummary-content': { my: 1 } }}
+                            >
+                              <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
+                                {sub.title}
+                              </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
+                              <Box
+                                sx={{ color: 'text.secondary', lineHeight: 1.7, ...richTextStyles }}
+                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sub.description) }}
+                              />
+                            </AccordionDetails>
+                          </Accordion>
+                        );
+                      })}
+                    </Box>
+                  )}
+
                 </AccordionDetails>
               </Accordion>
             );
