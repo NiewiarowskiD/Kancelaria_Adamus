@@ -16,7 +16,7 @@ export default function About() {
           O Kancelarii
         </Typography>
         <Typography variant="h2" sx={{ mt: 1, mb: 4 }}>
-          Radca Prawny — Twój zaufany daradca
+          Radca Prawny — Twój zaufany doradca
         </Typography>
 
         <Grid container spacing={6} sx={{ mb: 6 }}>
