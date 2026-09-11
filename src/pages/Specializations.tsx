@@ -16,7 +16,7 @@ import BalanceIcon from '@mui/icons-material/Balance';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import type { SvgIconComponent } from '@mui/icons-material';
 import { richTextStyles } from '../styles/richTextStyles';
-import { Button, Card, CardContent, Stack } from '@mui/material';
+import { Card, CardContent, Stack } from '@mui/material';
 
 interface SubSpecialization {
   title: string;
@@ -250,9 +250,9 @@ export default function Specializations() {
     setExpandedSub(isExpanded ? panel : false);
   };
 
-  function onNavigate(arg0: string): void {
-    throw new Error('Function not implemented.');
-  }
+  // function onNavigate(arg0: string): void {
+  //   throw new Error('Function not implemented.');
+  // }
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
