@@ -216,12 +216,12 @@ export default function Specializations() {
   const [expanded, setExpanded] = useState<number | false>(false);
   const [expandedSub, setExpandedSub] = useState<number | false>(false);
 
-  const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
     setExpandedSub(false); // Resetuje zagnieżdżone panele przy zmianie głównej kategorii
   };
 
-  const handleSubChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleSubChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpandedSub(isExpanded ? panel : false);
   };
 
