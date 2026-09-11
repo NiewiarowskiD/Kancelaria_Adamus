@@ -2,13 +2,11 @@ import { useState } from 'react';
 import DOMPurify from 'dompurify';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import BusinessIcon from '@mui/icons-material/Business';
 import GavelIcon from '@mui/icons-material/Gavel';
@@ -208,11 +206,16 @@ const specializations: Specialization[] = [
 ];
 
 export default function Specializations() {
-  const [selected, setSelected] = useState<Specialization | null>(null);
+  // Przechowuje indeks aktualnie otwartego panelu. 'false' oznacza, że wszystkie są zamknięte.
+  const [expanded, setExpanded] = useState<number | false>(false);
+
+  const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-      <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
+      <Box sx={{ maxWidth: 900, mx: 'auto' }}>
         <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             SPECJALIZACJE
@@ -225,90 +228,64 @@ export default function Specializations() {
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
-          {specializations.map(({ title, Icon }, index) => (
-            <Grid key={title} size={{ xs: 12, sm: 6, md: 4 }}>
-              <Card
-                component="button"
-                type="button"
-                onClick={() => setSelected(specializations[index])}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {specializations.map(({ title, Icon, description }, index) => {
+            const isExpanded = expanded === index;
+
+            return (
+              <Accordion
+                key={title}
+                expanded={isExpanded}
+                onChange={handleChange(index)}
+                disableGutters
+                elevation={0}
                 sx={{
-                  width: '100%',
-                  height: '100%',
-                  minHeight: 210,
-                  textAlign: 'left',
                   border: '1px solid',
-                  borderColor: 'divider',
+                  borderColor: isExpanded ? 'secondary.main' : 'divider',
+                  borderRadius: '8px !important',
                   bgcolor: 'background.paper',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  p: { xs: 3, md: 4 },
                   transition: 'all 0.3s ease',
+                  '&:before': {
+                    display: 'none', // Usuwa domyślną linię separatora MUI
+                  },
                   '&:hover': {
                     borderColor: 'secondary.main',
-                    boxShadow: '0 8px 30px rgba(197,165,114,0.18)',
-                    transform: 'translateY(-4px)',
-                  },
-                  '&:focus-visible': {
-                    outline: '3px solid',
-                    outlineColor: 'secondary.light',
-                    outlineOffset: 2,
+                    boxShadow: '0 4px 20px rgba(197,165,114,0.08)',
                   },
                 }}
               >
-                <Icon sx={{ fontSize: 52, color: 'secondary.main', mb: 2 }} />
-                <Typography variant="h5" sx={{ textAlign: 'center' }}>
-                  {title}
-                </Typography>
-                <Typography variant="caption" sx={{ color: 'text.secondary', mt: 1 }}>
-                  Kliknij, aby dowiedzieć się więcej
-                </Typography>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+                <AccordionSummary
+                  expandIcon={
+                    isExpanded ? (
+                      <RemoveIcon sx={{ color: 'secondary.main' }} />
+                    ) : (
+                      <AddIcon sx={{ color: 'secondary.main' }} />
+                    )
+                  }
+                  sx={{
+                    p: { xs: 2, md: 3 },
+                    '& .MuiAccordionSummary-content': {
+                      alignItems: 'center',
+                      m: 0,
+                    },
+                  }}
+                >
+                  <Icon sx={{ fontSize: 32, color: 'secondary.main', mr: 2 }} />
+                  <Typography variant="h5" sx={{ m: 0 }}>
+                    {title}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ p: { xs: 2, md: 4 }, pt: 0 }}>
+                  <Box
+                    sx={{ color: 'text.secondary', lineHeight: 1.8, ...richTextStyles }}
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+                  />
+                </AccordionDetails>
+              </Accordion>
+            );
+          })}
+        </Box>
       </Box>
-
-      <Dialog
-        open={Boolean(selected)}
-        onClose={() => setSelected(null)}
-        fullWidth
-        maxWidth="sm"
-        aria-labelledby="specialization-dialog-title"
-      >
-        {selected && (
-          <>
-            <DialogTitle
-              id="specialization-dialog-title"
-              sx={{
-                bgcolor: 'primary.main',
-                color: 'secondary.main',
-                pr: 7,
-                position: 'relative',
-              }}
-            >
-              <selected.Icon sx={{ verticalAlign: 'middle', mr: 1.5, fontSize: 32 }} />
-              {selected.title}
-              <IconButton
-                aria-label="Zamknij opis specjalizacji"
-                onClick={() => setSelected(null)}
-                sx={{ position: 'absolute', right: 12, top: 12, color: 'secondary.main' }}
-              >
-                <CloseIcon />
-              </IconButton>
-            </DialogTitle>
-            <DialogContent sx={{ p: { xs: 3, md: 4} , mt: 5,}}>
-              <Box
-                sx={{ color: 'text.secondary', lineHeight: 1.8, ...richTextStyles }}
-                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selected.description) }}
-              />
-            </DialogContent>
-          </>
-        )}
-      </Dialog>
     </Box>
   );
 }
