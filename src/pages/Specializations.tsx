@@ -300,7 +300,7 @@ export default function Specializations() {
                 <CloseIcon />
               </IconButton>
             </DialogTitle>
-            <DialogContent sx={{ p: { xs: 3, md: 4 , pt: 20 } }}>
+            <DialogContent sx={{ p: { xs: 3, md: 4} , mt: 5,}}>
               <Box
                 sx={{ color: 'text.secondary', lineHeight: 1.8, ...richTextStyles }}
                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(selected.description) }}
