@@ -16,7 +16,7 @@ export default function About() {
           O Kancelarii
         </Typography>
         <Typography variant="h2" sx={{ mt: 1, mb: 4 }}>
-          Radca Prawny — Twoja zaufana doradczyni
+          Radca Prawny — Twój zaufany daradca
         </Typography>
 
         <Grid container spacing={6} sx={{ mb: 6 }}>
@@ -27,13 +27,10 @@ export default function About() {
                   Radca Prawny Katarzyna Adamus-Mielniczuk.
                 </Typography>
                 <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.85)', mb: 2 }}>
-                  Radca Prawny nr wpisu WA-12345
+                  Radca Prawny nr wpisu WŁ-1118
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                  Jestem radcą prawnym z wieloletnim doświadczeniem w obsłudze prawnej
-                  osób fizycznych i przedsiębiorców. Ukończyłam prawo na Uniwersytecie
-                  Warszawskim z wyróżnieniem. Specjalizuję się w prawie cywilnym,
-                  rodzinnym oraz gospodarczym.
+                  Wydział Prawa i Administracji Uniwersytetu Śląskiego 
                 </Typography>
               </CardContent>
             </Card>
@@ -49,8 +46,7 @@ export default function About() {
                 <Box>
                   <Typography variant="h6">Wykształcenie</Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Uniwersytet Warszawski, Wydział Prawa i Administracji (2008-2013).
-                    Aplikacja radcowska zakończona egzaminem zawodowym w 2016 roku.
+                    Jestem absolwentką Wydziału Prawa i Administracji Uniwersytetu Śląskiego, gdzie ukończyłam studia na kierunku prawo. Pracę magisterską przygotowałam i obroniłam w Katedrze Postępowania Karnego, pod kierunkiem prof. Jarosława Zagrodnika, uznanego specjalisty w dziedzinie postępowania karnego. Aplikację radcowską odbyłam w Okręgowej Izbie Radców Prawnych w Wałbrzychu
                   </Typography>
                 </Box>
               </Stack>
@@ -59,9 +55,7 @@ export default function About() {
                 <Box>
                   <Typography variant="h6">Praktyka zawodowa</Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Ponad 10 lat doświadczenia w obsłudze prawnej kancelarii, spółek
-                    handlowych oraz klientów indywidualnych. Współpraca z organizacjami
-                    pozarządowymi w zakresie doradztwa pro bono.
+                    Doświadczenie zawodowe zdobywałam przez kilka lat, pracując jako aplikant radcowski w kancelariach prawnych, gdzie zajmowałam się obsługą prawną klientów indywidualnych oraz biznesowych w szerokim spektrum spraw – od prawa cywilnego, przez prawo karne, administracyjne i gospodarcze, po prawo rodzinne, spadkowe, prawo pracy, prawo budowlane oraz sprawy dotyczące nieruchomości i upadłości konsumenckiej. Ta różnorodność doświadczeń pozwala mi kompleksowo spojrzeć na problem klienta i dobrać rozwiązanie realnie dostosowane do jego sytuacji..
                   </Typography>
                 </Box>
               </Stack>
@@ -86,24 +80,10 @@ export default function About() {
               Prawo, które działa dla Ciebie
             </Typography>
             <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk to miejsce, w którym trudne sprawy prawne zamieniają się w jasne, praktyczne rozwiązania. Łączymy rzetelną wiedzę prawniczą z indywidualnym podejściem do każdego klienta — bo za każdą sprawą stoi konkretny człowiek lub firma, a nie tylko paragraf.
-Świadczymy kompleksową pomoc prawną osobom fizycznym i przedsiębiorcom, reprezentując ich interesy zarówno w negocjacjach, jak i przed sądem. Naszym celem nie jest samo "prowadzenie sprawy" — jest nim realne zabezpieczenie interesów klienta i doprowadzenie do najlepszego możliwego rezultatu.
-
-            </Typography>
-                       <Typography variant="h4" sx={{ mb: 3, color: 'secondary.dark' }}>
-              Filozofia, która nas prowadzi
-            </Typography>
-            <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              „Ius est ars boni et aequi” — prawo jest sztuką tego, co dobre i słuszne. Ta znana rzymska paremia przypomina, że celem prawa nie jest ślepe stosowanie przepisów, lecz dążenie do sprawiedliwości. Właśnie dlatego traktujemy nasz zawód nie jako rzemiosło operujące paragrafami, ale jako powołanie do interpretowania prawa z poszanowaniem ludzkiej `godności i moralności — zawsze mając na uwadze konkretnego człowieka, który zwrócił się do nas o pomoc.
-Bliska jest nam także zasada sformułowana przez rzymskiego jurystę Iuliusa Paulusa: „Nemo enim in persequendo deteriorem causam, sed meliorem facit” — dochodzenie sprawy przed sądem nie może pogorszyć, lecz jedynie polepszyć sytuację powoda (Iulius Paulus, Quaestiones, Księga XIII, III w. n.e.). To zasada, którą kierujemy się w praktyce: każda decyzja o wejściu na drogę sądową musi realnie służyć interesowi klienta, a nie generować dodatkowe ryzyko bez uzasadnionej korzyści. Zanim zarekomendujemy proces, rzetelnie ocenimy szanse i możliwe konsekwencje — tak, by droga prawna była dla klienta krokiem naprzód, a nie w tył.
-
-            </Typography>
-            <Typography variant="h4" sx={{ mb: 3, color: 'secondary.dark' }}>
-              Czym się zajmujemy:
-            </Typography>
-            <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              „Ius est ars boni et aequi” — prawo jest sztuką tego, co dobre i słuszne. Ta znana rzymska paremia przypomina, że celem prawa nie jest ślepe stosowanie przepisów, lecz dążenie do sprawiedliwości. Właśnie dlatego traktujemy nasz zawód nie jako rzemiosło operujące paragrafami, ale jako powołanie do interpretowania prawa z poszanowaniem ludzkiej `godności i moralności — zawsze mając na uwadze konkretnego człowieka, który zwrócił się do nas o pomoc.
-Bliska jest nam także zasada sformułowana przez rzymskiego jurystę Iuliusa Paulusa: „Nemo enim in persequendo deteriorem causam, sed meliorem facit” — dochodzenie sprawy przed sądem nie może pogorszyć, lecz jedynie polepszyć sytuację powoda (Iulius Paulus, Quaestiones, Księga XIII, III w. n.e.). To zasada, którą kierujemy się w praktyce: każda decyzja o wejściu na drogę sądową musi realnie służyć interesowi klienta, a nie generować dodatkowe ryzyko bez uzasadnionej korzyści. Zanim zarekomendujemy proces, rzetelnie ocenimy szanse i możliwe konsekwencje — tak, by droga prawna była dla klienta krokiem naprzód, a nie w tył.
+              W swojej pracy kieruję się zasadami rzetelności, dyskrecji i pełnego zaangażowania w powierzone sprawy. Zależy mi na tym, aby klient na każdym etapie wiedział, na czym stoi, jakie ma możliwości i jakich efektów może się spodziewać – dlatego stawiam na przejrzystą komunikację i osobiste zaangażowanie, niezależnie od tego, czy sprawa dotyczy skomplikowanego sporu gospodarczego, czy trudnej sytuacji rodzinnej lub spadkowej.
+Kancelaria oferuje pomoc prawną między innymi w zakresie prawa cywilnego (w tym umów, zobowiązań, odpowiedzialności cywilnej i dochodzenia roszczeń), prawa karnego (obrony oraz reprezentacji pokrzywdzonych), prawa rodzinnego oraz spadkowego, a także prawa administracyjnego, prawa gospodarczego, prawa pracy, prawa budowlanego oraz spraw dotyczących nieruchomości i upadłości konsumenckiej.
+Choć Kancelaria działa pod moim osobistym nadzorem, w praktyce nie jestem sama – w sprawach bardziej złożonych czy wymagających dodatkowych kompetencji stale współpracuję ze sprawdzoną siecią radców prawnych i adwokatów, dzięki czemu klienci zyskują dostęp do szerszego zaplecza wiedzy i doświadczenia niż mogłoby się wydawać na pierwszy rzut oka.
+Każdą sprawę traktuję indywidualnie i z pełnym zaangażowaniem – zapraszam do kontaktu.
 
             </Typography>
           </CardContent>
