@@ -20,4 +20,4 @@ export interface BlogArticle {
   updated_at: string;
 }
 
-export type PageKey = 'home' | 'about' | 'offer' | 'online' | 'blog' | 'admin';
+export type PageKey = 'home' | 'specializations' | 'about' | 'offer' | 'online' | 'blog' | 'admin';
