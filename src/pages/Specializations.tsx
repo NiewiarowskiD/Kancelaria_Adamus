@@ -209,7 +209,7 @@ export default function Specializations() {
   // Przechowuje indeks aktualnie otwartego panelu. 'false' oznacza, że wszystkie są zamknięte.
   const [expanded, setExpanded] = useState<number | false>(false);
 
-  const handleChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
   };
 
