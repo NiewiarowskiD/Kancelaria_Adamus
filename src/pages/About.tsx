@@ -22,6 +22,15 @@ export default function About() {
         <Grid container spacing={6} sx={{ mb: 6 }}>
           <Grid size={{ xs: 12, md: 5 }}>
             <Card sx={{ height: '100%', bgcolor: 'primary.main', color: 'common.white' }}>
+              <Box
+                component="img"
+                src="/1.png"
+                alt="Radca Prawny Katarzyna Adamus-Mielniczuk"
+                sx={{
+                  objectFit: 'cover',
+                  objectPosition: 'center 20%', // Wyśrodkowanie na twarz
+                }}
+              />
               <CardContent sx={{ p: 4 }}>
                 <Typography variant="h5" sx={{ color: 'secondary.main', mb: 2 }}>
                   Radca Prawny Katarzyna Adamus-Mielniczuk.
