@@ -21,9 +21,9 @@ const navItems: { key: PageKey; label: string }[] = [
   { key: 'home', label: 'Strona Główna' },
   { key: 'about', label: 'O Kancelarii' },
   { key: 'offer', label: 'Oferta' },
+  { key: 'specializations', label: 'Specjalizacje' },
   { key: 'online', label: 'Porady online' },
   { key: 'blog', label: 'Blog' },
-  { key: 'specializations', label: 'Specjalizacje' },
 ];
 
 export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
