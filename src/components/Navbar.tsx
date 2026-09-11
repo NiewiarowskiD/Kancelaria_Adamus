@@ -23,6 +23,7 @@ const navItems: { key: PageKey; label: string }[] = [
   { key: 'offer', label: 'Oferta' },
   { key: 'online', label: 'Porady online' },
   { key: 'blog', label: 'Blog' },
+  { key: 'specializations', label: 'Specjalizacje' },
 ];
 
 export default function Navbar({ currentPage, onNavigate }: NavbarProps) {

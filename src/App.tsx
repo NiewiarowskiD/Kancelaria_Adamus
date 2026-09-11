@@ -12,6 +12,7 @@ import OnlineAdvice from './pages/OnlineAdvice';
 import Blog from './pages/Blog';
 import Admin from './pages/Admin';
 import type { PageKey } from './lib/supabase';
+import Specializations from './pages/Specializations';
 
 function App() {
   const [page, setPage] = useState<PageKey>('home');
@@ -29,6 +30,8 @@ function App() {
         return <About />;
       case 'offer':
         return <Offer onNavigate={handleNavigate} />;
+        case 'specializations':
+        return <Specializations />;
       case 'online':
         return <OnlineAdvice />;
       case 'blog':
