@@ -94,11 +94,11 @@ export default function Blog() {
             }}
           />
 
-          <Typography variant="h2" sx={{ mb: 2 }}>
+          <Typography align='justify' variant="h2" sx={{ mb: 2 }}>
             {selectedArticle.title}
           </Typography>
 
-          <Typography variant="caption" sx={{ color: 'text.secondary', mb: 4, display: 'block' }}>
+          <Typography align='justify' variant="caption" sx={{ color: 'text.secondary', mb: 4, display: 'block' }}>
             {formatDate(selectedArticle.created_at)}
           </Typography>
 
@@ -112,7 +112,7 @@ export default function Blog() {
           )}
 
           {selectedArticle.excerpt && (
-            <Typography variant="h6" sx={{ color: 'text.secondary', mb: 3, fontStyle: 'italic' }}>
+            <Typography align='justify' variant="h6" sx={{ color: 'text.secondary', mb: 3, fontStyle: 'italic' }}>
               {selectedArticle.excerpt}
             </Typography>
           )}
@@ -143,10 +143,10 @@ export default function Blog() {
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             BLOG
           </Typography>
-          <Typography variant="h2" sx={{ mt: 1, mb: 2 }}>
+          <Typography align='justify' variant="h2" sx={{ mt: 1, mb: 2 }}>
             Artykuły i porady prawne
           </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+          <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Znajdź artykuły z zakresu prawa, które mogą Cię interesować.
             Wybierz kategorię, aby filtrować treści.
           </Typography>
@@ -184,7 +184,7 @@ export default function Blog() {
             <CircularProgress sx={{ color: 'secondary.main' }} />
           </Box>
         ) : error ? (
-          <Typography color="error" sx={{ textAlign: 'center', py: 4 }}>
+          <Typography align='justify' color="error" sx={{ textAlign: 'center', py: 4 }}>
             {error}
           </Typography>
         ) : filteredArticles.length === 0 ? (
@@ -234,13 +234,13 @@ export default function Blog() {
                         mb: 2,
                       }}
                     />
-                    <Typography variant="h5" sx={{ mb: 1, lineHeight: 1.3 }}>
+                    <Typography  align='justify' variant="h5" sx={{ mb: 1, lineHeight: 1.3 }}>
                       {article.title}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2, flexGrow: 1 }}>
+                    <Typography align='justify' variant="body2" sx={{ color: 'text.secondary', mb: 2, flexGrow: 1 }}>
                       {article.excerpt || 'Kliknij, aby przeczytać pełny artykuł...'}
                     </Typography>
-                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                    <Typography align='justify' variant="caption" sx={{ color: 'text.secondary' }}>
                       {formatDate(article.created_at)}
                     </Typography>
                   </CardContent>

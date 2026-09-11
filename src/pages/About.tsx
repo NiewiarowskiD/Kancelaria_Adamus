@@ -12,7 +12,7 @@ export default function About() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
-        <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
+        <Typography align='justify' variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
           O Kancelarii
         </Typography>
         {/* <Typography  variant="h2" sx={{ mt: 1, mb: 4 }}>
@@ -23,13 +23,13 @@ export default function About() {
           <Grid size={{ xs: 12, md: 5 }}>
             <Card sx={{ height: '100%', bgcolor: 'primary.main', color: 'common.white' }}>
               <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" sx={{ color: 'secondary.main', mb: 2 }}>
+                <Typography variant="h2" sx={{ color: 'secondary.main', mb: 2 }}>
                   Radca Prawny  <br></br> Katarzyna Adamus-Mielniczuk.
                 </Typography>
-                <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.85)', mb: 2 }}>
+                <Typography variant="h3" sx={{ color: 'rgba(255,255,255,0.85)', mb: 2 }}>
                   OIRP Wałbrzych nr wpisu WŁ-1118
                 </Typography>
-                <Typography align='justify' variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
+                <Typography align='justify' variant="body1" sx={{ color: 'rgba(255,255,255,0.7)' }}>
                   Wydział Prawa i Administracji Uniwersytetu Śląskiego 
                 </Typography>
               </CardContent>
@@ -45,7 +45,7 @@ export default function About() {
                 <SchoolIcon sx={{ color: 'secondary.main', fontSize: 32, mt: 0.5 }} />
                 <Box>
                   <Typography align='justify' variant="h6">Wykształcenie</Typography>
-                  <Typography align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography align='justify' variant="body1" sx={{ color: 'text.secondary' }}>
                     Jestem absolwentką Wydziału Prawa i Administracji Uniwersytetu Śląskiego, gdzie ukończyłam studia na kierunku prawo. Pracę magisterską przygotowałam i obroniłam w Katedrze Postępowania Karnego, pod kierunkiem prof. Jarosława Zagrodnika, uznanego specjalisty w dziedzinie postępowania karnego. Aplikację radcowską odbyłam w Okręgowej Izbie Radców Prawnych w Wałbrzychu
                   </Typography>
                 </Box>
@@ -54,7 +54,7 @@ export default function About() {
                 <WorkIcon sx={{ color: 'secondary.main', fontSize: 32, mt: 0.5 }} />
                 <Box>
                   <Typography align='justify' variant="h6">Praktyka zawodowa</Typography>
-                  <Typography align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography align='justify' variant="body1" sx={{ color: 'text.secondary' }}>
                     Doświadczenie zawodowe zdobywałam przez kilka lat, pracując jako aplikant radcowski w kancelariach prawnych, gdzie zajmowałam się obsługą prawną klientów indywidualnych oraz biznesowych w szerokim spektrum spraw – od prawa cywilnego, przez prawo karne, administracyjne i gospodarcze, po prawo rodzinne, spadkowe, prawo pracy, prawo budowlane oraz sprawy dotyczące nieruchomości i upadłości konsumenckiej. Ta różnorodność doświadczeń pozwala mi kompleksowo spojrzeć na problem klienta i dobrać rozwiązanie realnie dostosowane do jego sytuacji..
                   </Typography>
                 </Box>
@@ -63,7 +63,7 @@ export default function About() {
                 <EmojiEventsIcon sx={{ color: 'secondary.main', fontSize: 32, mt: 0.5 }} />
                 <Box>
                   <Typography  align='justify' variant="h6">Specjalizacje</Typography>
-                  <Typography  align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary' }}>
                     Prawo cywilne, prawo rodzinne i opiekuńcze, prawo gospodarcze,
                     prawo pracy oraz sporządzanie i analiza umów. Reprezentacja
                     przed sądami wszystkich instancji.
@@ -76,7 +76,7 @@ export default function About() {
 
         <Card sx={{ bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', p: { xs: 3, md: 5 } }}>
           <CardContent>
-            <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+            <Typography  align='justify' variant="h5" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               W swojej pracy kieruję się zasadami rzetelności, dyskrecji i pełnego zaangażowania w powierzone sprawy. Zależy mi na tym, aby klient na każdym etapie wiedział, na czym stoi, jakie ma możliwości i jakich efektów może się spodziewać – dlatego stawiam na przejrzystą komunikację i osobiste zaangażowanie, niezależnie od tego, czy sprawa dotyczy skomplikowanego sporu gospodarczego, czy trudnej sytuacji rodzinnej lub spadkowej.
 Kancelaria oferuje pomoc prawną między innymi w zakresie prawa cywilnego (w tym umów, zobowiązań, odpowiedzialności cywilnej i dochodzenia roszczeń), prawa karnego (obrony oraz reprezentacji pokrzywdzonych), prawa rodzinnego oraz spadkowego, a także prawa administracyjnego, prawa gospodarczego, prawa pracy, prawa budowlanego oraz spraw dotyczących nieruchomości i upadłości konsumenckiej.
 Choć Kancelaria działa pod moim osobistym nadzorem, w praktyce nie jestem sama – w sprawach bardziej złożonych czy wymagających dodatkowych kompetencji stale współpracuję ze sprawdzoną siecią radców prawnych i adwokatów, dzięki czemu klienci zyskują dostęp do szerszego zaplecza wiedzy i doświadczenia niż mogłoby się wydawać na pierwszy rzut oka.

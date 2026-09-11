@@ -51,8 +51,19 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   };
 
   const handleSpecClick = (id: string) => {
-    window.location.hash = id;
-    handleNavigate('specializations');
+    // 1. Zmień zakładkę na specjalizacje i zamknij menu mobilne
+    onNavigate('specializations');
+    setMobileOpen(false);
+
+    // 2. Opóźnij zmianę hasha, aby React zdążył wyrenderować komponent
+    setTimeout(() => {
+      if (window.location.hash === `#${id}`) {
+        // Jeśli klikamy w to samo drugi raz, wymuszamy event ręcznie
+        window.dispatchEvent(new HashChangeEvent('hashchange'));
+      } else {
+        window.location.hash = id;
+      }
+    }, 150);
   };
 
   return (

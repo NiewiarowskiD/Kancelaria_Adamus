@@ -225,12 +225,16 @@ export default function Specializations() {
         if (!isNaN(index) && index < specializations.length) {
           setExpanded(index);
           
+          // Wydłużony timeout pozwala na swobodne zamknięcie szuflady mobilnej 
+          // i płynne ułożenie layoutu, co gwarantuje precyzyjne przewinięcie.
           setTimeout(() => {
             const element = document.getElementById(`spec-${index}`);
             if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              // Używamy precyzyjnego obliczenia Y, żeby sekcja nie wchodziła pod przyklejony Navbar
+              const y = element.getBoundingClientRect().top + window.scrollY - 100;
+              window.scrollTo({ top: y, behavior: 'smooth' });
             }
-          }, 150);
+          }, 300);
         }
       }
     };
@@ -381,7 +385,7 @@ export default function Specializations() {
               <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
                 Skontaktuj się z nami
               </Typography>
-              <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
+              <Typography align='justify'variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
                 Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę. Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej skuteczne w Państwa sytuacji.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">

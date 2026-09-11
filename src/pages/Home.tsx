@@ -36,7 +36,7 @@ export default function Home({ onNavigate }: HomeProps) {
           <Typography variant="h2" sx={{ mt: 1, mb: 3 }}>
             Twoje prawa w dobrych rękach
           </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+          <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Rzetelna pomoc prawna dla osób i firm — od negocjacji po salę sądową. Łączymy fachową wiedzę z indywidualnym podejściem, by skutecznie chronić Twoje interesy na każdym etapie sprawy.
             do każdej sprawy.
           </Typography>
@@ -50,7 +50,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   <CardContent>
                     <Box sx={{ mb: 2 }}>{feature.icon}</Box>
                     <Typography variant="h5" sx={{ mb: 1.5 }}>{feature.title}</Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    <Typography  align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
                       {feature.text}
                     </Typography>
                   </CardContent>
