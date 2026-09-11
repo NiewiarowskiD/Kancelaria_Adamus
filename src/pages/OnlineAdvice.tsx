@@ -79,7 +79,7 @@ export default function OnlineAdvice() {
                 <CardContent>
                   <Box sx={{ mb: 2 }}>{opt.icon}</Box>
                   <Typography variant="h6" sx={{ mb: 1 }}>{opt.title}</Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
                     {opt.desc}
                   </Typography>
                 </CardContent>

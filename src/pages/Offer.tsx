@@ -39,7 +39,7 @@ export default function Offer({ onNavigate }: OfferProps) {
           <Typography variant="h2" sx={{ mt: 1, mb: 2 }}>
             Zakres usług prawnych
           </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+          <Typography variant="body1" align='justify' sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Oferujemy szeroki zakres usług prawnych dostosowanych do indywidualnych
             potrzeb każdego klienta. Poniżej przedstawiamy główne obszary naszej działalności.
           </Typography>
@@ -52,7 +52,7 @@ export default function Offer({ onNavigate }: OfferProps) {
                 <CardContent sx={{ p: 4 }}>
                   <Box sx={{ mb: 2, textAlign: 'center' }}>{service.icon}</Box>
                   <Typography align='center' variant="h5" sx={{ mb: 1.5 }}>{service.title}</Typography>
-                  <Typography align='center' variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
                     {service.desc}
                   </Typography>
                 </CardContent>
@@ -65,7 +65,7 @@ export default function Offer({ onNavigate }: OfferProps) {
           <Typography variant="h2" sx={{ mt: 1, mb: 3 }}>
             Dlaczego warto nam zaufać?
           </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+          <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Każdą sprawę traktujemy indywidualnie — bez gotowych szablonów i schematycznych odpowiedzi. Mówimy zrozumiałym językiem, tłumacząc zawiłości prawne w sposób jasny i praktyczny, tak by klient na każdym etapie wiedział, na czym stoi i jakie ma opcje. Stawiamy na rzetelność, dyskrecję i pełne zaangażowanie w powierzone sprawy — niezależnie od tego, czy chodzi o spór wart kilka tysięcy złotych, czy skomplikowaną sprawę gospodarczą.
           </Typography>
         </Box>
@@ -78,7 +78,7 @@ export default function Offer({ onNavigate }: OfferProps) {
               <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
                 Nie znalazłeś swojej sprawy?
               </Typography>
-              <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
+              <Typography align='justify' variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
                 Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę. Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej skuteczne w Państwa sytuacji.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
