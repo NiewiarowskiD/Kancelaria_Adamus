@@ -13,6 +13,7 @@ import Blog from './pages/Blog';
 import Admin from './pages/Admin';
 import type { PageKey } from './lib/supabase';
 import Specializations from './pages/Specializations';
+import CookieBanner from './components/CookieBanner';
 
 function App() {
   const [page, setPage] = useState<PageKey>('home');
@@ -53,6 +54,7 @@ function App() {
         </Box>
         <Footer onNavigate={handleNavigate} />
       </Box>
+       <CookieBanner />
     </ThemeProvider>
   );
 }

@@ -97,7 +97,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               component="img"
               src="/logo_KIRP_noback.svg"
               alt="Krajowa Izba Radców Prawnych"
-              sx={{ height: { xs: 83, md: 121 }, width: 'auto', display: 'block' }}
+              sx={{ height: { xs: 83, md: 121 }, width: 'auto', display: 'block', marginTop: 2 }}
             />
           </Grid>
         </Grid>

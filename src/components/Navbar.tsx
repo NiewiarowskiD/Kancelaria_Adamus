@@ -45,20 +45,19 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSpecOpen, setMobileSpecOpen] = useState(false);
 
+  const navFont = 'Georgia, "Times New Roman", serif';
+
   const handleNavigate = (page: PageKey) => {
     onNavigate(page);
     setMobileOpen(false);
   };
 
   const handleSpecClick = (id: string) => {
-    // 1. Zmień zakładkę na specjalizacje i zamknij menu mobilne
     onNavigate('specializations');
     setMobileOpen(false);
 
-    // 2. Opóźnij zmianę hasha, aby React zdążył wyrenderować komponent
     setTimeout(() => {
       if (window.location.hash === `#${id}`) {
-        // Jeśli klikamy w to samo drugi raz, wymuszamy event ręcznie
         window.dispatchEvent(new HashChangeEvent('hashchange'));
       } else {
         window.location.hash = id;
@@ -109,6 +108,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 <Button
                   onClick={() => handleNavigate(item.key)}
                   sx={{
+                    fontFamily: navFont,
                     color: currentPage === item.key ? 'secondary.main' : 'common.white',
                     fontWeight: currentPage === item.key ? 600 : 400,
                     borderBottom: currentPage === item.key ? '2px solid' : '2px solid transparent',
@@ -158,6 +158,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                           key={spec.id}
                           onClick={() => handleSpecClick(spec.id)}
                           sx={{
+                            fontFamily: navFont,
                             color: 'common.white',
                             typography: 'body2',
                             py: 1.5,
@@ -207,7 +208,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                         borderColor: 'secondary.main',
                       }}
                     >
-                      <ListItemText primary={item.label} />
+                      <ListItemText primary={item.label} primaryTypographyProps={{ sx: { fontFamily: navFont } }} />
                       {mobileSpecOpen ? <ExpandLess sx={{ color: 'secondary.main' }} /> : <ExpandMore sx={{ color: 'common.white' }} />}
                     </ListItemButton>
                   </ListItem>

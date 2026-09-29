@@ -31,14 +31,29 @@ export default function Home({ onNavigate }: HomeProps) {
       <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
         <Box sx={{ maxWidth: 1200, mx: 'auto', textAlign: 'center', mb: { xs: 6, md: 8 } }}>
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
-            WITAMY W KANCELARII
+            Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk
           </Typography>
           <Typography variant="h2" sx={{ mt: 1, mb: 3 }}>
             Twoje prawa w dobrych rękach
           </Typography>
           <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
-            Rzetelna pomoc prawna dla osób i firm — od negocjacji po salę sądową. Łączymy fachową wiedzę z indywidualnym podejściem, by skutecznie chronić Twoje interesy na każdym etapie sprawy.
-            do każdej sprawy.
+            Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk to miejsce, w którym złożone zagadnienia prawne zamieniają się w jasne i praktyczne rozwiązania. Łączymy rzetelną wiedzę prawniczą, znajomość aktualnego orzecznictwa i doświadczenie procesowe z indywidualnym podejściem do każdego Klienta. Wiemy, że za każdą sprawą stoi konkretny człowiek lub przedsiębiorstwo, a nie tylko przepis prawa.
+Rozumiemy, że decyzja o skorzystaniu z pomocy profesjonalnej pomocy prawnej często zapada w trudnym momencie. Może to być spór z kontrahentem, sprawa rodzinna lub spadkowa, a także postępowanie karne, w którym stawką jest dobre imię, wolność lub przyszłość zawodowa. Punktem wyjścia naszych działań jest zawsze wnikliwe poznanie sytuacji Klienta, jego potrzeb i oczekiwań. Dopiero na tej podstawie formułujemy propozycje rozwiązań prawnych. Każde powierzone nam zlecenie prowadzimy z pełnym zaangażowaniem, empatią i zrozumieniem.
+Naszym celem nie jest samo „prowadzenie sprawy”. Chodzi nam o realne zabezpieczenie praw i interesów Klienta oraz doprowadzenie sprawy do najkorzystniejszego rozstrzygnięcia, jakie jest możliwe w danych okolicznościach.
+
+          </Typography>
+          <Typography variant="h3" sx={{ mt: 1, mb: 3 }}>
+            Obszar działania – województwo dolnośląskie
+          </Typography>
+          <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+            Kancelaria świadczy pomoc prawną na rzecz Klientów z terenu całego województwa dolnośląskiego, w tym m.in. z Legnicy, Wrocławia, Wałbrzycha, Jeleniej Góry, Lubina, Głogowa, Świdnicy, Bolesławca, Złotoryi, Jawora, Chojnowa i Polkowic oraz okolicznych miejscowości.
+          </Typography>
+          <Typography variant="h3" sx={{ mt: 1, mb: 3 }}>
+            E-porada – pomoc prawna online
+          </Typography>
+          <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+Kancelaria świadczy pomoc prawną nie tylko w formie bezpośredniego spotkania z Klientem, lecz także w formie porad prawnych online, tzw. e-porad. E-porada stanowi pełnowartościową formę świadczenia pomocy prawnej, tożsamą co do zakresu, staranności i standardów wykonywania zawodu z poradą udzielaną stacjonarnie – różni się wyłącznie sposobem komunikacji, realizowanej z wykorzystaniem środków porozumiewania się na odległość, w szczególności telefonu, poczty elektronicznej lub wideokonferencji.
+Udzielając e-porady, radca prawny w taki sam sposób analizuje przedłożone dokumenty, ustala stan faktyczny i prawny sprawy oraz przedstawia Klientowi możliwe rozwiązania i związane z nimi ryzyka. Informacje przekazane w ramach e-porady objęte są tajemnicą zawodową radcy prawnego na tych samych zasadach, co w przypadku porady stacjonarnej. E-porada pozwala uzyskać profesjonalną pomoc prawną bez konieczności osobistego stawiennictwa, niezależnie od miejsca zamieszkania lub siedziby Klienta.
           </Typography>
         </Box>
 
