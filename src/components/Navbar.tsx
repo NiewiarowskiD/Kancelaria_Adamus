@@ -59,8 +59,6 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const handleSpecClick = (id: string) => {
     onNavigate('specializations');
     setMobileOpen(false);
-
-    // Opóźnienie pozwala zamknąć szufladę mobilną i wyrenderować stronę Specjalizacje
     setTimeout(() => {
       if (window.location.hash === `#${id}`) {
         window.dispatchEvent(new HashChangeEvent('hashchange'));
@@ -108,7 +106,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           </Box>
 
           {/* 2. Dane kontaktowe (od xl w górę) */}
-          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0 }}>
+          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0, paddingLeft: 15 }}>
             <Stack spacing={1.5}>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
@@ -130,7 +128,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               display: { xs: 'none', md: 'flex' },
               flex: 1,
               flexShrink: 0,
-              justifyContent: 'center',
+              justifyContent: 'flex-end',
               gap: 0.5,
             }}
           >
