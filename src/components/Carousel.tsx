@@ -12,12 +12,12 @@ const slides = [
   {
     image: '/carousel-2.webp',
     title: '„Nemo enim in persequendo deteriorem causam, sed meliorem facit”',
-    subtitle: 'Dochodzenie swoich praw ma polepszać, a nie pogarszać położenie strony',
+    subtitle: '— dochodzenie swoich praw ma polepszać, a nie pogarszać położenie strony',
   },
   {
     image: '/carousel-3.webp',
-    title: 'Indywidualne podejście',
-    subtitle: 'Każdy klient zasługuje na szczególną uwagę',
+    title: 'Rozmawiamy po ludzku, działamy profesjonalnie.',
+    subtitle: 'Pomagamy zrozumieć prawo, zanim przyjdzie się z nim zmierzyć',
   },
 ];
 
