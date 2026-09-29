@@ -15,21 +15,18 @@ export default function About() {
         <Typography align='justify' variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
           O Kancelarii
         </Typography>
-        {/* <Typography  variant="h2" sx={{ mt: 1, mb: 4 }}>
-          Radca Prawny — Twój zaufany doradca
-        </Typography> */}
 
         <Grid container spacing={6} sx={{ mb: 6 }}>
           <Grid size={{ xs: 12, md: 5 }}>
             <Card sx={{ height: '100%', bgcolor: 'primary.main', color: 'common.white' }}>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h2" sx={{ color: 'secondary.main', mb: 2 }}>
-                  Radca Prawny  <br></br> Katarzyna Adamus-Mielniczuk.
+              <CardContent sx={{ p: 2 }}>
+                <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
+                  Radca Prawny  <br></br> Katarzyna Adamus-Mielniczuk
                 </Typography>
-                <Typography variant="h3" sx={{ color: 'rgba(255,255,255,0.85)', mb: 2 }}>
+                <Typography variant="h4" sx={{ color: 'rgba(255,255,255,0.85)', mb: 2 }}>
                   OIRP Wałbrzych nr wpisu WŁ-1118
                 </Typography>
-                <Typography align='justify' variant="body1" sx={{ color: 'rgba(255,255,255,0.7)' }}>
+                <Typography align='justify' variant="h6" sx={{ color: 'rgba(255,255,255,0.7)' }}>
                   Wydział Prawa i Administracji Uniwersytetu Śląskiego 
                 </Typography>
               </CardContent>

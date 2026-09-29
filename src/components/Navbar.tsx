@@ -91,7 +91,6 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             gap: '20px',
           }}
         >
-          {/* 1. Logo kancelarii (nie kurczy się – zmienia tylko wysokość zależnie od ekranu) */}
           <Box
             sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer' }}
             onClick={() => handleNavigate('home')}
@@ -126,7 +125,6 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             </Stack>
           </Box>
 
-          {/* 3. Nawigacja – zajmuje wolne miejsce i wyśrodkowuje menu */}
           <Box
             sx={{
               display: { xs: 'none', md: 'flex' },
@@ -227,7 +225,6 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             ))}
           </Box>
 
-          {/* 4. Logo Izby (od md) + hamburger na telefonie */}
           <Box
             sx={{
               flexShrink: 0,

@@ -7,6 +7,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import type { PageKey } from '../lib/supabase';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 interface FooterProps {
   onNavigate: (page: PageKey) => void;
@@ -79,18 +80,12 @@ export default function Footer({ onNavigate }: FooterProps) {
                 Nd: nieczynne
               </Typography>
             </Stack>
-            <Typography
-              variant="body2"
-              sx={{
-                color: 'secondary.main',
-                cursor: 'pointer',
-                mt: 2,
-                '&:hover': { textDecoration: 'underline' },
-              }}
-              onClick={() => onNavigate('admin')}
-            >
-              Panel administracyjny
-            </Typography>
+          
+            <Stack spacing={1} onClick={() => onNavigate('admin')}>
+              <Stack direction="row" spacing={1.5} alignItems="center">
+                <AdminPanelSettingsIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
+              </Stack>
+              </Stack>
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 2 }}>
             <Box
