@@ -13,8 +13,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Paper from '@mui/material/Paper';
 import MenuItem from '@mui/material/MenuItem';
 import Collapse from '@mui/material/Collapse';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
 import type { PageKey } from '../lib/supabase';
 
 interface NavbarProps {
@@ -56,13 +60,14 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
     onNavigate('specializations');
     setMobileOpen(false);
 
+    // Opóźnienie pozwala zamknąć szufladę mobilną i wyrenderować stronę Specjalizacje
     setTimeout(() => {
       if (window.location.hash === `#${id}`) {
         window.dispatchEvent(new HashChangeEvent('hashchange'));
       } else {
         window.location.hash = id;
       }
-    }, 150);
+    }, 350);
   };
 
   return (
@@ -77,26 +82,60 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
         }}
       >
         <Toolbar
-  sx={{
-    py: 1,
-    width: '100%',
-    maxWidth: 1400,
-    mx: 'auto',
-    px: { xs: 2, md: 4, lg: 6 },
-  }}>
+          sx={{
+            py: 1,
+            width: '100%',
+            maxWidth: 1980,
+            mx: 'auto',
+            px: { xs: 2, md: 4, lg: 6 },
+            gap: '20px',
+          }}
+        >
+          {/* 1. Logo kancelarii (nie kurczy się – zmienia tylko wysokość zależnie od ekranu) */}
           <Box
-            sx={{ flex: 1, display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+            sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer' }}
             onClick={() => handleNavigate('home')}
           >
             <Box
               component="img"
               src="/logo-proposal-3.svg"
               alt="Kancelaria Radcy Prawnego"
-              sx={{ height: { xs: 92, md: 90, lg: 134 }, width: 'auto', maxWidth: '100%', display: 'block' }}
+              sx={{
+                height: { xs: 92, md: 56, lg: 100, xl: 110 },
+                width: 'auto',
+                display: 'block',
+              }}
             />
           </Box>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 0.5 }}>
+          {/* 2. Dane kontaktowe (od xl w górę) */}
+          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0 }}>
+            <Stack spacing={1.5}>
+              <Stack direction="row" spacing={1.5} alignItems="center">
+                <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
+                  +48 600 123 456
+                </Typography>
+              </Stack>
+              <Stack direction="row" spacing={1.5} alignItems="center">
+                <EmailIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
+                  kancelaria@prawo.pl
+                </Typography>
+              </Stack>
+            </Stack>
+          </Box>
+
+          {/* 3. Nawigacja – zajmuje wolne miejsce i wyśrodkowuje menu */}
+          <Box
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              flex: 1,
+              flexShrink: 0,
+              justifyContent: 'center',
+              gap: 0.5,
+            }}
+          >
             {navItems.map((item) => (
               <Box
                 key={item.key}
@@ -116,12 +155,14 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   onClick={() => handleNavigate(item.key)}
                   sx={{
                     fontFamily: navFont,
+                    fontSize: { md: '0.8rem', lg: '0.875rem' },
+                    whiteSpace: 'nowrap',
                     color: currentPage === item.key ? 'secondary.main' : 'common.white',
                     fontWeight: currentPage === item.key ? 600 : 400,
-                    borderBottom: currentPage === item.key ? '2px solid' : '2px solid transparent',
-                    borderColor: 'secondary.main',
+                    borderBottom: '2px solid',
+                    borderColor: currentPage === item.key ? 'secondary.main' : 'transparent',
                     borderRadius: 0,
-                    px: 2,
+                    px: { md: 1, lg: 1.5 },
                     height: '100%',
                     '&:hover': {
                       color: 'secondary.main',
@@ -186,12 +227,20 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             ))}
           </Box>
 
-          <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: { xs: 'flex-end', md: 'center' }, }}>
+          {/* 4. Logo Izby (od md) + hamburger na telefonie */}
+          <Box
+            sx={{
+              flexShrink: 0,
+              ml: { xs: 'auto', md: 0 },
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <Box
               component="img"
               src="/logo_KIRP_noback.svg"
               alt="Krajowa Izba Radców Prawnych"
-              sx={{ display: { xs: 'none', md: 'block',  alignItems: 'center', justifyContent: 'center'}, height: 80, width: 'auto', maxWidth: '100%',  alignItems: 'center', }}
+              sx={{ display: { xs: 'none', md: 'block' }, height: { md: 60, lg: 80 }, width: 'auto' }}
             />
             <IconButton
               sx={{ display: { xs: 'flex', md: 'none' }, color: 'secondary.main' }}

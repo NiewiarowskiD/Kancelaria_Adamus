@@ -3,7 +3,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import theme from './theme';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,6 +13,7 @@ import Admin from './pages/Admin';
 import type { PageKey } from './lib/supabase';
 import Specializations from './pages/Specializations';
 import CookieBanner from './components/CookieBanner';
+import Navbar from './components/Navbar';
 
 function App() {
   const [page, setPage] = useState<PageKey>('home');
