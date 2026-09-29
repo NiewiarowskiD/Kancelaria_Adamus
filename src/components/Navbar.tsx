@@ -22,6 +22,8 @@ interface NavbarProps {
   onNavigate: (page: PageKey) => void;
 }
 
+const navFont = 'Georgia, "Times New Roman", serif';
+
 const navItems: { key: PageKey; label: string }[] = [
   { key: 'home', label: 'Strona Główna' },
   { key: 'about', label: 'O Kancelarii' },
@@ -38,14 +40,12 @@ const specializationList = [
   { label: 'Prawo spadkowe', id: 'spec-3' },
   { label: 'Prawo gospodarcze', id: 'spec-4' },
   { label: 'Prawo pracy', id: 'spec-5' },
-  { label: 'Upadłość konsumencka', id: 'spec-6' }
+  { label: 'Upadłość konsumencka', id: 'spec-6' },
 ];
 
 export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSpecOpen, setMobileSpecOpen] = useState(false);
-
-  const navFont = 'Georgia, "Times New Roman", serif';
 
   const handleNavigate = (page: PageKey) => {
     onNavigate(page);
@@ -76,16 +76,23 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
+        <Toolbar
+  sx={{
+    py: 1,
+    width: '100%',
+    maxWidth: 1400,
+    mx: 'auto',
+    px: { xs: 2, md: 4, lg: 6 },
+  }}>
           <Box
-            sx={{ display: 'flex', alignItems: 'center', gap: 1.5, cursor: 'pointer' }}
+            sx={{ flex: 1, display: 'flex', alignItems: 'center', cursor: 'pointer' }}
             onClick={() => handleNavigate('home')}
           >
             <Box
               component="img"
               src="/logo-proposal-3.svg"
               alt="Kancelaria Radcy Prawnego"
-              sx={{ height: { xs: 92, md: 134 }, width: 'auto', display: 'block' }}
+              sx={{ height: { xs: 92, md: 90, lg: 134 }, width: 'auto', maxWidth: '100%', display: 'block' }}
             />
           </Box>
 
@@ -158,9 +165,9 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                           key={spec.id}
                           onClick={() => handleSpecClick(spec.id)}
                           sx={{
-                            fontFamily: navFont,
                             color: 'common.white',
                             typography: 'body2',
+                            fontFamily: navFont,
                             py: 1.5,
                             px: 3,
                             '&:hover': {
@@ -179,12 +186,20 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             ))}
           </Box>
 
-          <IconButton
-            sx={{ display: { xs: 'flex', md: 'none' }, color: 'secondary.main' }}
-            onClick={() => setMobileOpen(true)}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+            <Box
+              component="img"
+              src="/logo_KIRP_noback.svg"
+              alt="Krajowa Izba Radców Prawnych"
+              sx={{ display: { xs: 'none', md: 'block',  alignItems: 'center', justifyContent: 'center' }, height: 80, width: 'auto', maxWidth: '100%',  alignItems: 'center', }}
+            />
+            <IconButton
+              sx={{ display: { xs: 'flex', md: 'none' }, color: 'secondary.main' }}
+              onClick={() => setMobileOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
 
@@ -208,8 +223,15 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                         borderColor: 'secondary.main',
                       }}
                     >
-                      <ListItemText primary={item.label} primaryTypographyProps={{ sx: { fontFamily: navFont } }} />
-                      {mobileSpecOpen ? <ExpandLess sx={{ color: 'secondary.main' }} /> : <ExpandMore sx={{ color: 'common.white' }} />}
+                      <ListItemText
+                        primary={item.label}
+                        primaryTypographyProps={{ sx: { fontFamily: navFont } }}
+                      />
+                      {mobileSpecOpen ? (
+                        <ExpandLess sx={{ color: 'secondary.main' }} />
+                      ) : (
+                        <ExpandMore sx={{ color: 'common.white' }} />
+                      )}
                     </ListItemButton>
                   </ListItem>
                   <Collapse in={mobileSpecOpen} timeout="auto" unmountOnExit>
@@ -220,9 +242,13 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                           sx={{ pl: 4 }}
                           onClick={() => handleSpecClick(spec.id)}
                         >
-                          <ListItemText 
-                            primary={spec.label} 
-                            primaryTypographyProps={{ variant: 'body2', color: 'rgba(255,255,255,0.7)' }} 
+                          <ListItemText
+                            primary={spec.label}
+                            primaryTypographyProps={{
+                              variant: 'body2',
+                              color: 'rgba(255,255,255,0.7)',
+                              sx: { fontFamily: navFont },
+                            }}
                           />
                         </ListItemButton>
                       ))}
@@ -242,7 +268,10 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                     borderColor: 'secondary.main',
                   }}
                 >
-                  <ListItemText primary={item.label} />
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{ sx: { fontFamily: navFont } }}
+                  />
                 </ListItemButton>
               </ListItem>
             );

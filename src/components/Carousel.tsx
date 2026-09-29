@@ -11,8 +11,8 @@ const slides = [
   },
   {
     image: '/carousel-2.webp',
-    title: 'Sprawiedliwość i rzetelność',
-    subtitle: 'Bronimy Twoich praw z pełnym zaangażowaniem',
+    title: '„Nemo enim in persequendo deteriorem causam, sed meliorem facit”',
+    subtitle: 'Dochodzenie swoich praw ma polepszać, a nie pogarszać położenie strony',
   },
   {
     image: '/carousel-3.webp',
@@ -74,7 +74,7 @@ export default function Carousel() {
               {slide.title}
             </Typography>
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
                 color: 'secondary.main',
                 fontWeight: 400,
