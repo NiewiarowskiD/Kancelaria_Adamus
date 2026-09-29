@@ -280,6 +280,7 @@ export default function Specializations() {
             return (
               <Accordion
                 key={title}
+                expanded={isExpanded}
                 id={`spec-${index}`} 
                 onChange={handleChange(index)}
                 disableGutters
