@@ -106,8 +106,8 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           </Box>
 
           {/* 2. Dane kontaktowe (od xl w górę) */}
-          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0, paddingLeft: 15 }}>
-            <Stack spacing={1.5}>
+          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0, paddingLeft: 15,  }}>
+            <Stack direction="row" spacing={4}>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
