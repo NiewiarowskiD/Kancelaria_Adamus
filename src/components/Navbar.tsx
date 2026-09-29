@@ -186,12 +186,12 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             ))}
           </Box>
 
-          <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+          <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: { xs: 'flex-end', md: 'center' }, }}>
             <Box
               component="img"
               src="/logo_KIRP_noback.svg"
               alt="Krajowa Izba Radców Prawnych"
-              sx={{ display: { xs: 'none', md: 'block',  alignItems: 'center', justifyContent: 'center' }, height: 80, width: 'auto', maxWidth: '100%',  alignItems: 'center', }}
+              sx={{ display: { xs: 'none', md: 'block',  alignItems: 'center', justifyContent: 'center'}, height: 80, width: 'auto', maxWidth: '100%',  alignItems: 'center', }}
             />
             <IconButton
               sx={{ display: { xs: 'flex', md: 'none' }, color: 'secondary.main' }}
