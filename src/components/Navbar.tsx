@@ -94,7 +94,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           }}
         >
           <Box
-            sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+            sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer', my: -4, }}
             onClick={() => handleNavigate('home')}
           >
             <Box
@@ -102,7 +102,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               src="/logo-proposal-3.svg"
               alt="Kancelaria Radcy Prawnego"
               sx={{
-                height: { xs: 92, md: 56, lg: 100, xl: 110 },
+                height: { xs: 70, md: 80, lg: 120, xl: 140 },
                 width: 'auto',
                 display: 'block',
               }}
