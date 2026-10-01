@@ -25,7 +25,7 @@ export default function Price({ onNavigate }: PriceProps) {
         <Card sx={{ bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', p: { xs: 3, md: 5 } }}>
           <CardContent sx={{ '& .MuiTypography-root': { mb: 2 } }}>
             
-            <Typography variant="body1" align="justify" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
+            <Typography variant="h6" align="justify" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               <strong>Koszt pierwszej porady prawnej jest stały i wynosi 300 zł</strong>, a wynagrodzenie za prowadzenie sprawy ustalamy indywidualnie, zawsze przed rozpoczęciem współpracy. 
               Nie istnieje jeden uniwersalny cennik usług prawnych. Każda sprawa ma inny stopień skomplikowania i wymaga innego nakładu pracy, dlatego zamiast sztywnych stawek stawiamy na przejrzystość: o wysokości honorarium lub sposobie jego obliczenia informujemy Państwa na początku współpracy i dokładnie określamy je w pisemnej umowie. Dzięki temu od pierwszego spotkania wiedzą Państwo, z jakim kosztem się liczyć.
             </Typography>
