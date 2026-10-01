@@ -15,6 +15,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import Link from '@mui/material/Link';
 
+import type { PageKey } from '../lib/supabase';
+
 const options = [
   { icon: <VideoCameraFrontIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Konsultacja wideo', desc: 'Spotkanie online przez komunikator wideo w dogodnym terminie.' },
   { icon: <PhoneIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Konsultacja telefoniczna', desc: 'Rozmowa telefoniczna z radcą prawnym bez konieczności wizyty w kancelarii.' },
@@ -23,7 +25,7 @@ const options = [
 ];
 
 interface OnlineAdviceProps {
-  onNavigate?: (page: string) => void;
+  onNavigate?: (page: PageKey) => void; 
 }
 
 export default function OnlineAdvice({ onNavigate }: OnlineAdviceProps) {
