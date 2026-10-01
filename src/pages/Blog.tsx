@@ -15,11 +15,13 @@ import DOMPurify from 'dompurify';
 
 const defaultCategories = [
   'Wszystkie',
-  'Prawo Cywilne',
-  'Prawo Rodzinne',
-  'Prawo Gospodarcze',
-  'Prawo Pracy',
-  'Prawo Nieruchomości',
+  'Prawo cywilne',
+  'Prawo karne',
+  'Prawo rodzinne',
+  'Prawo spadkowane',
+  'Prawo gospodardcze',
+  'Prawo pracy',
+  'Upadłość konsumencka',
 ];
 
 export default function Blog() {
@@ -143,7 +145,7 @@ export default function Blog() {
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             BLOG
           </Typography>
-          <Typography align='justify' variant="h2" sx={{ mt: 1, mb: 2 }}>
+          <Typography align='center' variant="h2" sx={{ mt: 1, mb: 2 }}>
             Artykuły i porady prawne
           </Typography>
           <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
