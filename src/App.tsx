@@ -14,6 +14,7 @@ import Specializations from './pages/Specializations';
 import CookieBanner from './components/CookieBanner';
 import Navbar from './components/Navbar';
 import Price from './pages/PriceList';
+import Rodo from './pages/Rodo';
 
 function App() {
   const [page, setPage] = useState<PageKey>('home');
@@ -30,9 +31,11 @@ function App() {
       case 'about':
         return <About />;
       case 'online':
-        return <OnlineAdvice />;
+        return <OnlineAdvice onNavigate={handleNavigate}/>;
       case 'blog':
         return <Blog />;
+      case 'rodo':
+        return <Rodo onNavigate={handleNavigate} />;
       case 'admin':
         return <Admin />;
       case 'specializations':

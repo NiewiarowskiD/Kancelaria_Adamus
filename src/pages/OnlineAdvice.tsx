@@ -13,6 +13,7 @@ import VideoCameraFrontIcon from '@mui/icons-material/VideoCameraFront';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
+import Link from '@mui/material/Link';
 
 const options = [
   { icon: <VideoCameraFrontIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Konsultacja wideo', desc: 'Spotkanie online przez komunikator wideo w dogodnym terminie.' },
@@ -21,7 +22,11 @@ const options = [
   { icon: <EmailIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Analiza dokumentów', desc: 'Wysłanie dokumentów mailem z analizą prawną w formie pisemnej opinii.' },
 ];
 
-export default function OnlineAdvice() {
+interface OnlineAdviceProps {
+  onNavigate?: (page: string) => void;
+}
+
+export default function OnlineAdvice({ onNavigate }: OnlineAdviceProps) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -174,6 +179,22 @@ export default function OnlineAdvice() {
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                       />
+                      
+                      {/* DODANA KLAUZULA INFORMACYJNA RODO / REGULAMIN */}
+                      <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', textAlign: 'justify' }}>
+                        Wysyłając wiadomość, akceptujesz zasady kontaktu określone w naszym{' '}
+                        <Link 
+                          component="button" 
+                          type="button"
+                          variant="caption" 
+                          onClick={() => onNavigate?.('rodo')} 
+                          sx={{ color: 'secondary.dark', fontWeight: 600, cursor: 'pointer', verticalAlign: 'baseline' }}
+                        >
+                          Regulaminie i Polityce prywatności
+                        </Link>
+                        . Twoje dane nie są zapisywane na stronie i trafiają bezpośrednio na skrzynkę e-mail Kancelarii.
+                      </Typography>
+
                       <Button
                         type="submit"
                         variant="contained"
