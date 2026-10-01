@@ -33,6 +33,7 @@ const navItems: { key: PageKey; label: string }[] = [
   { key: 'about', label: 'O Kancelarii' },
   { key: 'offer', label: 'Oferta' },
   { key: 'specializations', label: 'Specjalizacje' },
+  { key: 'price', label: 'Cennik' },
   { key: 'online', label: 'Porady online' },
   { key: 'blog', label: 'Blog' },
 ];

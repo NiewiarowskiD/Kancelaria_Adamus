@@ -14,6 +14,7 @@ import type { PageKey } from './lib/supabase';
 import Specializations from './pages/Specializations';
 import CookieBanner from './components/CookieBanner';
 import Navbar from './components/Navbar';
+import Price from './pages/PriceList';
 
 function App() {
   const [page, setPage] = useState<PageKey>('home');
@@ -39,6 +40,8 @@ function App() {
         return <Blog />;
       case 'admin':
         return <Admin />;
+      case 'price':
+        return <Price onNavigate={handleNavigate} />;
       default:
         return <Home onNavigate={handleNavigate} />;
     }
