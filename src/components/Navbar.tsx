@@ -31,7 +31,6 @@ const navFont = 'Georgia, "Times New Roman", serif';
 const navItems: { key: PageKey; label: string }[] = [
   { key: 'home', label: 'Strona Główna' },
   { key: 'about', label: 'O Kancelarii' },
-  { key: 'offer', label: 'Oferta' },
   { key: 'specializations', label: 'Specjalizacje' },
   { key: 'price', label: 'Cennik' },
   { key: 'online', label: 'Porady online' },
@@ -55,6 +54,10 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const handleNavigate = (page: PageKey) => {
     onNavigate(page);
     setMobileOpen(false);
+    if (window.location.hash) {
+      window.history.pushState("", document.title, window.location.pathname + window.location.search);
+      window.dispatchEvent(new Event('hashchange'));
+    }
   };
 
   const handleSpecClick = (id: string) => {

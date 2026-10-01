@@ -5,6 +5,9 @@ import Fade from '@mui/material/Fade';
 
 const slides = [
   {
+    image: '/logo-proposal-3.svg',
+  },
+  {
     image: '/carousel-1.webp',
     title: '„Ius est ars boni et aequi”',
     subtitle: '— prawo jest sztuką tego, co dobre i słuszne.',
@@ -51,7 +54,9 @@ export default function Carousel() {
               inset: 0,
               opacity: index === i ? 1 : 0,
               transition: 'opacity 0.8s ease-in-out',
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${slide.image})`,
+              backgroundImage: i === 0 
+                ? `url(${slide.image})` 
+                : `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${slide.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               display: 'flex',

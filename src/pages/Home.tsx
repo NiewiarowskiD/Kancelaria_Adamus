@@ -6,21 +6,59 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import GavelIcon from '@mui/icons-material/Gavel';
-import SecurityIcon from '@mui/icons-material/Security';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import HandshakeIcon from '@mui/icons-material/Handshake';
 import Carousel from '../components/Carousel';
 import type { PageKey } from '../lib/supabase';
+import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import BusinessIcon from '@mui/icons-material/Business';
+import WorkIcon from '@mui/icons-material/Work';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import BalanceIcon from '@mui/icons-material/Balance';
+import AccountBalanceWallet from '@mui/icons-material/AccountBalanceWallet';
 
 interface HomeProps {
   onNavigate: (page: PageKey) => void;
 }
 
-const features = [
-  { icon: <GavelIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Doświadczenie', text: 'Wieloletnia praktyka w różnych dziedzinach prawa gwarantuje najwyższą jakość usług.' },
-  { icon: <SecurityIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Bezpieczeństwo', text: 'Pełna dyskrecja i ochrona danych osobowych w każdej prowadzonej sprawie.' },
-  { icon: <VerifiedUserIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Rzetelność', text: 'Każda sprawa jest analizowana wnikliwie i przygotowywana z najwyższą starannością.' },
-  { icon: <HandshakeIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Zaufanie', text: 'Budujemy długotrwałe relacje z klientami oparte na wzajemnym zaufaniu.' },
+interface HomeProps {
+  onNavigate: (page: PageKey) => void;
+}
+
+const services = [
+  { 
+    icon: <GavelIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Prawo cywilne', 
+    desc: 'W zakresie prawa cywilnego pomagamy w sprawach dotyczących umów i ich wad, dochodzenia roszczeń i odszkodowań, odpowiedzialności cywilnej oraz spraw mieszkaniowych i dotyczących nieruchomości. Zajmujemy się również sporami z zakresu prawa budowlanego pomiędzy inwestorem a wykonawcą — w tym dotyczącymi wad wykonawczych, opóźnień w realizacji inwestycji, rozliczenia wynagrodzenia oraz kar umownych. Reprezentujemy klientów zarówno na etapie negocjacji, jak i w postępowaniu sądowym i egzekucyjnym.' 
+  },
+  { 
+    icon: <BalanceIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Prawo karne', 
+    desc: 'Prawo karne to jeden z filarów naszej praktyki. Działamy dwutorowo — bronimy osób oskarżonych oraz reprezentujemy osoby pokrzywdzone przestępstwem — zawsze z pełnym zaangażowaniem i dyskrecją. Wiemy, jak duże znaczenie ma czas w sprawach karnych, dlatego zapewniamy szybki kontakt i wsparcie już od pierwszych czynności z udziałem organów ścigania.' 
+  },
+  { 
+    icon: <FamilyRestroomIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Prawo rodzinne', 
+    desc: 'W zakresie prawa rodzinnego wspieramy klientów w sprawach o rozwód i separację, podział majątku wspólnego, alimenty, władzę rodzicielską oraz kontakty z dziećmi. Do każdej sprawy podchodzimy z wyczuciem sytuacji rodzinnej, dbając zarówno o skuteczność działań prawnych, jak i o dobro najbliższych osób, których sprawa dotyczy.' 
+  },
+  { 
+    icon: <HomeWorkIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Prawo spadkowe', 
+    desc: 'W zakresie prawa spadkowego pomagamy w sprawach o stwierdzenie nabycia spadku i dział spadku, doradzamy przy sporządzaniu testamentów, prowadzimy sprawy o zachowek oraz reprezentujemy klientów w sporach między spadkobiercami. Zapewniamy wsparcie zarówno na etapie planowania sukcesji majątku, jak i w toku już toczącego się postępowania spadkowego.' 
+  },
+  { 
+    icon: <BusinessIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Prawo gospodarcze', 
+    desc: 'W zakresie prawa gospodarczego wspieramy przedsiębiorców w bieżącej obsłudze prawnej firmy, przygotowywaniu i negocjowaniu umów handlowych, a także w rozwiązywaniu sporów korporacyjnych i biznesowych — zarówno na drodze polubownej, jak i sądowej.' 
+  },
+  { 
+    icon: <WorkIcon sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Prawo pracy', 
+    desc: 'W zakresie prawa pracy doradzamy zarówno pracownikom, jak i pracodawcom — w sprawach dotyczących nawiązania i rozwiązania stosunku pracy, w tym zwolnień dyscyplinarnych i grupowych, mobbingu oraz dyskryminacji w miejscu pracy, dochodzenia zaległego wynagrodzenia, a także sporządzania i opiniowania umów o pracę, kontraktów menedżerskich i umów o zakazie konkurencji. Reprezentujemy klientów zarówno w postępowaniach przed sądem pracy, jak i na etapie negocjacji oraz mediacji.' 
+  },
+  { 
+    icon: <AccountBalanceWallet sx={{ fontSize: 36, color: 'secondary.main' }} />, 
+    title: 'Upadłość konsumencka', 
+    desc: 'W zakresie upadłości konsumenckiej pomagamy osobom fizycznym nieprowadzącym działalności gospodarczej w przygotowaniu i złożeniu wniosku o ogłoszenie upadłości, reprezentujemy klientów w toku całego postępowania upadłościowego oraz doradzamy przy ustalaniu planu spłaty wierzycieli. Naszym celem jest pomoc osobom znajdującym się w trudnej sytuacji finansowej w skutecznym wyjściu z zadłużenia i odzyskaniu stabilności finansowej.' 
+  },
 ];
 
 export default function Home({ onNavigate }: HomeProps) {
@@ -42,13 +80,13 @@ Rozumiemy, że decyzja o skorzystaniu z pomocy profesjonalnej pomocy prawnej cz�
 Naszym celem nie jest samo „prowadzenie sprawy”. Chodzi nam o realne zabezpieczenie praw i interesów Klienta oraz doprowadzenie sprawy do najkorzystniejszego rozstrzygnięcia, jakie jest możliwe w danych okolicznościach.
 
           </Typography>
-          <Typography variant="h3" sx={{ mt: 1, mb: 3 }}>
+          <Typography variant="h3" sx={{ mt: 1, mb: 3, margin: 3}}>
             Obszar działania – województwo dolnośląskie
           </Typography>
           <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Kancelaria świadczy pomoc prawną na rzecz Klientów z terenu całego województwa dolnośląskiego, w tym m.in. z Legnicy, Wrocławia, Wałbrzycha, Jeleniej Góry, Lubina, Głogowa, Świdnicy, Bolesławca, Złotoryi, Jawora, Chojnowa i Polkowic oraz okolicznych miejscowości.
           </Typography>
-          <Typography variant="h3" sx={{ mt: 1, mb: 3 }}>
+          <Typography variant="h3" sx={{ mt: 1, mb: 3, margin: 3 }}>
             E-porada – pomoc prawna online
           </Typography>
           <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
@@ -57,23 +95,37 @@ Udzielając e-porady, radca prawny w taki sam sposób analizuje przedłożone do
           </Typography>
         </Box>
 
-        <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
-          <Grid container spacing={4}>
-            {features.map((feature, i) => (
-              <Grid key={i} size={{ xs: 12, sm: 6, md: 3 }}>
-                <Card sx={{ height: '100%', textAlign: 'center', py: 4, px: 2, border: '1px solid', borderColor: 'divider' }}>
-                  <CardContent>
-                    <Box sx={{ mb: 2 }}>{feature.icon}</Box>
-                    <Typography variant="h5" sx={{ mb: 1.5 }}>{feature.title}</Typography>
-                    <Typography  align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
-                      {feature.text}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+        <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
+
+        <Grid container spacing={4} justifyContent="center">
+          {services.map((service, i) => (
+            <Grid key={i} size={{ xs: 12, sm: 6, md: 4 }}>
+              <Card sx={{ height: '100%', border: '1px solid', borderColor: 'divider', '&:hover': { borderColor: 'secondary.main', boxShadow: '0 8px 30px rgba(197,165,114,0.15)' }, transition: 'all 0.3s ease' }}>
+                <CardContent sx={{ p: 4 }}>
+                  <Box sx={{ mb: 2, textAlign: 'center' }}>{service.icon}</Box>
+                  <Typography align='center' variant="h5" sx={{ mb: 1.5 }}>{service.title}</Typography>
+                  <Typography align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
+                    {service.desc}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
         </Box>
+        </Box>
+
+         <Box sx={{ maxWidth: 1200, mx: 'auto', textAlign: 'center', mt: 10,  mb: { xs: 6, md: 8 } }}>
+          <Typography variant="h2" sx={{ mt: 1, mb: 3 }}>
+            Dlaczego warto nam zaufać?
+          </Typography>
+          <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
+            Każdą sprawę traktujemy indywidualnie — bez gotowych szablonów i schematycznych odpowiedzi. Mówimy zrozumiałym językiem, tłumacząc zawiłości prawne w sposób jasny i praktyczny, tak by klient na każdym etapie wiedział, na czym stoi i jakie ma opcje. Stawiamy na rzetelność, dyskrecję i pełne zaangażowanie w powierzone sprawy — niezależnie od tego, czy chodzi o spór wart kilka tysięcy złotych, czy skomplikowaną sprawę gospodarczą.
+          </Typography>
+        </Box>
+
+      
 
         <Box sx={{ maxWidth: 900, mx: 'auto', mt: { xs: 6, md: 10 }, textAlign: 'center' }}>
           <Card sx={{ bgcolor: 'primary.main', color: 'common.white', py: { xs: 5, md: 7 }, px: { xs: 3, md: 5 } }}>
@@ -85,14 +137,6 @@ Udzielając e-porady, radca prawny w taki sam sposób analizuje przedłożone do
                 Skontaktuj się z nami już dziś i umów się na konsultację.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => onNavigate('offer')}
-                  sx={{ color: 'primary.main', fontWeight: 600 }}
-                >
-                  Zobacz ofertę
-                </Button>
                 <Button
                   variant="outlined"
                   onClick={() => onNavigate('online')}

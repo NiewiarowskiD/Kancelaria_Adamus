@@ -6,7 +6,6 @@ import theme from './theme';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Offer from './pages/Offer';
 import OnlineAdvice from './pages/OnlineAdvice';
 import Blog from './pages/Blog';
 import Admin from './pages/Admin';
@@ -30,16 +29,14 @@ function App() {
         return <Home onNavigate={handleNavigate} />;
       case 'about':
         return <About />;
-      case 'offer':
-        return <Offer onNavigate={handleNavigate} />;
-        case 'specializations':
-        return <Specializations />;
       case 'online':
         return <OnlineAdvice />;
       case 'blog':
         return <Blog />;
       case 'admin':
         return <Admin />;
+      case 'specializations':
+        return <Specializations />;
       case 'price':
         return <Price onNavigate={handleNavigate} />;
       default:

@@ -127,14 +127,6 @@ export default function Price({ onNavigate }: PriceProps) {
             </Typography>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
               <Button
-                variant="contained"
-                color="secondary"
-                onClick={() => onNavigate('offer')}
-                sx={{ color: 'primary.main', fontWeight: 600 }}
-              > 
-                Zobacz ofertę
-              </Button>
-              <Button
                 variant="outlined"
                 onClick={() => onNavigate('online')}
                 sx={{ color: 'secondary.main', borderColor: 'secondary.main', '&:hover': { borderColor: 'secondary.light' } }}
