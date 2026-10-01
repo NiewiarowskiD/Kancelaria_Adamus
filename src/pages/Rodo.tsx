@@ -5,11 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
 import { Button, Stack } from '@mui/material';
 
-interface RodoProps {
-  onNavigate: (page: string) => void;
-}
-
-export default function Rodo({ onNavigate }: RodoProps) {
+export default function Rodo() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
@@ -23,7 +19,6 @@ export default function Rodo({ onNavigate }: RodoProps) {
         <Card sx={{ bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', p: { xs: 3, md: 5 } }}>
           <CardContent sx={{ '& .MuiTypography-root': { mb: 2 } }}>
             
-            {/* PARAGRAF 1 */}
             <Typography variant="h5" component="h2" sx={{ fontWeight: 600, color: 'text.primary', mb: 2 }}>
               § 1. Postanowienia ogólne
             </Typography>
@@ -36,7 +31,7 @@ export default function Rodo({ onNavigate }: RodoProps) {
 
             <Divider sx={{ my: 4 }} />
 
-            {/* PARAGRAF 2 */}
+
             <Typography variant="h5" component="h2" sx={{ fontWeight: 600, color: 'text.primary', mb: 2 }}>
               § 2. Świadczenie usług drogą elektroniczną
             </Typography>
@@ -58,7 +53,6 @@ export default function Rodo({ onNavigate }: RodoProps) {
 
             <Divider sx={{ my: 4 }} />
 
-            {/* PARAGRAF 3 */}
             <Typography variant="h5" component="h2" sx={{ fontWeight: 600, color: 'text.primary', mb: 2 }}>
               § 3. Ochrona danych osobowych (RODO)
             </Typography>
@@ -92,28 +86,6 @@ export default function Rodo({ onNavigate }: RodoProps) {
         </Card>
       </Box>
 
-      {/* SEKCJA Z PRZYCISKAMI DO NAWIGACJI */}
-      <Box sx={{ maxWidth: 900, mx: 'auto', mt: { xs: 6, md: 10 }, textAlign: 'center' }}>
-        <Card sx={{ bgcolor: 'primary.main', color: 'common.white', py: { xs: 5, md: 7 }, px: { xs: 3, md: 5 } }}>
-          <CardContent>
-            <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
-              Potrzebujesz pomocy prawnej?
-            </Typography>
-            <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
-              Skontaktuj się z nami już dziś i umów się na konsultację.
-            </Typography>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-              <Button
-                variant="outlined"
-                onClick={() => onNavigate('online')}
-                sx={{ color: 'secondary.main', borderColor: 'secondary.main', '&:hover': { borderColor: 'secondary.light' } }}
-              >
-                Porada online
-              </Button>
-            </Stack>
-          </CardContent>
-        </Card>
-      </Box>
     </Box>
   );
 }

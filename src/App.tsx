@@ -35,7 +35,7 @@ function App() {
       case 'blog':
         return <Blog />;
       case 'rodo':
-        return <Rodo onNavigate={handleNavigate} />;
+        return <Rodo />;
       case 'admin':
         return <Admin />;
       case 'specializations':
