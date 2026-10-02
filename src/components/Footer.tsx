@@ -30,7 +30,7 @@ export default function Footer() {
         '& .MuiTypography-body2': { fontSize: '0.9rem' },
       }}
     >
-      <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
+      <Box sx={{ maxWidth: 1400, mx: 'auto' }}>
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Box
