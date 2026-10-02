@@ -115,13 +115,13 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  +48 600 123 456
+                  + 48 505 810 279
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <EmailIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  kancelaria@prawo.pl
+                  kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
               </Stack>
             </Stack>
