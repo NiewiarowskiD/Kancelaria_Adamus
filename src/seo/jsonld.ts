@@ -25,8 +25,18 @@ export const legalServiceLd = {
     ...CITIES.map((name) => ({ '@type': 'City', name })),
   ],
   openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '20:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '16:00' },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '20:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '10:00',
+      closes: '16:00',
+    },
   ],
   contactPoint: {
     '@type': 'ContactPoint',
@@ -54,7 +64,14 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
   };
 }
 
-export function articleLd(a: { title: string; description: string; path: string; image?: string | null; published: string; modified: string }) {
+export function articleLd(a: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string | null;
+  published: string;
+  modified: string;
+}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -65,6 +82,10 @@ export function articleLd(a: { title: string; description: string; path: string;
     datePublished: a.published,
     dateModified: a.modified,
     author: { '@type': 'Person', name: 'Katarzyna Adamus-Mielniczuk', jobTitle: 'Radca prawny' },
-    publisher: { '@type': 'Organization', name: SITE_NAME, logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-proposal-3.svg` } },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-proposal-3.svg` },
+    },
   };
 }

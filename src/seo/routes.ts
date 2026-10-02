@@ -27,7 +27,17 @@ export const specializationHash = (index: number) => `#spec-${index}`;
 
 export const blogPath = (slug: string) => `${PATHS.blog}/${slug}`;
 
-const PL: Record<string, string> = { ą: 'a', ć: 'c', ę: 'e', ł: 'l', ń: 'n', ó: 'o', ś: 's', ź: 'z', ż: 'z' };
+const PL: Record<string, string> = {
+  ą: 'a',
+  ć: 'c',
+  ę: 'e',
+  ł: 'l',
+  ń: 'n',
+  ó: 'o',
+  ś: 's',
+  ź: 'z',
+  ż: 'z',
+};
 
 export function slugify(text: string): string {
   return text
@@ -94,8 +104,10 @@ export const PAGE_META: Record<string, PageMeta> = {
     description: 'Nota prawna serwisu Kancelarii Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
   },
   '/regulamin': {
-    title: 'Regulamin serwisu i świadczenia porad prawnych online (e-porad) | Kancelaria Adamus-Mielniczuk',
-    description: 'Regulamin serwisu oraz świadczenia porad prawnych online (e-porad) przez Kancelarię Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
+    title:
+      'Regulamin serwisu i świadczenia porad prawnych online (e-porad) | Kancelaria Adamus-Mielniczuk',
+    description:
+      'Regulamin serwisu oraz świadczenia porad prawnych online (e-porad) przez Kancelarię Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
   },
   '/polityka-prywatnosci': {
     title: 'Regulamin i polityka prywatności | Kancelaria Adamus-Mielniczuk',

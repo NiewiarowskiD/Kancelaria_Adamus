@@ -19,7 +19,7 @@ export function render(url: string, articles: BlogArticle[] | null = null) {
       <StaticRouter location={url}>
         <App />
       </StaticRouter>
-    </CacheProvider>
+    </CacheProvider>,
   );
   const chunks = extractCriticalToChunks(html);
   const styles = constructStyleTagsFromChunks(chunks);

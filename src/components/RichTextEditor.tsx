@@ -32,9 +32,7 @@ export default function RichTextEditor({ value, onChange, label }: RichTextEdito
 
   return (
     <Box>
-      {label && (
-        <Box sx={{ fontSize: '0.75rem', color: 'text.secondary', mb: 0.5 }}>{label}</Box>
-      )}
+      {label && <Box sx={{ fontSize: '0.75rem', color: 'text.secondary', mb: 0.5 }}>{label}</Box>}
       <Box sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1 }}>
         <Stack
           direction="row"

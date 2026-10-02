@@ -37,7 +37,12 @@ export default function Footer() {
               component="img"
               src="/logo-proposal-3.svg"
               alt="Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk"
-              sx={{ width: '100%', maxWidth: { xs: 320, md: '100%' }, height: 'auto', display: 'block' }}
+              sx={{
+                width: '100%',
+                maxWidth: { xs: 320, md: '100%' },
+                height: 'auto',
+                display: 'block',
+              }}
             />
           </Grid>
 
@@ -52,7 +57,11 @@ export default function Footer() {
                   variant="body2"
                   component="a"
                   href="tel:+48505810279"
-                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  sx={{
+                    color: 'rgba(255,255,255,0.85)',
+                    textDecoration: 'none',
+                    '&:hover': { textDecoration: 'underline' },
+                  }}
                 >
                   +48 505 810 279
                 </Typography>
@@ -63,7 +72,11 @@ export default function Footer() {
                   variant="body2"
                   component="a"
                   href="mailto:kancelaria@radcaprawnylegnica.com.pl"
-                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  sx={{
+                    color: 'rgba(255,255,255,0.85)',
+                    textDecoration: 'none',
+                    '&:hover': { textDecoration: 'underline' },
+                  }}
                 >
                   kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
@@ -71,7 +84,9 @@ export default function Footer() {
               <Stack direction="row" spacing={1.5} alignItems="flex-start">
                 <LocationOnIcon sx={{ color: 'secondary.main', fontSize: 20, mt: 0.2 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  Obszar działania: Legnica i całe województwo dolnośląskie<br />Porady prawne online (e-porada) dla Klientów z całej Polski
+                  Obszar działania: Legnica i całe województwo dolnośląskie
+                  <br />
+                  Porady prawne online (e-porada) dla Klientów z całej Polski
                 </Typography>
               </Stack>
             </Stack>
@@ -94,8 +109,13 @@ export default function Footer() {
                 Nd.: nieczynne
               </Typography>
             </Stack>
-          
-            <Link to={PATHS.admin} aria-label="Panel administracyjny" rel="nofollow" style={{ display: 'inline-flex' }}>
+
+            <Link
+              to={PATHS.admin}
+              aria-label="Panel administracyjny"
+              rel="nofollow"
+              style={{ display: 'inline-flex' }}
+            >
               <AdminPanelSettingsIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
             </Link>
           </Grid>
@@ -134,7 +154,8 @@ export default function Footer() {
           }}
         >
           <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.5)' }}>
-            © {new Date().getFullYear()} Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk.
+            Wszelkie prawa zastrzeżone.
           </Typography>
         </Box>
       </Box>

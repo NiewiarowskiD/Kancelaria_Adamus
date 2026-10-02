@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -6,18 +6,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Slide from '@mui/material/Slide';
 
-const STORAGE_KEY = 'cookie-consent';
-
-export type CookieConsent = 'all' | 'necessary';
-
-export function getCookieConsent(): CookieConsent | null {
-  try {
-    const value = localStorage.getItem(STORAGE_KEY);
-    return value === 'all' || value === 'necessary' ? value : null;
-  } catch {
-    return null;
-  }
-}
+import { getCookieConsent, STORAGE_KEY, type CookieConsent } from '../lib/cookieConsent';
 
 interface CookieBannerProps {
   onPolicyClick?: () => void;
@@ -25,11 +14,10 @@ interface CookieBannerProps {
 }
 
 export default function CookieBanner({ onPolicyClick, onChange }: CookieBannerProps) {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (getCookieConsent() === null) setOpen(true);
-  }, []);
+  // Na serwerze (prerender) banner się nie renderuje – pojawia się dopiero w przeglądarce
+  const [open, setOpen] = useState(
+    () => typeof window !== 'undefined' && getCookieConsent() === null,
+  );
 
   const save = (consent: CookieConsent) => {
     try {
