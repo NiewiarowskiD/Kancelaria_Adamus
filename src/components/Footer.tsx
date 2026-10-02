@@ -31,6 +31,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         borderColor: 'secondary.main',
         py: { xs: 4, md: 6 },
         px: { xs: 2, md: 4 },
+        '& .MuiTypography-body2': { fontSize: '0.9rem' },
       }}
     >
       <Box sx={{ maxWidth: 1400, mx: 'auto' }}>

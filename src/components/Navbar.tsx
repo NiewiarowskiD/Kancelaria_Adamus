@@ -118,7 +118,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   variant="body2"
                   component="a"
                   href="tel:+48505810279"
-                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.9rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                 >
                   +48 505 810 279
                 </Typography>
@@ -129,7 +129,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   variant="body2"
                   component="a"
                   href="mailto:kancelaria@radcaprawnylegnica.com.pl"
-                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.9rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
                 >
                   kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
