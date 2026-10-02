@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Navigate, Outlet, Route, Routes, useLocation, useParams } from 'react-router-dom';
+import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -19,7 +19,7 @@ import Price from './pages/PriceList';
 import Rodo from './pages/Rodo';
 import Seo from './seo/Seo';
 import { Link } from 'react-router-dom';
-import { PATHS, SPECIALIZATION_SLUGS } from './seo/routes';
+import { PATHS } from './seo/routes';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -42,12 +42,6 @@ function Layout() {
   );
 }
 
-function SpecializationRoute() {
-  const { slug } = useParams();
-  if (!slug || !(SPECIALIZATION_SLUGS as readonly string[]).includes(slug)) return <NotFound />;
-  return <Specializations key={slug} slug={slug} />;
-}
-
 function NotFound() {
   return (
     <Box sx={{ py: 12, px: 2, textAlign: 'center' }}>
@@ -68,7 +62,6 @@ export function AppRoutes() {
           <Route path={PATHS.home} element={<Home />} />
           <Route path={PATHS.about} element={<About />} />
           <Route path={PATHS.specializations} element={<Specializations />} />
-          <Route path={`${PATHS.specializations}/:slug`} element={<SpecializationRoute />} />
           <Route path={PATHS.price} element={<Price />} />
           <Route path={PATHS.online} element={<OnlineAdvice />} />
           <Route path={PATHS.blog} element={<Blog />} />
