@@ -47,7 +47,7 @@ const emptyForm: ArticleFormData = {
 
 export default function Admin() {
   const [authed, setAuthed] = useState(false);
-  const [authChecking, setAuthChecking] = useState(true);
+  const [authChecking, setAuthChecking] = useState(isSupabaseConfigured);
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -64,10 +64,7 @@ export default function Admin() {
   const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!supabase) {
-      setAuthChecking(false);
-      return;
-    }
+    if (!supabase) return;
     const client = supabase;
     const checkSession = async () => {
       const { data: { session } } = await client.auth.getSession();
@@ -83,7 +80,29 @@ export default function Admin() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
+  const fetchArticles = async () => {
+    setLoadingArticles(true);
+    setArticlesError(null);
+    if (!supabase) {
+      setArticlesError('Baza danych nie jest skonfigurowana.');
+      setLoadingArticles(false);
+      return;
+    }
+    const { data, error } = await supabase
+      .from('blog_articles')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      setArticlesError('Nie udało się pobrać artykułów.');
+    } else {
+      setArticles(data || []);
+    }
+    setLoadingArticles(false);
+  };
+
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (authed) fetchArticles();
   }, [authed]);
 
@@ -111,27 +130,6 @@ export default function Admin() {
     await supabase.auth.signOut();
     setLoginEmail('');
     setLoginPassword('');
-  };
-
-  const fetchArticles = async () => {
-    setLoadingArticles(true);
-    setArticlesError(null);
-    if (!supabase) {
-      setArticlesError('Baza danych nie jest skonfigurowana.');
-      setLoadingArticles(false);
-      return;
-    }
-    const { data, error } = await supabase
-      .from('blog_articles')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      setArticlesError('Nie udało się pobrać artykułów.');
-    } else {
-      setArticles(data || []);
-    }
-    setLoadingArticles(false);
   };
 
   const openCreateDialog = () => {

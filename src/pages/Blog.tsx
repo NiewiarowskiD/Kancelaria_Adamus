@@ -25,35 +25,35 @@ export default function Blog() {
   const { slug } = useParams();
   const prefetched = getPrefetchedArticles();
   const [articles, setArticles] = useState<BlogArticle[]>(prefetched ?? []);
-  const [loading, setLoading] = useState(prefetched === null);
-  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(prefetched === null && Boolean(supabase));
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('Wszystkie');
 
-  useEffect(() => {
-    fetchArticles();
-  }, []);
+  const error = !supabase
+    ? 'Baza danych nie jest skonfigurowana. Skontaktuj się z administratorem.'
+    : fetchError;
 
-  const fetchArticles = async () => {
-    setLoading(true);
-    setError(null);
-    if (!supabase) {
-      setError('Baza danych nie jest skonfigurowana. Skontaktuj się z administratorem.');
-      setLoading(false);
-      return;
-    }
-    const { data, error } = await supabase
+  useEffect(() => {
+    if (!supabase) return;
+    let cancelled = false;
+    supabase
       .from('blog_articles')
       .select('*')
       .eq('published', true)
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      setError('Nie udało się pobrać artykułów. Spróbuj ponownie później.');
-    } else {
-      setArticles(data || []);
-    }
-    setLoading(false);
-  };
+      .order('created_at', { ascending: false })
+      .then(({ data, error: dbError }) => {
+        if (cancelled) return;
+        if (dbError) {
+          setFetchError('Nie udało się pobrać artykułów. Spróbuj ponownie później.');
+        } else {
+          setArticles(data || []);
+        }
+        setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const slugs = articleSlugs(articles);
   const selectedArticle = slug ? articles.find((a) => slugs.get(a.id) === slug) ?? null : null;
