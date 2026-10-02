@@ -57,8 +57,11 @@ export default function Carousel() {
               backgroundImage: i === 0 
                 ? `url(${slide.image})` 
                 : `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${slide.image})`,
-              backgroundSize: 'cover',
+              // Logo (slajd 0) ma się skalować w całości, zdjęcia wypełniają cały slajd
+              backgroundSize: i === 0 ? 'contain' : 'cover',
+              backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
+              ...(i === 0 && { backgroundOrigin: 'content-box', boxSizing: 'border-box', p: { xs: 2, sm: 4, md: 6 } }),
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
