@@ -110,7 +110,7 @@ export default function Footer() {
               <Typography variant="body2" component={Link} to={PATHS.rodo} sx={linkSx}>
                 Polityka prywatności
               </Typography>
-              <Typography variant="body2" component="a" href="/regulamin.pdf" target="_blank" rel="noopener noreferrer" sx={linkSx}>
+              <Typography variant="body2" component={Link} to={PATHS.regulamin} sx={linkSx}>
                 Regulamin serwisu i świadczenia porad prawnych online (e-porad)
               </Typography>
             </Stack>
