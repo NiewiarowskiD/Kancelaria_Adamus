@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
@@ -19,12 +20,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
-import type { PageKey } from '../lib/supabase';
-
-interface NavbarProps {
-  currentPage: PageKey;
-  onNavigate: (page: PageKey) => void;
-}
+import { PATHS, SPECIALIZATION_LABELS, SPECIALIZATION_SLUGS, specializationPath, type PageKey } from '../seo/routes';
 
 const navFont = 'Georgia, "Times New Roman", serif';
 
@@ -37,40 +33,19 @@ const navItems: { key: PageKey; label: string }[] = [
   { key: 'blog', label: 'Blog' },
 ];
 
-const specializationList = [
-  { label: 'Prawo cywilne', id: 'spec-0' },
-  { label: 'Prawo karne', id: 'spec-1' },
-  { label: 'Prawo rodzinne', id: 'spec-2' },
-  { label: 'Prawo spadkowe', id: 'spec-3' },
-  { label: 'Prawo gospodarcze', id: 'spec-4' },
-  { label: 'Prawo pracy', id: 'spec-5' },
-  { label: 'Upadłość konsumencka', id: 'spec-6' },
-];
+const specializationList = SPECIALIZATION_SLUGS.map((slug, i) => ({
+  label: SPECIALIZATION_LABELS[i],
+  to: specializationPath(slug),
+}));
 
-export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
+export default function Navbar() {
+  const { pathname } = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSpecOpen, setMobileSpecOpen] = useState(false);
 
-  const handleNavigate = (page: PageKey) => {
-    onNavigate(page);
-    setMobileOpen(false);
-    if (window.location.hash) {
-      window.history.pushState("", document.title, window.location.pathname + window.location.search);
-      window.dispatchEvent(new Event('hashchange'));
-    }
-  };
-
-  const handleSpecClick = (id: string) => {
-    onNavigate('specializations');
-    setMobileOpen(false);
-    setTimeout(() => {
-      if (window.location.hash === `#${id}`) {
-        window.dispatchEvent(new HashChangeEvent('hashchange'));
-      } else {
-        window.location.hash = id;
-      }
-    }, 350);
-  };
+  const isActive = (key: PageKey) =>
+    key === 'home' ? pathname === '/' : pathname === PATHS[key] || pathname.startsWith(`${PATHS[key]}/`);
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <>
@@ -94,13 +69,15 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
           }}
         >
           <Box
+            component={Link}
+            to={PATHS.home}
+            aria-label="Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk – strona główna"
             sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer', my: -4, }}
-            onClick={() => handleNavigate('home')}
           >
             <Box
               component="img"
               src="/logo-proposal-3.svg"
-              alt="Kancelaria Radcy Prawnego"
+              alt="Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk"
               sx={{
                 height: { xs: 70, md: 80, lg: 120, xl: 140 },
                 width: 'auto',
@@ -162,15 +139,16 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 }}
               >
                 <Button
-                  onClick={() => handleNavigate(item.key)}
+                  component={Link}
+                  to={PATHS[item.key]}
                   sx={{
                     fontFamily: navFont,
                     fontSize: { md: '0.8rem', lg: '0.875rem' },
                     whiteSpace: 'nowrap',
-                    color: currentPage === item.key ? 'secondary.main' : 'common.white',
-                    fontWeight: currentPage === item.key ? 600 : 400,
+                    color: isActive(item.key) ? 'secondary.main' : 'common.white',
+                    fontWeight: isActive(item.key) ? 600 : 400,
                     borderBottom: '2px solid',
-                    borderColor: currentPage === item.key ? 'secondary.main' : 'transparent',
+                    borderColor: isActive(item.key) ? 'secondary.main' : 'transparent',
                     borderRadius: 0,
                     px: { md: 1, lg: 1.5 },
                     height: '100%',
@@ -213,8 +191,9 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                     >
                       {specializationList.map((spec) => (
                         <MenuItem
-                          key={spec.id}
-                          onClick={() => handleSpecClick(spec.id)}
+                          key={spec.to}
+                          component={Link}
+                          to={spec.to}
                           sx={{
                             color: 'common.white',
                             typography: 'body2',
@@ -252,6 +231,7 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
               sx={{ display: { xs: 'none', md: 'block' }, height: { md: 60, lg: 80 }, width: 'auto' }}
             />
             <IconButton
+              aria-label="Otwórz menu"
               sx={{ display: { xs: 'flex', md: 'none' }, color: 'secondary.main' }}
               onClick={() => setMobileOpen(true)}
             >
@@ -274,10 +254,12 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 <Box key={item.key}>
                   <ListItem disablePadding>
                     <ListItemButton
-                      onClick={() => setMobileSpecOpen(!mobileSpecOpen)}
+                      component={Link}
+                      to={PATHS.specializations}
+                      onClick={closeMobile}
                       sx={{
-                        color: currentPage === item.key ? 'secondary.main' : 'common.white',
-                        borderLeft: currentPage === item.key ? '4px solid' : '4px solid transparent',
+                        color: isActive(item.key) ? 'secondary.main' : 'common.white',
+                        borderLeft: isActive(item.key) ? '4px solid' : '4px solid transparent',
                         borderColor: 'secondary.main',
                       }}
                     >
@@ -285,20 +267,28 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                         primary={item.label}
                         primaryTypographyProps={{ sx: { fontFamily: navFont } }}
                       />
+                    </ListItemButton>
+                    <IconButton
+                      aria-label="Rozwiń listę specjalizacji"
+                      onClick={() => setMobileSpecOpen(!mobileSpecOpen)}
+                      sx={{ mr: 1 }}
+                    >
                       {mobileSpecOpen ? (
                         <ExpandLess sx={{ color: 'secondary.main' }} />
                       ) : (
                         <ExpandMore sx={{ color: 'common.white' }} />
                       )}
-                    </ListItemButton>
+                    </IconButton>
                   </ListItem>
                   <Collapse in={mobileSpecOpen} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                       {specializationList.map((spec) => (
                         <ListItemButton
-                          key={spec.id}
+                          key={spec.to}
+                          component={Link}
+                          to={spec.to}
                           sx={{ pl: 4 }}
-                          onClick={() => handleSpecClick(spec.id)}
+                          onClick={closeMobile}
                         >
                           <ListItemText
                             primary={spec.label}
@@ -319,10 +309,12 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             return (
               <ListItem key={item.key} disablePadding>
                 <ListItemButton
-                  onClick={() => handleNavigate(item.key)}
+                  component={Link}
+                  to={PATHS[item.key]}
+                  onClick={closeMobile}
                   sx={{
-                    color: currentPage === item.key ? 'secondary.main' : 'common.white',
-                    borderLeft: currentPage === item.key ? '4px solid' : '4px solid transparent',
+                    color: isActive(item.key) ? 'secondary.main' : 'common.white',
+                    borderLeft: isActive(item.key) ? '4px solid' : '4px solid transparent',
                     borderColor: 'secondary.main',
                   }}
                 >

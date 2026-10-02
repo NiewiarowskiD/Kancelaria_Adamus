@@ -1,5 +1,9 @@
-import { useState, useEffect } from 'react';
-import DOMPurify from 'dompurify';
+import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import Seo from '../seo/Seo';
+import { breadcrumbLd } from '../seo/jsonld';
+import { PAGE_META, PATHS, SPECIALIZATION_SLUGS, specializationPath } from '../seo/routes';
+import { sanitizeHtml } from '../lib/sanitize';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
@@ -320,34 +324,22 @@ const specializations: Specialization[] = [
   },
 ];
 
-export default function Specializations() {
-  const [expanded, setExpanded] = useState<number | false>(false);
+interface SpecializationsProps {
+  slug?: string;
+}
+
+export default function Specializations({ slug }: SpecializationsProps) {
+  const activeIndex = slug ? (SPECIALIZATION_SLUGS as readonly string[]).indexOf(slug) : -1;
+  const [expanded, setExpanded] = useState<number | false>(activeIndex >= 0 ? activeIndex : false);
   const [expandedSub, setExpandedSub] = useState<number | false>(false);
 
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash.startsWith('#spec-')) {
-        const index = parseInt(hash.replace('#spec-', ''), 10);
-        if (!isNaN(index) && index < specializations.length) {
-          setExpanded(index);
-          
-          setTimeout(() => {
-            const element = document.getElementById(`spec-${index}`);
-            if (element) {
-              const y = element.getBoundingClientRect().top + window.scrollY - 100;
-              window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-          }, 300);
-        }
-      }
-    };
-
-    handleHashChange();
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  const metaPath = activeIndex >= 0 ? specializationPath(SPECIALIZATION_SLUGS[activeIndex]) : PATHS.specializations;
+  const meta = PAGE_META[metaPath];
+  const crumbs = [
+    { name: 'Strona główna', path: '/' },
+    { name: 'Specjalizacje', path: PATHS.specializations },
+    ...(activeIndex >= 0 ? [{ name: specializations[activeIndex].title, path: metaPath }] : []),
+  ];
 
   const handleChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
@@ -360,21 +352,25 @@ export default function Specializations() {
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Seo {...meta} path={metaPath} jsonLd={breadcrumbLd(crumbs)} />
       <Box sx={{ maxWidth: 900, mx: 'auto' }}>
         <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             SPECJALIZACJE
           </Typography>
-          <Typography variant="h2" sx={{ mt: 1, mb: 2 }}>
-            Obszary praktyki kancelarii
+          <Typography variant="h2" component="h1" sx={{ mt: 1, mb: 2 }}>
+            {activeIndex >= 0 ? `${specializations[activeIndex].title} – radca prawny Legnica` : 'Obszary praktyki kancelarii'}
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 720, mx: 'auto' }}>
-            Kliknij wybrany obszar, aby poznać zakres pomocy prawnej. Każda sprawa jest analizowana indywidualnie i z pełnym zaangażowaniem.
+            {activeIndex >= 0
+              ? 'Każda sprawa jest analizowana indywidualnie i z pełnym zaangażowaniem. Poniżej znajdziesz zakres pomocy prawnej w tym obszarze.'
+              : 'Wybierz obszar, aby poznać zakres pomocy prawnej. Każda sprawa jest analizowana indywidualnie i z pełnym zaangażowaniem.'}
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {specializations.map(({ title, Icon, description, subItems }, index) => {
+            if (activeIndex >= 0 && index !== activeIndex) return null;
             const isExpanded = expanded === index;
 
             return (
@@ -417,16 +413,26 @@ export default function Specializations() {
                   }}
                 >
                   <Icon sx={{ fontSize: 32, color: 'secondary.main', mr: 2 }} />
-                  <Typography variant="h5" sx={{ m: 0 }}>
+                  <Typography variant="h5" component="h2" sx={{ m: 0 }}>
                     {title}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ p: { xs: 2, md: 4 }, pt: 0 }}>
+                  {activeIndex < 0 && (
+                    <Typography
+                      component={RouterLink}
+                      to={specializationPath(SPECIALIZATION_SLUGS[index])}
+                      variant="body2"
+                      sx={{ display: 'inline-block', mb: 2, color: 'secondary.dark', fontWeight: 600 }}
+                    >
+                      Zobacz pełny opis: {title} →
+                    </Typography>
+                  )}
                   
                   {description && (
                     <Box
                       sx={{ color: 'text.secondary', lineHeight: 1.8, textAlign: 'justify', ...richTextStyles }}
-                      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
                     />
                   )}
 
@@ -459,14 +465,14 @@ export default function Specializations() {
                               }
                               sx={{ minHeight: 48, '& .MuiAccordionSummary-content': { my: 1 } }}
                             >
-                              <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+                              <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold' }}>
                                 {sub.title}
                               </Typography>
                             </AccordionSummary>
                             <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
                               <Box
                                 sx={{ color: 'text.secondary', lineHeight: 1.7, textAlign: 'justify', ...richTextStyles }}
-                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(sub.description) }}
+                                dangerouslySetInnerHTML={{ __html: sanitizeHtml(sub.description) }}
                               />
                             </AccordionDetails>
                           </Accordion>
@@ -480,10 +486,35 @@ export default function Specializations() {
             );
 
           })}
+          {activeIndex >= 0 && (
+            <Box component="nav" aria-label="Pozostałe specjalizacje" sx={{ mt: 4 }}>
+              <Typography variant="h6" component="p" sx={{ mb: 1, color: 'secondary.dark' }}>
+                Pozostałe specjalizacje
+              </Typography>
+              <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 1.5 }}>
+                {specializations.map((spec, i) =>
+                  i === activeIndex ? null : (
+                    <Typography
+                      key={spec.title}
+                      component={RouterLink}
+                      to={specializationPath(SPECIALIZATION_SLUGS[i])}
+                      variant="body2"
+                      sx={{ color: 'secondary.dark', fontWeight: 600 }}
+                    >
+                      {spec.title}
+                    </Typography>
+                  ),
+                )}
+                <Typography component={RouterLink} to={PATHS.specializations} variant="body2" sx={{ color: 'secondary.dark', fontWeight: 600 }}>
+                  Wszystkie specjalizacje
+                </Typography>
+              </Stack>
+            </Box>
+          )}
           <Box sx={{ mt: { xs: 6, md: 10 }, textAlign: 'center' }}>
           <Card sx={{ bgcolor: 'primary.main', color: 'common.white', py: { xs: 5, md: 7 }, px: { xs: 3, md: 5 } }}>
             <CardContent>
-              <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
+              <Typography variant="h3" component="h2" sx={{ color: 'secondary.main', mb: 2 }}>
                 Skontaktuj się z nami
               </Typography>
               <Typography align='justify'variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>

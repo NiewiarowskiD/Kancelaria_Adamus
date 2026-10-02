@@ -67,19 +67,23 @@ export default function Carousel() {
               px: 3,
             }}
           >
-            <Typography
-              variant="h2"
-              sx={{
-                color: 'common.white',
-                fontWeight: 600,
-                mb: 2,
-                textShadow: '2px 2px 8px rgba(0,0,0,0.5)',
-              }}
-            >
-              {slide.title}
-            </Typography>
-            <Typography
+            {slide.title && (
+              <Typography
+                variant="h2"
+                component="p"
+                sx={{
+                  color: 'common.white',
+                  fontWeight: 600,
+                  mb: 2,
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.5)',
+                }}
+              >
+                {slide.title}
+              </Typography>
+            )}
+            {slide.subtitle && <Typography
               variant="h5"
+              component="p"
               sx={{
                 color: 'secondary.main',
                 fontWeight: 400,
@@ -87,7 +91,7 @@ export default function Carousel() {
               }}
             >
               {slide.subtitle}
-            </Typography>
+            </Typography>}
           </Box>
         </Fade>
       ))}
