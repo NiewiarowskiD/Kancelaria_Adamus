@@ -65,7 +65,15 @@ let theme = createTheme({
       },
     },
     MuiCssBaseline: {
-      styleOverrides: { body: { fontFamily: GEORGIA, fontSize: '1.2rem' } },
+      styleOverrides: {
+        body: { fontFamily: GEORGIA, fontSize: '1.2rem' },
+        // Widoczny fokus dla nawigacji klawiaturą (podwójny pierścień czytelny na jasnym i ciemnym tle)
+        ':focus-visible': {
+          outline: '2px solid #1a1a1a',
+          outlineOffset: '2px',
+          boxShadow: '0 0 0 4px #c5a572',
+        },
+      },
     },
     MuiAppBar: {
       defaultProps: { elevation: 0 },
