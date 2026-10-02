@@ -6,6 +6,8 @@ export const PATHS = {
   online: '/porady-online',
   blog: '/blog',
   rodo: '/polityka-prywatnosci',
+  notaPrawna: '/nota-prawna',
+  regulamin: '/regulamin',
   admin: '/admin',
 } as const;
 
@@ -86,6 +88,14 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Blog – artykuły i porady prawne | Kancelaria Adamus-Mielniczuk',
     description:
       'Artykuły i porady prawne radcy prawnego z Legnicy: prawo karne, cywilne, rodzinne, spadkowe, gospodarcze i pracy.',
+  },
+  '/nota-prawna': {
+    title: 'Nota prawna | Kancelaria Adamus-Mielniczuk',
+    description: 'Nota prawna serwisu Kancelarii Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
+  },
+  '/regulamin': {
+    title: 'Regulamin serwisu i świadczenia porad prawnych online (e-porad) | Kancelaria Adamus-Mielniczuk',
+    description: 'Regulamin serwisu oraz świadczenia porad prawnych online (e-porad) przez Kancelarię Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
   },
   '/polityka-prywatnosci': {
     title: 'Regulamin i polityka prywatności | Kancelaria Adamus-Mielniczuk',
