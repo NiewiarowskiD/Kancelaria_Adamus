@@ -33,7 +33,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         px: { xs: 2, md: 4 },
       }}
     >
-      <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
+      <Box sx={{ maxWidth: 1400, mx: 'auto' }}>
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Box
