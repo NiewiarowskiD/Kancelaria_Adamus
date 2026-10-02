@@ -129,26 +129,26 @@ export default function About() {
               }}
             >
               <li>
-                <strong>prawo cywilne</strong> – sporządzanie i opiniowanie umów, dochodzenie
+                <strong>Prawo cywilne</strong> – sporządzanie i opiniowanie umów, dochodzenie
                 roszczeń pieniężnych i odszkodowawczych, odpowiedzialność kontraktowa i deliktowa,
                 ochrona dóbr osobistych, zastępstwo procesowe w postępowaniu rozpoznawczym i
                 egzekucyjnym;
               </li>
               <li>
-                <strong>prawo karne</strong> – obrona podejrzanego i oskarżonego na każdym etapie
+                <strong>Prawo karne</strong> – obrona podejrzanego i oskarżonego na każdym etapie
                 postępowania karnego, reprezentacja pokrzywdzonego, w tym w charakterze pełnomocnika
                 oskarżyciela posiłkowego, a także sprawy o wykroczenia i dotyczące osób nieletnich;
               </li>
               <li>
-                <strong>prawo rodzinne i opiekuńcze</strong> – sprawy o rozwód i separację,
+                <strong>Prawo rodzinne i opiekuńcze</strong> – sprawy o rozwód i separację,
                 alimenty, władzę rodzicielską i kontakty z dzieckiem, podział majątku wspólnego;
               </li>
               <li>
-                <strong>prawo spadkowe</strong> – stwierdzenie nabycia spadku, testamenty, zachowek,
+                <strong>Prawo spadkowe</strong> – stwierdzenie nabycia spadku, testamenty, zachowek,
                 przyjęcie i odrzucenie spadku, dział spadku;
               </li>
               <li>
-                <strong>prawo gospodarcze</strong> – bieżąca obsługa prawna przedsiębiorców, umowy w
+                <strong>Prawo gospodarcze</strong> – bieżąca obsługa prawna przedsiębiorców, umowy w
                 obrocie profesjonalnym, spory gospodarcze;
               </li>
               <li>
@@ -160,11 +160,11 @@ export default function About() {
                 sprawach o przywrócenie do pracy, odszkodowanie i wynagrodzenie;
               </li>
               <li>
-                <strong>prawo budowlane i nieruchomości</strong> – obsługa prawna procesu
+                <strong>Prawo budowlane i nieruchomości</strong> – obsługa prawna procesu
                 inwestycyjno-budowlanego, obrót nieruchomościami, ochrona własności i posiadania;
               </li>
               <li>
-                <strong>upadłość konsumencka</strong> – przygotowanie wniosku o ogłoszenie upadłości
+                <strong>Upadłość konsumencka</strong> – przygotowanie wniosku o ogłoszenie upadłości
                 osoby fizycznej nieprowadzącej działalności gospodarczej oraz reprezentacja w toku
                 postępowania.
               </li>
