@@ -41,7 +41,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               component="img"
               src="/logo-proposal-3.svg"
               alt="Kancelaria Radcy Prawnego"
-              sx={{ height: { xs: 92, md: 134 }, width: 'auto', display: 'block' }}
+              sx={{ width: '100%', maxWidth: { xs: 320, md: '100%' }, height: 'auto', display: 'block' }}
             />
           </Grid>
 
