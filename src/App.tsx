@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,7 +11,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import OnlineAdvice from './pages/OnlineAdvice';
 import Blog from './pages/Blog';
-import Admin from './pages/Admin';
+import MobileCtaBar, { MOBILE_CTA_HEIGHT } from './components/MobileCtaBar';
 import Specializations from './pages/Specializations';
 import CookieBanner from './components/CookieBanner';
 import Navbar from './components/Navbar';
@@ -20,6 +20,9 @@ import Rodo from './pages/Rodo';
 import NotaPrawna from './pages/NotaPrawna';
 import Regulamin from './pages/Regulamin';
 import Seo from './seo/Seo';
+
+// Panel admina (wraz z edytorem TipTap) ładowany dopiero po wejściu na /admin
+const Admin = lazy(() => import('./pages/Admin'));
 import { Link } from 'react-router-dom';
 import { PATHS } from './seo/routes';
 
@@ -31,6 +34,39 @@ function ScrollToTop() {
   return null;
 }
 
+function SkipLink() {
+  const skip = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const main = document.getElementById('main-content');
+    main?.focus();
+    main?.scrollIntoView();
+  };
+  return (
+    <Box
+      component="a"
+      href="#main-content"
+      onClick={skip}
+      sx={{
+        position: 'fixed',
+        top: 8,
+        left: 8,
+        zIndex: (t) => t.zIndex.tooltip + 1,
+        px: 2,
+        py: 1,
+        bgcolor: 'secondary.main',
+        color: 'primary.main',
+        fontWeight: 700,
+        borderRadius: 1,
+        textDecoration: 'none',
+        transform: 'translateY(-200%)',
+        '&:focus': { transform: 'translateY(0)' },
+      }}
+    >
+      Przejdź do treści
+    </Box>
+  );
+}
+
 function Layout() {
   return (
     <Box
@@ -39,14 +75,17 @@ function Layout() {
         flexDirection: 'column',
         minHeight: '100vh',
         bgcolor: 'background.default',
+        pb: { xs: `${MOBILE_CTA_HEIGHT}px`, md: 0 },
       }}
     >
+      <SkipLink />
       <ScrollToTop />
       <Navbar />
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main" id="main-content" tabIndex={-1} sx={{ flexGrow: 1, outline: 'none' }}>
         <Outlet />
       </Box>
       <Footer />
+      <MobileCtaBar />
     </Box>
   );
 }
@@ -94,7 +133,9 @@ export function AppRoutes() {
                   path={PATHS.admin}
                   noindex
                 />
-                <Admin />
+                <Suspense fallback={null}>
+                  <Admin />
+                </Suspense>
               </>
             }
           />

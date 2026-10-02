@@ -36,7 +36,10 @@ Deno.serve(async (req: Request) => {
       });
     }
 
-    const ownerEmail = 'daniel.niewiarowski@op.pl';
+    // Odbiorcę i nadawcę można zmienić w sekretach funkcji (OWNER_EMAIL, FROM_EMAIL)
+    // bez zmiany kodu – np. po wykupieniu domeny i weryfikacji jej w Resend.
+    const ownerEmail = Deno.env.get('OWNER_EMAIL') || 'daniel.niewiarowski@op.pl';
+    const fromEmail = Deno.env.get('FROM_EMAIL') || 'Kancelaria <onboarding@resend.dev>';
     const resendApiKey = Deno.env.get('RESEND_API_KEY');
     if (!resendApiKey) {
       return new Response(
@@ -66,7 +69,7 @@ Deno.serve(async (req: Request) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Kancelaria <onboarding@resend.dev>',
+        from: fromEmail,
         to: [ownerEmail],
         subject: emailSubject,
         text: emailBody,

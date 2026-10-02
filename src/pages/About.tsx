@@ -29,7 +29,7 @@ export default function About() {
             >
               <CardMedia
                 component="img"
-                image="/photo.png"
+                image="/photo.webp"
                 alt="Radca Prawny Katarzyna Adamus-Mielniczuk"
                 sx={{
                   objectFit: 'cover',
