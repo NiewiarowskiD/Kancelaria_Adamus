@@ -35,8 +35,8 @@ const theme = createTheme({
     h4: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.75rem' },
     h5: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.4rem' },
     h6: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.2rem' },
-    body1: { fontFamily: GEORGIA, fontSize: '1rem' },
-    body2: { fontFamily: GEORGIA, fontSize: '0.9rem' },
+    body1: { fontFamily: GEORGIA, fontSize: '1.2rem' },
+    body2: { fontFamily: GEORGIA, fontSize: '1.2rem' },
     button: { fontFamily: GEORGIA, textTransform: 'none', fontWeight: 500, letterSpacing: '0.05em' },
     caption: { fontFamily: GEORGIA },
     overline: { fontFamily: GEORGIA, letterSpacing: '0.15em' },
@@ -60,7 +60,7 @@ const theme = createTheme({
       },
     },
     MuiCssBaseline: {
-      styleOverrides: { body: { fontFamily: GEORGIA } },
+      styleOverrides: { body: { fontFamily: GEORGIA, fontSize: '1.2rem' } },
     },
     MuiAppBar: {
       defaultProps: { elevation: 0 },

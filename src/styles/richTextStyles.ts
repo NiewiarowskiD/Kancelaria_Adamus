@@ -1,7 +1,7 @@
 export const richTextStyles = {
   '& p': { m: 0, mb: 1.5 },
-  '& h2': { fontSize: '1.4rem', fontWeight: 600, mt: 2, mb: 1 },
-  '& h3': { fontSize: '1.2rem', fontWeight: 600, mt: 2, mb: 1 },
+  '& h2': { fontSize: '1.7rem', fontWeight: 600, mt: 2, mb: 1 },
+  '& h3': { fontSize: '1.4rem', fontWeight: 600, mt: 2, mb: 1 },
   '& ul, & ol': { pl: 3, mb: 1.5 },
   '& li': { mb: 0.5 },
   '& strong': { fontWeight: 600 },
