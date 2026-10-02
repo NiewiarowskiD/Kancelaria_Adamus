@@ -152,11 +152,11 @@ export default function About() {
                 obrocie profesjonalnym, spory gospodarcze;
               </li>
               <li>
-                <strong>prawo administracyjne</strong> – reprezentacja w postępowaniu
+                <strong>Prawo administracyjne</strong> – reprezentacja w postępowaniu
                 administracyjnym oraz sądowoadministracyjnym;
               </li>
               <li>
-                <strong>prawo pracy</strong> – reprezentacja pracowników i pracodawców, w tym w
+                <strong>Prawo pracy</strong> – reprezentacja pracowników i pracodawców, w tym w
                 sprawach o przywrócenie do pracy, odszkodowanie i wynagrodzenie;
               </li>
               <li>
