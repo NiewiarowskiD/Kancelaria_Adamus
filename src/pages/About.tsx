@@ -8,10 +8,13 @@ import CardMedia from '@mui/material/CardMedia';
 import SchoolIcon from '@mui/icons-material/School';
 import WorkIcon from '@mui/icons-material/Work';
 import { Divider } from '@mui/material';
+import Seo from '../seo/Seo';
+import { PAGE_META } from '../seo/routes';
 
 export default function About() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Seo {...PAGE_META['/o-kancelarii']} path="/o-kancelarii" />
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
 
         <Grid container spacing={6} sx={{ mb: 6, mt: 1 }}>
@@ -33,7 +36,7 @@ export default function About() {
           </Grid>
 
           <Grid size={{ xs: 12, md: 7 }}>
-            <Typography variant="h3" sx={{ mb: 3 }}>
+            <Typography variant="h3" component="h1" sx={{ mb: 3 }}>
               Radca Prawny Katarzyna Adamus-Mielniczuk
             </Typography>
             <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', marginBottom:3 }}>

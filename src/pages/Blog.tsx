@@ -11,7 +11,12 @@ import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { supabase, type BlogArticle } from '../lib/supabase';
-import DOMPurify from 'dompurify';
+import { Link as RouterLink, useParams } from 'react-router-dom';
+import Seo from '../seo/Seo';
+import { articleLd, breadcrumbLd } from '../seo/jsonld';
+import { articleSlugs, blogPath, PAGE_META, PATHS } from '../seo/routes';
+import { getPrefetchedArticles } from '../lib/prefetch';
+import { sanitizeHtml } from '../lib/sanitize';
 
 const defaultCategories = [
   'Wszystkie',
@@ -25,11 +30,12 @@ const defaultCategories = [
 ];
 
 export default function Blog() {
-  const [articles, setArticles] = useState<BlogArticle[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { slug } = useParams();
+  const prefetched = getPrefetchedArticles();
+  const [articles, setArticles] = useState<BlogArticle[]>(prefetched ?? []);
+  const [loading, setLoading] = useState(prefetched === null);
   const [error, setError] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('Wszystkie');
-  const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
 
   useEffect(() => {
     fetchArticles();
@@ -57,6 +63,9 @@ export default function Blog() {
     setLoading(false);
   };
 
+  const slugs = articleSlugs(articles);
+  const selectedArticle = slug ? articles.find((a) => slugs.get(a.id) === slug) ?? null : null;
+
   const categories = Array.from(
     new Set([...defaultCategories, ...articles.map((a) => a.category)])
   );
@@ -74,13 +83,46 @@ export default function Blog() {
     });
   };
 
+  if (slug && loading) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', py: 12 }}>
+        <Seo {...PAGE_META['/blog']} path={blogPath(slug)} noindex />
+        <CircularProgress sx={{ color: 'secondary.main' }} />
+      </Box>
+    );
+  }
+
+  if (slug && !selectedArticle) {
+    return (
+      <Box sx={{ py: 12, px: 2, textAlign: 'center' }}>
+        <Seo title="Nie znaleziono artykułu" description="Nie znaleziono artykułu." path={blogPath(slug)} noindex />
+        <Typography variant="h2" component="h1" sx={{ mb: 2 }}>Nie znaleziono artykułu</Typography>
+        <Button component={RouterLink} to={PATHS.blog} sx={{ color: 'secondary.main' }}>Wróć do bloga</Button>
+      </Box>
+    );
+  }
+
   if (selectedArticle) {
+    const path = blogPath(slug as string);
+    const description = (selectedArticle.excerpt || (selectedArticle.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).slice(0, 160);
     return (
       <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+        <Seo
+          title={`${selectedArticle.title} | Kancelaria Adamus-Mielniczuk`}
+          description={description}
+          path={path}
+          type="article"
+          image={selectedArticle.image_url || undefined}
+          jsonLd={[
+            articleLd({ title: selectedArticle.title, description, path, image: selectedArticle.image_url, published: selectedArticle.created_at, modified: selectedArticle.updated_at }),
+            breadcrumbLd([{ name: 'Strona główna', path: '/' }, { name: 'Blog', path: PATHS.blog }, { name: selectedArticle.title, path }]),
+          ]}
+        />
         <Box sx={{ maxWidth: 800, mx: 'auto' }}>
           <Button
+            component={RouterLink}
+            to={PATHS.blog}
             startIcon={<ArrowBackIcon />}
-            onClick={() => setSelectedArticle(null)}
             sx={{ color: 'secondary.main', mb: 3 }}
           >
             Wróć do bloga
@@ -96,7 +138,7 @@ export default function Blog() {
             }}
           />
 
-          <Typography align='justify' variant="h2" sx={{ mb: 2 }}>
+          <Typography align='justify' variant="h2" component="h1" sx={{ mb: 2 }}>
             {selectedArticle.title}
           </Typography>
 
@@ -130,7 +172,7 @@ export default function Blog() {
     '& a': { color: 'secondary.main' },
   }}
   dangerouslySetInnerHTML={{
-    __html: DOMPurify.sanitize(selectedArticle.content || 'Brak treści artykułu.'),
+    __html: sanitizeHtml(selectedArticle.content || 'Brak treści artykułu.'),
   }}
 />
         </Box>
@@ -140,12 +182,13 @@ export default function Blog() {
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Seo {...PAGE_META['/blog']} path="/blog" />
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             BLOG
           </Typography>
-          <Typography align='center' variant="h2" sx={{ mt: 1, mb: 2 }}>
+          <Typography align='center' variant="h2" component="h1" sx={{ mt: 1, mb: 2 }}>
             Artykuły i porady prawne
           </Typography>
           <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
@@ -216,7 +259,9 @@ export default function Blog() {
                     },
                     transition: 'all 0.3s ease',
                   }}
-                  onClick={() => setSelectedArticle(article)}
+                  component={RouterLink}
+                  to={blogPath(slugs.get(article.id) as string)}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
                 >
                   <CardMedia
                     component="img"
@@ -236,7 +281,7 @@ export default function Blog() {
                         mb: 2,
                       }}
                     />
-                    <Typography  align='justify' variant="h5" sx={{ mb: 1, lineHeight: 1.3 }}>
+                    <Typography  align='justify' variant="h5" component="h2" sx={{ mb: 1, lineHeight: 1.3 }}>
                       {article.title}
                     </Typography>
                     <Typography align='justify' variant="body2" sx={{ color: 'text.secondary', mb: 2, flexGrow: 1 }}>

@@ -3,13 +3,17 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
+import Seo from '../seo/Seo';
+import { PAGE_META } from '../seo/routes';
 
 export default function Rodo() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Seo {...PAGE_META['/polityka-prywatnosci']} path="/polityka-prywatnosci" />
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Typography 
           variant="overline" 
+          component="h1"
           sx={{ color: 'secondary.main', letterSpacing: '0.2em', display: 'block', mb: 2 }}
         >
          Regulamin i prywatność

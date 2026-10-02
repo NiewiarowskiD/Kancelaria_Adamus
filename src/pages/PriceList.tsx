@@ -4,22 +4,21 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
 import { Button, Stack } from '@mui/material';
-import type { PageKey } from '../lib/supabase';
+import { Link } from 'react-router-dom';
+import Seo from '../seo/Seo';
+import { PAGE_META, PATHS } from '../seo/routes';
 
-interface PriceProps {
-  onNavigate: (page: PageKey) => void;
-}
-
-// 3. Dodajemy { onNavigate } jako argument funkcji Price
-export default function Price({ onNavigate }: PriceProps) {
+export default function Price() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Seo {...PAGE_META['/cennik']} path="/cennik" />
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
-        <Typography 
-          variant="overline" 
+        <Typography
+          variant="overline"
+          component="h1"
           sx={{ color: 'secondary.main', letterSpacing: '0.2em', display: 'block', mb: 2 }}
         >
-         Cennik
+         Cennik usług prawnych – radca prawny Legnica
         </Typography>
 
         <Card sx={{ bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', p: { xs: 3, md: 5 } }}>
@@ -128,7 +127,8 @@ export default function Price({ onNavigate }: PriceProps) {
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
               <Button
                 variant="outlined"
-                onClick={() => onNavigate('online')}
+                component={Link}
+                to={PATHS.online}
                 sx={{ color: 'secondary.main', borderColor: 'secondary.main', '&:hover': { borderColor: 'secondary.light' } }}
               >
                 Porada online

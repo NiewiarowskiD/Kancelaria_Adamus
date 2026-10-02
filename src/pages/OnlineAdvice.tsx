@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import Seo from '../seo/Seo';
+import { PAGE_META, PATHS } from '../seo/routes';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -15,7 +18,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import Link from '@mui/material/Link';
 
-import type { PageKey } from '../lib/supabase';
 
 const options = [
   { icon: <VideoCameraFrontIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Konsultacja wideo', desc: 'Spotkanie online przez komunikator wideo w dogodnym terminie.' },
@@ -24,11 +26,7 @@ const options = [
   { icon: <EmailIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Analiza dokumentów', desc: 'Wysłanie dokumentów mailem z analizą prawną w formie pisemnej opinii.' },
 ];
 
-interface OnlineAdviceProps {
-  onNavigate?: (page: PageKey) => void; 
-}
-
-export default function OnlineAdvice({ onNavigate }: OnlineAdviceProps) {
+export default function OnlineAdvice() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -65,12 +63,13 @@ export default function OnlineAdvice({ onNavigate }: OnlineAdviceProps) {
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
+      <Seo {...PAGE_META['/porady-online']} path="/porady-online" />
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             PORADY ONLINE
           </Typography>
-          <Typography variant="h2" sx={{ mt: 1, mb: 2 }}>
+          <Typography variant="h2" component="h1" sx={{ mt: 1, mb: 2 }}>
             Pomoc prawna bez wychodzenia z domu
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
@@ -186,10 +185,9 @@ export default function OnlineAdvice({ onNavigate }: OnlineAdviceProps) {
                       <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', textAlign: 'justify' }}>
                         Wysyłając wiadomość, akceptujesz zasady kontaktu określone w naszym{' '}
                         <Link 
-                          component="button" 
-                          type="button"
-                          variant="caption" 
-                          onClick={() => onNavigate?.('rodo')} 
+                          component={RouterLink}
+                          to={PATHS.rodo}
+                          variant="caption"
                           sx={{ color: 'secondary.dark', fontWeight: 600, cursor: 'pointer', verticalAlign: 'baseline' }}
                         >
                           Regulaminie i Polityce prywatności

@@ -1,4 +1,4 @@
-import type React from 'react';
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -7,12 +7,8 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import type { PageKey } from '../lib/supabase';
+import { PATHS } from '../seo/routes';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-
-interface FooterProps {
-  onNavigate: (page: PageKey) => void;
-}
 
 const linkSx = {
   color: 'rgba(255,255,255,0.85)',
@@ -20,7 +16,7 @@ const linkSx = {
   '&:hover': { textDecoration: 'underline' },
 };
 
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer() {
   return (
     <Box
       component="footer"
@@ -40,7 +36,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <Box
               component="img"
               src="/logo-proposal-3.svg"
-              alt="Kancelaria Radcy Prawnego"
+              alt="Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk"
               sx={{ width: '100%', maxWidth: { xs: 320, md: '100%' }, height: 'auto', display: 'block' }}
             />
           </Grid>
@@ -99,11 +95,9 @@ export default function Footer({ onNavigate }: FooterProps) {
               </Typography>
             </Stack>
           
-            <Stack spacing={1} onClick={() => onNavigate('admin')}>
-              <Stack direction="row" spacing={1.5} alignItems="center">
-                <AdminPanelSettingsIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-              </Stack>
-              </Stack>
+            <Link to={PATHS.admin} aria-label="Panel administracyjny" rel="nofollow" style={{ display: 'inline-flex' }}>
+              <AdminPanelSettingsIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
+            </Link>
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 2 }}>
             <Typography variant="h6" sx={{ color: 'secondary.main', mb: 2 }}>
@@ -113,7 +107,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <Typography variant="body2" component="a" href="/nota-prawna.pdf" target="_blank" rel="noopener noreferrer" sx={linkSx}>
                 Nota prawna
               </Typography>
-              <Typography variant="body2" component="a" href="#" onClick={(e: React.MouseEvent) => { e.preventDefault(); onNavigate('rodo'); }} sx={linkSx}>
+              <Typography variant="body2" component={Link} to={PATHS.rodo} sx={linkSx}>
                 Polityka prywatności
               </Typography>
               <Typography variant="body2" component="a" href="/regulamin.pdf" target="_blank" rel="noopener noreferrer" sx={linkSx}>

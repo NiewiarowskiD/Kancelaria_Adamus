@@ -7,7 +7,10 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import GavelIcon from '@mui/icons-material/Gavel';
 import Carousel from '../components/Carousel';
-import type { PageKey } from '../lib/supabase';
+import { Link } from 'react-router-dom';
+import Seo from '../seo/Seo';
+import { legalServiceLd } from '../seo/jsonld';
+import { PAGE_META, PATHS } from '../seo/routes';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import BusinessIcon from '@mui/icons-material/Business';
 import WorkIcon from '@mui/icons-material/Work';
@@ -15,13 +18,6 @@ import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import BalanceIcon from '@mui/icons-material/Balance';
 import AccountBalanceWallet from '@mui/icons-material/AccountBalanceWallet';
 
-interface HomeProps {
-  onNavigate: (page: PageKey) => void;
-}
-
-interface HomeProps {
-  onNavigate: (page: PageKey) => void;
-}
 
 const services = [
   { 
@@ -61,9 +57,10 @@ const services = [
   },
 ];
 
-export default function Home({ onNavigate }: HomeProps) {
+export default function Home() {
   return (
     <Box>
+      <Seo {...PAGE_META['/']} path="/" jsonLd={legalServiceLd} />
       <Carousel />
 
       <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
@@ -71,7 +68,10 @@ export default function Home({ onNavigate }: HomeProps) {
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk
           </Typography>
-          <Typography variant="h2" sx={{ mt: 1, mb: 3 }}>
+          <Typography variant="h2" component="h1" sx={{ mt: 1, mb: 2 }}>
+            Radca prawny Legnica i Dolny Śląsk – Kancelaria Katarzyna Adamus-Mielniczuk
+          </Typography>
+          <Typography variant="h5" component="p" sx={{ mb: 3, color: 'secondary.dark' }}>
             Twoje prawa w dobrych rękach
           </Typography>
           <Typography align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
@@ -139,7 +139,8 @@ Udzielając e-porady, radca prawny w taki sam sposób analizuje przedłożone do
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
                 <Button
                   variant="outlined"
-                  onClick={() => onNavigate('online')}
+                  component={Link}
+                  to={PATHS.online}
                   sx={{ color: 'secondary.main', borderColor: 'secondary.main', '&:hover': { borderColor: 'secondary.light' } }}
                 >
                   Porada online
