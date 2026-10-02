@@ -24,15 +24,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LockIcon from '@mui/icons-material/Lock';
 import { supabase, isSupabaseConfigured, type BlogArticle } from '../lib/supabase';
 import RichTextEditor from '../components/RichTextEditor';
+import { ADMIN_CATEGORIES, canonicalCategory } from '../lib/categories';
 
-const categoryOptions = [
-  'Prawo Cywilne',
-  'Prawo Rodzinne',
-  'Prawo Gospodarcze',
-  'Prawo Pracy',
-  'Prawo Nieruchomości',
-  'Ogólne',
-];
 
 interface ArticleFormData {
   title: string;
@@ -154,7 +147,7 @@ export default function Admin() {
       title: article.title,
       excerpt: article.excerpt || '',
       content: article.content || '',
-      category: article.category,
+      category: canonicalCategory(article.category),
       image_url: article.image_url || '',
       published: article.published,
     });
@@ -363,7 +356,7 @@ export default function Admin() {
                   <Box sx={{ flexGrow: 1 }}>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
                       <Chip
-                        label={article.category}
+                        label={canonicalCategory(article.category)}
                         size="small"
                         sx={{ bgcolor: 'secondary.main', color: 'primary.main', fontWeight: 600 }}
                       />
@@ -416,7 +409,7 @@ export default function Admin() {
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 >
-                  {categoryOptions.map((cat) => (
+                  {ADMIN_CATEGORIES.map((cat) => (
                     <option key={cat} value={cat}>{cat}</option>
                   ))}
                 </TextField>

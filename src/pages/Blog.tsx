@@ -17,17 +17,9 @@ import { articleLd, breadcrumbLd } from '../seo/jsonld';
 import { articleSlugs, blogPath, PAGE_META, PATHS } from '../seo/routes';
 import { getPrefetchedArticles } from '../lib/prefetch';
 import { sanitizeHtml } from '../lib/sanitize';
+import { BLOG_CATEGORIES, canonicalCategory } from '../lib/categories';
 
-const defaultCategories = [
-  'Wszystkie',
-  'Prawo cywilne',
-  'Prawo karne',
-  'Prawo rodzinne',
-  'Prawo spadkowe',
-  'Prawo gospodarcze',
-  'Prawo pracy',
-  'Upadłość konsumencka',
-];
+const defaultCategories = ['Wszystkie', ...BLOG_CATEGORIES];
 
 export default function Blog() {
   const { slug } = useParams();
@@ -67,13 +59,13 @@ export default function Blog() {
   const selectedArticle = slug ? articles.find((a) => slugs.get(a.id) === slug) ?? null : null;
 
   const categories = Array.from(
-    new Set([...defaultCategories, ...articles.map((a) => a.category)])
+    new Set([...defaultCategories, ...articles.map((a) => canonicalCategory(a.category))])
   );
 
   const filteredArticles =
     selectedCategory === 'Wszystkie'
       ? articles
-      : articles.filter((a) => a.category === selectedCategory);
+      : articles.filter((a) => canonicalCategory(a.category) === selectedCategory);
 
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('pl-PL', {
@@ -129,7 +121,7 @@ export default function Blog() {
           </Button>
 
           <Chip
-            label={selectedArticle.category}
+            label={canonicalCategory(selectedArticle.category)}
             sx={{
               bgcolor: 'secondary.main',
               color: 'primary.main',
@@ -271,7 +263,7 @@ export default function Blog() {
                   />
                   <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                     <Chip
-                      label={article.category}
+                      label={canonicalCategory(article.category)}
                       size="small"
                       sx={{
                         bgcolor: 'secondary.main',
