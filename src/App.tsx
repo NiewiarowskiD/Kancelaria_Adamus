@@ -17,6 +17,7 @@ import CookieBanner from './components/CookieBanner';
 import Navbar from './components/Navbar';
 import Price from './pages/PriceList';
 import Rodo from './pages/Rodo';
+import NotaPrawna from './pages/NotaPrawna';
 import Seo from './seo/Seo';
 import { Link } from 'react-router-dom';
 import { PATHS } from './seo/routes';
@@ -67,6 +68,7 @@ export function AppRoutes() {
           <Route path={PATHS.blog} element={<Blog />} />
           <Route path={`${PATHS.blog}/:slug`} element={<Blog />} />
           <Route path={PATHS.rodo} element={<Rodo />} />
+          <Route path={PATHS.notaPrawna} element={<NotaPrawna />} />
           <Route
             path={PATHS.admin}
             element={

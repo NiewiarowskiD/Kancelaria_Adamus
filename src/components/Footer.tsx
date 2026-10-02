@@ -104,7 +104,7 @@ export default function Footer() {
               Informacje
             </Typography>
             <Stack spacing={1.5}>
-              <Typography variant="body2" component="a" href="/nota-prawna.pdf" target="_blank" rel="noopener noreferrer" sx={linkSx}>
+              <Typography variant="body2" component={Link} to={PATHS.notaPrawna} sx={linkSx}>
                 Nota prawna
               </Typography>
               <Typography variant="body2" component={Link} to={PATHS.rodo} sx={linkSx}>
