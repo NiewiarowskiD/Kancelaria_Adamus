@@ -20,7 +20,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
-import { PATHS, SPECIALIZATION_LABELS, SPECIALIZATION_SLUGS, specializationPath, type PageKey } from '../seo/routes';
+import { PATHS, SPECIALIZATION_LABELS, specializationHash, type PageKey } from '../seo/routes';
 
 const navFont = 'Georgia, "Times New Roman", serif';
 
@@ -33,9 +33,9 @@ const navItems: { key: PageKey; label: string }[] = [
   { key: 'blog', label: 'Blog' },
 ];
 
-const specializationList = SPECIALIZATION_SLUGS.map((slug, i) => ({
-  label: SPECIALIZATION_LABELS[i],
-  to: specializationPath(slug),
+const specializationList = SPECIALIZATION_LABELS.map((label, i) => ({
+  label,
+  to: { pathname: PATHS.specializations, hash: specializationHash(i) },
 }));
 
 export default function Navbar() {
@@ -191,7 +191,7 @@ export default function Navbar() {
                     >
                       {specializationList.map((spec) => (
                         <MenuItem
-                          key={spec.to}
+                          key={spec.label}
                           component={Link}
                           to={spec.to}
                           sx={{
@@ -284,7 +284,7 @@ export default function Navbar() {
                     <List component="div" disablePadding>
                       {specializationList.map((spec) => (
                         <ListItemButton
-                          key={spec.to}
+                          key={spec.label}
                           component={Link}
                           to={spec.to}
                           sx={{ pl: 4 }}

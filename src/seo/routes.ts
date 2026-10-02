@@ -11,16 +11,6 @@ export const PATHS = {
 
 export type PageKey = keyof typeof PATHS;
 
-export const SPECIALIZATION_SLUGS = [
-  'prawo-cywilne',
-  'prawo-karne',
-  'prawo-rodzinne',
-  'prawo-spadkowe',
-  'prawo-gospodarcze',
-  'prawo-pracy',
-  'upadlosc-konsumencka',
-] as const;
-
 export const SPECIALIZATION_LABELS = [
   'Prawo cywilne',
   'Prawo karne',
@@ -31,7 +21,7 @@ export const SPECIALIZATION_LABELS = [
   'Upadłość konsumencka',
 ];
 
-export const specializationPath = (slug: string) => `${PATHS.specializations}/${slug}`;
+export const specializationHash = (index: number) => `#spec-${index}`;
 
 export const blogPath = (slug: string) => `${PATHS.blog}/${slug}`;
 
@@ -81,41 +71,6 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Specjalizacje – obszary praktyki kancelarii radcy prawnego w Legnicy',
     description:
       'Prawo cywilne, karne, rodzinne, spadkowe, gospodarcze, pracy oraz upadłość konsumencka. Sprawdź zakres pomocy prawnej Kancelarii Radcy Prawnego w Legnicy.',
-  },
-  '/specjalizacje/prawo-cywilne': {
-    title: 'Prawo cywilne – radca prawny Legnica | Kancelaria Adamus-Mielniczuk',
-    description:
-      'Umowy, odszkodowania, rękojmia, dobra osobiste, nieruchomości, najem, spory budowlane i egzekucja. Radca prawny w Legnicy – prawo cywilne dla Klientów z Dolnego Śląska.',
-  },
-  '/specjalizacje/prawo-karne': {
-    title: 'Prawo karne – radca prawny Legnica | obrona i pokrzywdzeni',
-    description:
-      'Obrona w sprawach karnych i reprezentacja pokrzywdzonych: przestępstwa narkotykowe, oszustwa, wypadki drogowe, przemoc domowa, przestępstwa gospodarcze. Radca prawny w Legnicy.',
-  },
-  '/specjalizacje/prawo-rodzinne': {
-    title: 'Prawo rodzinne – rozwód, alimenty, kontakty z dzieckiem | Legnica',
-    description:
-      'Rozwód i separacja, alimenty, podział majątku, władza rodzicielska, kontakty z dzieckiem, ustalenie ojcostwa. Radca prawny w Legnicy – sprawy rodzinne na Dolnym Śląsku.',
-  },
-  '/specjalizacje/prawo-spadkowe': {
-    title: 'Prawo spadkowe – stwierdzenie nabycia spadku, zachowek | Legnica',
-    description:
-      'Stwierdzenie nabycia spadku, dział spadku, zachowek, testamenty, wydziedziczenie i długi spadkowe. Radca prawny w Legnicy – sprawy spadkowe na Dolnym Śląsku.',
-  },
-  '/specjalizacje/prawo-gospodarcze': {
-    title: 'Prawo gospodarcze – obsługa prawna firm, umowy, windykacja | Legnica',
-    description:
-      'Bieżąca obsługa prawna przedsiębiorców, umowy handlowe, windykacja należności, spory z kontrahentami i postępowania przed sądami gospodarczymi. Radca prawny w Legnicy.',
-  },
-  '/specjalizacje/prawo-pracy': {
-    title: 'Prawo pracy – radca prawny dla pracowników i pracodawców | Legnica',
-    description:
-      'Zwolnienia, odwołania od wypowiedzenia, mobbing, zaległe wynagrodzenie, wypadki przy pracy. Radca prawny w Legnicy – prawo pracy dla pracowników i pracodawców.',
-  },
-  '/specjalizacje/upadlosc-konsumencka': {
-    title: 'Upadłość konsumencka – oddłużenie osób fizycznych | Legnica',
-    description:
-      'Wniosek o ogłoszenie upadłości konsumenckiej, plan spłaty wierzycieli, reprezentacja przed sądem i syndykiem. Radca prawny w Legnicy – pomoc w oddłużeniu.',
   },
   '/cennik': {
     title: 'Cennik – porada prawna 300 zł, honorarium ustalane indywidualnie',
