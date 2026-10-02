@@ -29,7 +29,7 @@ interface NavbarProps {
 const navFont = 'Georgia, "Times New Roman", serif';
 
 const navItems: { key: PageKey; label: string }[] = [
-  { key: 'home', label: 'Strona Główna' },
+  { key: 'home', label: 'Strona główna' },
   { key: 'about', label: 'O Kancelarii' },
   { key: 'specializations', label: 'Specjalizacje' },
   { key: 'price', label: 'Cennik' },

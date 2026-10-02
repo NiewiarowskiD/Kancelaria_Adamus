@@ -18,8 +18,8 @@ const defaultCategories = [
   'Prawo cywilne',
   'Prawo karne',
   'Prawo rodzinne',
-  'Prawo spadkowane',
-  'Prawo gospodardcze',
+  'Prawo spadkowe',
+  'Prawo gospodarcze',
   'Prawo pracy',
   'Upadłość konsumencka',
 ];
