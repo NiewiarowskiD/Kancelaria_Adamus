@@ -1,3 +1,4 @@
+import type React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -12,6 +13,12 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 interface FooterProps {
   onNavigate: (page: PageKey) => void;
 }
+
+const linkSx = {
+  color: 'rgba(255,255,255,0.85)',
+  textDecoration: 'none',
+  '&:hover': { textDecoration: 'underline' },
+};
 
 export default function Footer({ onNavigate }: FooterProps) {
   return (
@@ -28,7 +35,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     >
       <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
         <Grid container spacing={4}>
-          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
             <Box
               component="img"
               src="/logo-proposal-3.svg"
@@ -44,25 +51,35 @@ export default function Footer({ onNavigate }: FooterProps) {
             <Stack spacing={1.5}>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  +48 600 123 456
+                <Typography
+                  variant="body2"
+                  component="a"
+                  href="tel:+48505810279"
+                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  +48 505 810 279
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <EmailIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  kancelaria@prawo.pl
+                <Typography
+                  variant="body2"
+                  component="a"
+                  href="mailto:kancelaria@radcaprawnylegnica.com.pl"
+                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="flex-start">
                 <LocationOnIcon sx={{ color: 'secondary.main', fontSize: 20, mt: 0.2 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  ul. Marszałkowska 10/15<br />00-001 Warszawa
+                  Obszar działania: Legnica i całe województwo dolnośląskie<br />Porady prawne online (e-porada) dla Klientów z całej Polski
                 </Typography>
               </Stack>
             </Stack>
           </Grid>
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
             <Typography variant="h6" sx={{ color: 'secondary.main', mb: 2 }}>
               Godziny pracy
             </Typography>
@@ -70,14 +87,14 @@ export default function Footer({ onNavigate }: FooterProps) {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <AccessTimeIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  Pon-Pt: 9:00 - 18:00
+                  Pon.–pt.: 9:00–20:00
                 </Typography>
               </Stack>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)', pl: 4.5 }}>
-                Sob: 10:00 - 14:00
+                Sob.: 10:00–16:00
               </Typography>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)', pl: 4.5 }}>
-                Nd: nieczynne
+                Nd.: nieczynne
               </Typography>
             </Stack>
           
@@ -86,6 +103,22 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <AdminPanelSettingsIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
               </Stack>
               </Stack>
+          </Grid>
+          <Grid size={{ xs: 12, sm: 6, md: 2 }}>
+            <Typography variant="h6" sx={{ color: 'secondary.main', mb: 2 }}>
+              Informacje
+            </Typography>
+            <Stack spacing={1.5}>
+              <Typography variant="body2" component="a" href="/nota-prawna.pdf" target="_blank" rel="noopener noreferrer" sx={linkSx}>
+                Nota prawna
+              </Typography>
+              <Typography variant="body2" component="a" href="#" onClick={(e: React.MouseEvent) => { e.preventDefault(); onNavigate('rodo'); }} sx={linkSx}>
+                Polityka prywatności
+              </Typography>
+              <Typography variant="body2" component="a" href="/regulamin.pdf" target="_blank" rel="noopener noreferrer" sx={linkSx}>
+                Regulamin serwisu i świadczenia porad prawnych online (e-porad)
+              </Typography>
+            </Stack>
           </Grid>
           <Grid size={{ xs: 12, sm: 6, md: 2 }}>
             <Box

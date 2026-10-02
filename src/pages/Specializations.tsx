@@ -490,11 +490,22 @@ export default function Specializations() {
                 Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę. Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej skuteczne w Państwa sytuacji.
               </Typography>
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-                <Typography variant="h3" sx={{ color: 'secondary.main', mb: 2 }}>
-                [dane kontaktowe: telefon / e-mail / adres kancelarii]
-              </Typography>
-                
-          
+                <Typography
+                  variant="h6"
+                  component="a"
+                  href="tel:+48505810279"
+                  sx={{ color: 'secondary.main', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  📞 +48 505 810 279
+                </Typography>
+                <Typography
+                  variant="h6"
+                  component="a"
+                  href="mailto:kancelaria@radcaprawnylegnica.com.pl"
+                  sx={{ color: 'secondary.main', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  ✉️ kancelaria@radcaprawnylegnica.com.pl
+                </Typography>
               </Stack>
             </CardContent>
           </Card>

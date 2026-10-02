@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
+const GEORGIA = 'Georgia, "Times New Roman", serif';
+
 const theme = createTheme({
   palette: {
     mode: 'light',
@@ -26,18 +28,18 @@ const theme = createTheme({
     divider: '#e0d8c8',
   },
   typography: {
-    fontFamily: '"Cormorant Garamond", "Georgia", "Times New Roman", serif',
-    h1: { fontFamily: '"Cormorant Garamond", "Georgia", serif', fontWeight: 600, fontSize: '3.5rem' },
-    h2: { fontFamily: '"Cormorant Garamond", "Georgia", serif', fontWeight: 600, fontSize: '2.75rem' },
-    h3: { fontFamily: '"Cormorant Garamond", "Georgia", serif', fontWeight: 600, fontSize: '2.25rem' },
-    h4: { fontFamily: '"Cormorant Garamond", "Georgia", serif', fontWeight: 600, fontSize: '1.75rem' },
-    h5: { fontFamily: '"Cormorant Garamond", "Georgia", serif', fontWeight: 600, fontSize: '1.4rem' },
-    h6: { fontFamily: '"Cormorant Garamond", "Georgia", serif', fontWeight: 600, fontSize: '1.2rem' },
-    body1: { fontFamily: '"Jost", "Roboto", "Helvetica", sans-serif', fontSize: '1rem' },
-    body2: { fontFamily: '"Jost", "Roboto", "Helvetica", sans-serif', fontSize: '0.9rem' },
-    button: { fontFamily: '"Jost", "Roboto", sans-serif', textTransform: 'none', fontWeight: 500, letterSpacing: '0.05em' },
-    caption: { fontFamily: '"Jost", "Roboto", sans-serif' },
-    overline: { fontFamily: '"Jost", "Roboto", sans-serif', letterSpacing: '0.15em' },
+    fontFamily: GEORGIA,
+    h1: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '3.5rem' },
+    h2: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '2.75rem' },
+    h3: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '2.25rem' },
+    h4: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.75rem' },
+    h5: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.4rem' },
+    h6: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.2rem' },
+    body1: { fontFamily: GEORGIA, fontSize: '1rem' },
+    body2: { fontFamily: GEORGIA, fontSize: '0.9rem' },
+    button: { fontFamily: GEORGIA, textTransform: 'none', fontWeight: 500, letterSpacing: '0.05em' },
+    caption: { fontFamily: GEORGIA },
+    overline: { fontFamily: GEORGIA, letterSpacing: '0.15em' },
   },
   components: {
     MuiButton: {
@@ -57,13 +59,16 @@ const theme = createTheme({
         },
       },
     },
+    MuiCssBaseline: {
+      styleOverrides: { body: { fontFamily: GEORGIA } },
+    },
     MuiAppBar: {
       defaultProps: { elevation: 0 },
     },
     MuiChip: {
       styleOverrides: {
         root: {
-          fontFamily: '"Jost", "Roboto", sans-serif',
+          fontFamily: GEORGIA,
           fontWeight: 500,
         },
       },
