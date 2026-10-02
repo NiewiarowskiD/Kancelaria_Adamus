@@ -45,7 +45,7 @@ export default function About() {
                 <Box>
                   <Typography align='justify' variant="h6">Wykształcenie</Typography>
                   <Typography align='justify' variant="body1" sx={{ color: 'text.secondary' }}>
-                    Ukończyła studia magisterskie (kierunek prawo) na Wydziale Prawa i Administracji Uniwersytetu Śląskiego. Pracę magisterską przygotowała i obroniła w Katedrze Postępowania Karnego pod kierunkiem prof. Jarosława Zagrodnika, uznanego specjalisty oraz autora wielu publikacji naukowych i komentarzy w dziedzinie prawa karnego procesowego. Aplikację radcowską odbyła w Okręgowej Izbie Radców Prawnych w Wałbrzychu, a po jej ukończeniu I zdanym egzaminie zawodowym nabyła uprawnienia do wykonywania zawodu radcy prawnego.
+                    Ukończyła studia magisterskie (kierunek prawo) na Wydziale Prawa i Administracji Uniwersytetu Śląskiego. Pracę magisterską przygotowała i obroniła w Katedrze Postępowania Karnego pod kierunkiem prof. Jarosława Zagrodnika, uznanego specjalisty oraz autora wielu publikacji naukowych i komentarzy w dziedzinie prawa karnego procesowego. Aplikację radcowską odbyła w Okręgowej Izbie Radców Prawnych w Wałbrzychu, a po jej ukończeniu i zdanym egzaminie zawodowym nabyła uprawnienia do wykonywania zawodu radcy prawnego.
                   </Typography>
                 </Box>
               </Stack>
@@ -54,7 +54,7 @@ export default function About() {
                 <Box>
                   <Typography align='justify' variant="h6">Praktyka zawodowa</Typography>
                   <Typography align='justify' variant="body1" sx={{ color: 'text.secondary' }}>
-                    Doświadczenie zawodowe zdobywała przez kilka lat, pracując jako aplikant radcowski w kancelariach prawnych, gdzie zajmowałam się obsługą prawną klientów indywidualnych oraz biznesowych w szerokim spektrum spraw - od prawa cywilnego, przez prawo karne, administracyjne i gospodarcze, po prawo rodzinne, spadkowe, prawo pracy, prawo budowlane oraz sprawy dotyczące nieruchomości i upadłości konsumenckiej.                  </Typography>
+                    Doświadczenie zawodowe zdobywała przez kilka lat, pracując jako aplikant radcowski w kancelariach prawnych, gdzie zajmowała się obsługą prawną klientów indywidualnych oraz biznesowych w szerokim spektrum spraw - od prawa cywilnego, przez prawo karne, administracyjne i gospodarcze, po prawo rodzinne, spadkowe, prawo pracy, prawo budowlane oraz sprawy dotyczące nieruchomości i upadłości konsumenckiej.                  </Typography>
                 </Box>
               </Stack>
             </Stack>
