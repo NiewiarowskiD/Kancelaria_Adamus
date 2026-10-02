@@ -1,8 +1,8 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 const GEORGIA = 'Georgia, "Times New Roman", serif';
 
-const theme = createTheme({
+let theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -29,14 +29,14 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: GEORGIA,
-    h1: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '3.5rem' },
-    h2: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '2.75rem' },
-    h3: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '2.25rem' },
-    h4: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.75rem' },
+    h1: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '2.75rem' },
+    h2: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '2.25rem' },
+    h3: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.85rem' },
+    h4: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.6rem' },
     h5: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.4rem' },
-    h6: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.2rem' },
+    h6: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.25rem' },
     body1: { fontFamily: GEORGIA, fontSize: '1.2rem' },
-    body2: { fontFamily: GEORGIA, fontSize: '1.2rem' },
+    body2: { fontFamily: GEORGIA, fontSize: '1rem' },
     button: { fontFamily: GEORGIA, textTransform: 'none', fontWeight: 500, letterSpacing: '0.05em' },
     caption: { fontFamily: GEORGIA },
     overline: { fontFamily: GEORGIA, letterSpacing: '0.15em' },
@@ -75,5 +75,8 @@ const theme = createTheme({
     },
   },
 });
+
+// Nagłówki skalują się w dół na mniejszych ekranach
+theme = responsiveFontSizes(theme, { factor: 2.5 });
 
 export default theme;
