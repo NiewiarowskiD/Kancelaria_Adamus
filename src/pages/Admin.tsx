@@ -26,7 +26,6 @@ import { supabase, isSupabaseConfigured, type BlogArticle } from '../lib/supabas
 import RichTextEditor from '../components/RichTextEditor';
 import { ADMIN_CATEGORIES, canonicalCategory } from '../lib/categories';
 
-
 interface ArticleFormData {
   title: string;
   excerpt: string;
@@ -67,7 +66,9 @@ export default function Admin() {
     if (!supabase) return;
     const client = supabase;
     const checkSession = async () => {
-      const { data: { session } } = await client.auth.getSession();
+      const {
+        data: { session },
+      } = await client.auth.getSession();
       if (session) setAuthed(true);
       setAuthChecking(false);
     };
@@ -118,9 +119,11 @@ export default function Admin() {
     });
 
     if (error) {
-      setLoginError(error.message === 'Invalid login credentials'
-        ? 'Nieprawidłowy e-mail lub hasło.'
-        : error.message);
+      setLoginError(
+        error.message === 'Invalid login credentials'
+          ? 'Nieprawidłowy e-mail lub hasło.'
+          : error.message,
+      );
     }
     setLoginLoading(false);
   };
@@ -206,9 +209,12 @@ export default function Admin() {
       <Box sx={{ py: { xs: 6, md: 10 }, px: 2 }}>
         <Box sx={{ maxWidth: 500, mx: 'auto' }}>
           <Alert severity="error" sx={{ py: 3 }}>
-            <Typography variant="h6" sx={{ mb: 1 }}>Baza danych nie jest skonfigurowana</Typography>
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              Baza danych nie jest skonfigurowana
+            </Typography>
             <Typography variant="body2">
-              Panel administracyjny wymaga połączenia z bazą danych. Upewnij się, że plik .env zawiera VITE_SUPABASE_URL i VITE_SUPABASE_ANON_KEY.
+              Panel administracyjny wymaga połączenia z bazą danych. Upewnij się, że plik .env
+              zawiera VITE_SUPABASE_URL i VITE_SUPABASE_ANON_KEY.
             </Typography>
           </Alert>
         </Box>
@@ -240,7 +246,9 @@ export default function Admin() {
                 </Typography>
               </Box>
               {loginError && (
-                <Alert severity="error" sx={{ mb: 2 }}>{loginError}</Alert>
+                <Alert severity="error" sx={{ mb: 2 }}>
+                  {loginError}
+                </Alert>
               )}
               <Box component="form" onSubmit={handleLogin}>
                 <Stack spacing={2.5}>
@@ -314,7 +322,9 @@ export default function Admin() {
         </Stack>
 
         {articlesError && (
-          <Alert severity="error" sx={{ mb: 3 }}>{articlesError}</Alert>
+          <Alert severity="error" sx={{ mb: 3 }}>
+            {articlesError}
+          </Alert>
         )}
 
         {loadingArticles ? (
@@ -342,7 +352,10 @@ export default function Admin() {
         ) : (
           <Stack spacing={2}>
             {articles.map((article) => (
-              <Card key={article.id} sx={{ display: 'flex', border: '1px solid', borderColor: 'divider' }}>
+              <Card
+                key={article.id}
+                sx={{ display: 'flex', border: '1px solid', borderColor: 'divider' }}
+              >
                 <CardMedia
                   component="img"
                   sx={{ width: 160, objectFit: 'cover' }}
@@ -350,7 +363,14 @@ export default function Admin() {
                   image={article.image_url || '/blog-default.webp'}
                   alt={article.title}
                 />
-                <CardContent sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <CardContent
+                  sx={{
+                    flexGrow: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
                   <Box sx={{ flexGrow: 1 }}>
                     <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1 }}>
                       <Chip
@@ -359,19 +379,32 @@ export default function Admin() {
                         sx={{ bgcolor: 'secondary.main', color: 'primary.main', fontWeight: 600 }}
                       />
                       {!article.published && (
-                        <Chip label="Wersja robocza" size="small" variant="outlined" color="default" />
+                        <Chip
+                          label="Wersja robocza"
+                          size="small"
+                          variant="outlined"
+                          color="default"
+                        />
                       )}
                     </Stack>
-                    <Typography variant="h6" sx={{ mb: 0.5 }}>{article.title}</Typography>
+                    <Typography variant="h6" sx={{ mb: 0.5 }}>
+                      {article.title}
+                    </Typography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                       {article.excerpt || 'Brak opisu'}
                     </Typography>
                   </Box>
                   <Stack direction="row" spacing={1}>
-                    <IconButton onClick={() => openEditDialog(article)} sx={{ color: 'secondary.main' }}>
+                    <IconButton
+                      onClick={() => openEditDialog(article)}
+                      sx={{ color: 'secondary.main' }}
+                    >
                       <EditIcon />
                     </IconButton>
-                    <IconButton onClick={() => handleDelete(article.id)} sx={{ color: 'error.main' }}>
+                    <IconButton
+                      onClick={() => handleDelete(article.id)}
+                      sx={{ color: 'error.main' }}
+                    >
                       <DeleteIcon />
                     </IconButton>
                   </Stack>
@@ -388,7 +421,9 @@ export default function Admin() {
             </DialogTitle>
             <DialogContent sx={{ pt: 3, pb: 1 }}>
               {saveError && (
-                <Alert severity="error" sx={{ mb: 2 }}>{saveError}</Alert>
+                <Alert severity="error" sx={{ mb: 2 }}>
+                  {saveError}
+                </Alert>
               )}
               <Stack spacing={2.5} sx={{ mt: 1 }}>
                 <TextField
@@ -408,7 +443,9 @@ export default function Admin() {
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 >
                   {ADMIN_CATEGORIES.map((cat) => (
-                    <option key={cat} value={cat}>{cat}</option>
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
                   ))}
                 </TextField>
                 <TextField
@@ -427,16 +464,21 @@ export default function Admin() {
                   helperText="Link do zdjęcia nagłówkowego (opcjonalne)"
                 />
                 <RichTextEditor
-  label="Treść artykułu"
-  value={formData.content}
-  onChange={(html) => setFormData({ ...formData, content: html })}
-/>
+                  label="Treść artykułu"
+                  value={formData.content}
+                  onChange={(html) => setFormData({ ...formData, content: html })}
+                />
                 <FormControlLabel
                   control={
                     <Switch
                       checked={formData.published}
                       onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
-                      sx={{ '& .MuiSwitch-switchBase.Mui-checked': { color: 'secondary.main' }, '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': { backgroundColor: 'secondary.main' } }}
+                      sx={{
+                        '& .MuiSwitch-switchBase.Mui-checked': { color: 'secondary.main' },
+                        '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                          backgroundColor: 'secondary.main',
+                        },
+                      }}
                     />
                   }
                   label="Opublikowany"
@@ -454,7 +496,13 @@ export default function Admin() {
                 disabled={saving}
                 sx={{ color: 'primary.main', fontWeight: 600 }}
               >
-                {saving ? <CircularProgress size={24} /> : editingId ? 'Zapisz zmiany' : 'Dodaj artykuł'}
+                {saving ? (
+                  <CircularProgress size={24} />
+                ) : editingId ? (
+                  'Zapisz zmiany'
+                ) : (
+                  'Dodaj artykuł'
+                )}
               </Button>
             </DialogActions>
           </form>

@@ -37,7 +37,12 @@ let theme = createTheme({
     h6: { fontFamily: GEORGIA, fontWeight: 600, fontSize: '1.25rem' },
     body1: { fontFamily: GEORGIA, fontSize: '1.2rem' },
     body2: { fontFamily: GEORGIA, fontSize: '1rem' },
-    button: { fontFamily: GEORGIA, textTransform: 'none', fontWeight: 500, letterSpacing: '0.05em' },
+    button: {
+      fontFamily: GEORGIA,
+      textTransform: 'none',
+      fontWeight: 500,
+      letterSpacing: '0.05em',
+    },
     caption: { fontFamily: GEORGIA },
     overline: { fontFamily: GEORGIA, letterSpacing: '0.15em' },
   },

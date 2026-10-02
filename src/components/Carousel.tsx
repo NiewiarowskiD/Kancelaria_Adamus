@@ -54,14 +54,19 @@ export default function Carousel() {
               inset: 0,
               opacity: index === i ? 1 : 0,
               transition: 'opacity 0.8s ease-in-out',
-              backgroundImage: i === 0 
-                ? `url(${slide.image})` 
-                : `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${slide.image})`,
+              backgroundImage:
+                i === 0
+                  ? `url(${slide.image})`
+                  : `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url(${slide.image})`,
               // Logo (slajd 0) ma się skalować w całości, zdjęcia wypełniają cały slajd
               backgroundSize: i === 0 ? 'contain' : 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-              ...(i === 0 && { backgroundOrigin: 'content-box', boxSizing: 'border-box', p: { xs: 2, sm: 4, md: 6 } }),
+              ...(i === 0 && {
+                backgroundOrigin: 'content-box',
+                boxSizing: 'border-box',
+                p: { xs: 2, sm: 4, md: 6 },
+              }),
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
@@ -84,17 +89,19 @@ export default function Carousel() {
                 {slide.title}
               </Typography>
             )}
-            {slide.subtitle && <Typography
-              variant="h5"
-              component="p"
-              sx={{
-                color: 'secondary.main',
-                fontWeight: 400,
-                textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
-              }}
-            >
-              {slide.subtitle}
-            </Typography>}
+            {slide.subtitle && (
+              <Typography
+                variant="h5"
+                component="p"
+                sx={{
+                  color: 'secondary.main',
+                  fontWeight: 400,
+                  textShadow: '1px 1px 4px rgba(0,0,0,0.5)',
+                }}
+              >
+                {slide.subtitle}
+              </Typography>
+            )}
           </Box>
         </Fade>
       ))}

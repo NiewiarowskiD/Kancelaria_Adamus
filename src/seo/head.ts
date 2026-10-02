@@ -21,7 +21,9 @@ export function buildHeadTags(p: SeoProps): string {
     `<title>${esc(p.title)}</title>`,
     `<meta name="description" content="${esc(p.description)}" />`,
     `<link rel="canonical" href="${url}" />`,
-    p.noindex ? '<meta name="robots" content="noindex, nofollow" />' : '<meta name="robots" content="index, follow" />',
+    p.noindex
+      ? '<meta name="robots" content="noindex, nofollow" />'
+      : '<meta name="robots" content="index, follow" />',
     `<meta property="og:type" content="${p.type || 'website'}" />`,
     `<meta property="og:site_name" content="${esc(SITE_NAME)}" />`,
     `<meta property="og:locale" content="pl_PL" />`,
@@ -35,11 +37,16 @@ export function buildHeadTags(p: SeoProps): string {
     `<meta name="twitter:image" content="${esc(image)}" />`,
   ];
   if (p.image === undefined || image === OG_IMAGE) {
-    tags.push('<meta property="og:image:width" content="1200" />', '<meta property="og:image:height" content="630" />');
+    tags.push(
+      '<meta property="og:image:width" content="1200" />',
+      '<meta property="og:image:height" content="630" />',
+    );
   }
   const ld = p.jsonLd ? (Array.isArray(p.jsonLd) ? p.jsonLd : [p.jsonLd]) : [];
   for (const item of ld) {
-    tags.push(`<script type="application/ld+json">${JSON.stringify(item).replace(/</g, '\\u003c')}</script>`);
+    tags.push(
+      `<script type="application/ld+json">${JSON.stringify(item).replace(/</g, '\\u003c')}</script>`,
+    );
   }
   return tags.join('\n    ');
 }

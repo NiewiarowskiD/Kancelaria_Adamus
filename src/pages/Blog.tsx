@@ -56,10 +56,10 @@ export default function Blog() {
   }, []);
 
   const slugs = articleSlugs(articles);
-  const selectedArticle = slug ? articles.find((a) => slugs.get(a.id) === slug) ?? null : null;
+  const selectedArticle = slug ? (articles.find((a) => slugs.get(a.id) === slug) ?? null) : null;
 
   const categories = Array.from(
-    new Set([...defaultCategories, ...articles.map((a) => canonicalCategory(a.category))])
+    new Set([...defaultCategories, ...articles.map((a) => canonicalCategory(a.category))]),
   );
 
   const filteredArticles =
@@ -87,16 +87,31 @@ export default function Blog() {
   if (slug && !selectedArticle) {
     return (
       <Box sx={{ py: 12, px: 2, textAlign: 'center' }}>
-        <Seo title="Nie znaleziono artykułu" description="Nie znaleziono artykułu." path={blogPath(slug)} noindex />
-        <Typography variant="h2" component="h1" sx={{ mb: 2 }}>Nie znaleziono artykułu</Typography>
-        <Button component={RouterLink} to={PATHS.blog} sx={{ color: 'secondary.main' }}>Wróć do bloga</Button>
+        <Seo
+          title="Nie znaleziono artykułu"
+          description="Nie znaleziono artykułu."
+          path={blogPath(slug)}
+          noindex
+        />
+        <Typography variant="h2" component="h1" sx={{ mb: 2 }}>
+          Nie znaleziono artykułu
+        </Typography>
+        <Button component={RouterLink} to={PATHS.blog} sx={{ color: 'secondary.main' }}>
+          Wróć do bloga
+        </Button>
       </Box>
     );
   }
 
   if (selectedArticle) {
     const path = blogPath(slug as string);
-    const description = (selectedArticle.excerpt || (selectedArticle.content || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).slice(0, 160);
+    const description = (
+      selectedArticle.excerpt ||
+      (selectedArticle.content || '')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+    ).slice(0, 160);
     return (
       <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
         <Seo
@@ -106,8 +121,19 @@ export default function Blog() {
           type="article"
           image={selectedArticle.image_url || undefined}
           jsonLd={[
-            articleLd({ title: selectedArticle.title, description, path, image: selectedArticle.image_url, published: selectedArticle.created_at, modified: selectedArticle.updated_at }),
-            breadcrumbLd([{ name: 'Strona główna', path: '/' }, { name: 'Blog', path: PATHS.blog }, { name: selectedArticle.title, path }]),
+            articleLd({
+              title: selectedArticle.title,
+              description,
+              path,
+              image: selectedArticle.image_url,
+              published: selectedArticle.created_at,
+              modified: selectedArticle.updated_at,
+            }),
+            breadcrumbLd([
+              { name: 'Strona główna', path: '/' },
+              { name: 'Blog', path: PATHS.blog },
+              { name: selectedArticle.title, path },
+            ]),
           ]}
         />
         <Box sx={{ maxWidth: 800, mx: 'auto' }}>
@@ -130,11 +156,15 @@ export default function Blog() {
             }}
           />
 
-          <Typography align='justify' variant="h2" component="h1" sx={{ mb: 2 }}>
+          <Typography align="justify" variant="h2" component="h1" sx={{ mb: 2 }}>
             {selectedArticle.title}
           </Typography>
 
-          <Typography align='justify' variant="caption" sx={{ color: 'text.secondary', mb: 4, display: 'block' }}>
+          <Typography
+            align="justify"
+            variant="caption"
+            sx={{ color: 'text.secondary', mb: 4, display: 'block' }}
+          >
             {formatDate(selectedArticle.created_at)}
           </Typography>
 
@@ -148,25 +178,29 @@ export default function Blog() {
           )}
 
           {selectedArticle.excerpt && (
-            <Typography align='justify' variant="h6" sx={{ color: 'text.secondary', mb: 3, fontStyle: 'italic' }}>
+            <Typography
+              align="justify"
+              variant="h6"
+              sx={{ color: 'text.secondary', mb: 3, fontStyle: 'italic' }}
+            >
               {selectedArticle.excerpt}
             </Typography>
           )}
 
           <Box
-  sx={{
-    lineHeight: 1.8,
-    color: 'text.primary',
-    '& p': { mb: 2 },
-    '& h2, & h3': { mt: 3, mb: 1.5, fontWeight: 600 },
-    '& ul, & ol': { pl: 3, mb: 2 },
-    '& strong': { fontWeight: 700 },
-    '& a': { color: 'secondary.main' },
-  }}
-  dangerouslySetInnerHTML={{
-    __html: sanitizeHtml(selectedArticle.content || 'Brak treści artykułu.'),
-  }}
-/>
+            sx={{
+              lineHeight: 1.8,
+              color: 'text.primary',
+              '& p': { mb: 2 },
+              '& h2, & h3': { mt: 3, mb: 1.5, fontWeight: 600 },
+              '& ul, & ol': { pl: 3, mb: 2 },
+              '& strong': { fontWeight: 700 },
+              '& a': { color: 'secondary.main' },
+            }}
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(selectedArticle.content || 'Brak treści artykułu.'),
+            }}
+          />
         </Box>
       </Box>
     );
@@ -180,12 +214,16 @@ export default function Blog() {
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
             BLOG
           </Typography>
-          <Typography align='center' variant="h2" component="h1" sx={{ mt: 1, mb: 2 }}>
+          <Typography align="center" variant="h2" component="h1" sx={{ mt: 1, mb: 2 }}>
             Artykuły i porady prawne
           </Typography>
-          <Typography  align='justify' variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
-            Znajdź artykuły z zakresu prawa, które mogą Cię interesować.
-            Wybierz kategorię, aby filtrować treści.
+          <Typography
+            align="justify"
+            variant="body1"
+            sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}
+          >
+            Znajdź artykuły z zakresu prawa, które mogą Cię interesować. Wybierz kategorię, aby
+            filtrować treści.
           </Typography>
         </Box>
 
@@ -221,7 +259,7 @@ export default function Blog() {
             <CircularProgress sx={{ color: 'secondary.main' }} />
           </Box>
         ) : error ? (
-          <Typography align='justify' color="error" sx={{ textAlign: 'center', py: 4 }}>
+          <Typography align="justify" color="error" sx={{ textAlign: 'center', py: 4 }}>
             {error}
           </Typography>
         ) : filteredArticles.length === 0 ? (
@@ -273,13 +311,22 @@ export default function Blog() {
                         mb: 2,
                       }}
                     />
-                    <Typography  align='justify' variant="h5" component="h2" sx={{ mb: 1, lineHeight: 1.3 }}>
+                    <Typography
+                      align="justify"
+                      variant="h5"
+                      component="h2"
+                      sx={{ mb: 1, lineHeight: 1.3 }}
+                    >
                       {article.title}
                     </Typography>
-                    <Typography align='justify' variant="body2" sx={{ color: 'text.secondary', mb: 2, flexGrow: 1 }}>
+                    <Typography
+                      align="justify"
+                      variant="body2"
+                      sx={{ color: 'text.secondary', mb: 2, flexGrow: 1 }}
+                    >
                       {article.excerpt || 'Kliknij, aby przeczytać pełny artykuł...'}
                     </Typography>
-                    <Typography align='justify' variant="caption" sx={{ color: 'text.secondary' }}>
+                    <Typography align="justify" variant="caption" sx={{ color: 'text.secondary' }}>
                       {formatDate(article.created_at)}
                     </Typography>
                   </CardContent>

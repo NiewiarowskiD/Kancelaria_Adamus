@@ -14,7 +14,11 @@ export default function Seo(props: SeoProps) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     document.head.querySelectorAll(`[${MANAGED}]`).forEach((el) => el.remove());
-    document.head.querySelectorAll('title, meta[name="description"], link[rel="canonical"], meta[name="robots"], meta[property^="og:"], meta[name^="twitter:"], script[type="application/ld+json"]').forEach((el) => el.remove());
+    document.head
+      .querySelectorAll(
+        'title, meta[name="description"], link[rel="canonical"], meta[name="robots"], meta[property^="og:"], meta[name^="twitter:"], script[type="application/ld+json"]',
+      )
+      .forEach((el) => el.remove());
     document.title = props.title;
     const tpl = document.createElement('template');
     tpl.innerHTML = buildHeadTags(props);
@@ -22,7 +26,7 @@ export default function Seo(props: SeoProps) {
       el.setAttribute(MANAGED, '');
       document.head.appendChild(el);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.title, props.description, props.path, props.noindex, props.image, props.type, ldKey]);
   return null;
 }

@@ -18,12 +18,27 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import Link from '@mui/material/Link';
 
-
 const options = [
-  { icon: <VideoCameraFrontIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Konsultacja wideo', desc: 'Spotkanie online przez komunikator wideo w dogodnym terminie.' },
-  { icon: <PhoneIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Konsultacja telefoniczna', desc: 'Rozmowa telefoniczna z radcą prawnym bez konieczności wizyty w kancelarii.' },
-  { icon: <ChatIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Porada tekstowa', desc: 'Odpowiedź na Twoje pytanie w formie pisemnej przesłana drogą mailową.' },
-  { icon: <EmailIcon sx={{ fontSize: 40, color: 'secondary.main' }} />, title: 'Analiza dokumentów', desc: 'Wysłanie dokumentów mailem z analizą prawną w formie pisemnej opinii.' },
+  {
+    icon: <VideoCameraFrontIcon sx={{ fontSize: 40, color: 'secondary.main' }} />,
+    title: 'Konsultacja wideo',
+    desc: 'Spotkanie online przez komunikator wideo w dogodnym terminie.',
+  },
+  {
+    icon: <PhoneIcon sx={{ fontSize: 40, color: 'secondary.main' }} />,
+    title: 'Konsultacja telefoniczna',
+    desc: 'Rozmowa telefoniczna z radcą prawnym bez konieczności wizyty w kancelarii.',
+  },
+  {
+    icon: <ChatIcon sx={{ fontSize: 40, color: 'secondary.main' }} />,
+    title: 'Porada tekstowa',
+    desc: 'Odpowiedź na Twoje pytanie w formie pisemnej przesłana drogą mailową.',
+  },
+  {
+    icon: <EmailIcon sx={{ fontSize: 40, color: 'secondary.main' }} />,
+    title: 'Analiza dokumentów',
+    desc: 'Wysłanie dokumentów mailem z analizą prawną w formie pisemnej opinii.',
+  },
 ];
 
 export default function OnlineAdvice() {
@@ -73,19 +88,30 @@ export default function OnlineAdvice() {
             Pomoc prawna bez wychodzenia z domu
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
-            Skorzystaj z konsultacji prawnej online. Wybierz najdogodniejszą formę
-            kontaktu i umów się na spotkanie w kilka minut.
+            Skorzystaj z konsultacji prawnej online. Wybierz najdogodniejszą formę kontaktu i umów
+            się na spotkanie w kilka minut.
           </Typography>
         </Box>
 
         <Grid container spacing={4} sx={{ mb: 6 }}>
           {options.map((opt, i) => (
             <Grid key={i} size={{ xs: 12, sm: 6, md: 3 }}>
-              <Card sx={{ height: '100%', textAlign: 'center', py: 4, px: 2, border: '1px solid', borderColor: 'divider' }}>
+              <Card
+                sx={{
+                  height: '100%',
+                  textAlign: 'center',
+                  py: 4,
+                  px: 2,
+                  border: '1px solid',
+                  borderColor: 'divider',
+                }}
+              >
                 <CardContent>
                   <Box sx={{ mb: 2 }}>{opt.icon}</Box>
-                  <Typography variant="h6" sx={{ mb: 1 }}>{opt.title}</Typography>
-                  <Typography align='justify' variant="body2" sx={{ color: 'text.secondary' }}>
+                  <Typography variant="h6" sx={{ mb: 1 }}>
+                    {opt.title}
+                  </Typography>
+                  <Typography align="justify" variant="body2" sx={{ color: 'text.secondary' }}>
                     {opt.desc}
                   </Typography>
                 </CardContent>
@@ -103,25 +129,33 @@ export default function OnlineAdvice() {
                 </Typography>
                 <Stack spacing={2.5}>
                   <Box>
-                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>1. Wyślij zapytanie</Typography>
+                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>
+                      1. Wyślij zapytanie
+                    </Typography>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
                       Wypełnij formularz kontaktowy opisując swoją sprawę.
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>2. Otrzymaj odpowiedź</Typography>
+                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>
+                      2. Otrzymaj odpowiedź
+                    </Typography>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
                       Skontaktujemy się z Tobą w ciągu 24 godzin z propozycją terminu.
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>3. Spotkanie online</Typography>
+                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>
+                      3. Spotkanie online
+                    </Typography>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
                       Spotykamy się online lub telefonicznie w wybranym terminie.
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>4. Pisemna opinia</Typography>
+                    <Typography variant="h6" sx={{ color: 'secondary.light' }}>
+                      4. Pisemna opinia
+                    </Typography>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
                       Po konsultacji otrzymasz podsumowanie i ewentualne zalecenia.
                     </Typography>
@@ -147,7 +181,9 @@ export default function OnlineAdvice() {
                 ) : (
                   <Box component="form" onSubmit={handleSubmit}>
                     {submitError && (
-                      <Alert severity="error" sx={{ mb: 2 }}>{submitError}</Alert>
+                      <Alert severity="error" sx={{ mb: 2 }}>
+                        {submitError}
+                      </Alert>
                     )}
                     <Stack spacing={2.5}>
                       <TextField
@@ -180,19 +216,28 @@ export default function OnlineAdvice() {
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                       />
-                      
+
                       {/* DODANA KLAUZULA INFORMACYJNA RODO / REGULAMIN */}
-                      <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', textAlign: 'justify' }}>
+                      <Typography
+                        variant="caption"
+                        sx={{ color: 'text.secondary', display: 'block', textAlign: 'justify' }}
+                      >
                         Wysyłając wiadomość, akceptujesz zasady kontaktu określone w naszym{' '}
-                        <Link 
+                        <Link
                           component={RouterLink}
                           to={PATHS.rodo}
                           variant="caption"
-                          sx={{ color: 'secondary.dark', fontWeight: 600, cursor: 'pointer', verticalAlign: 'baseline' }}
+                          sx={{
+                            color: 'secondary.dark',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            verticalAlign: 'baseline',
+                          }}
                         >
                           Regulaminie i Polityce prywatności
                         </Link>
-                        . Twoje dane nie są zapisywane na stronie i trafiają bezpośrednio na skrzynkę e-mail Kancelarii.
+                        . Twoje dane nie są zapisywane na stronie i trafiają bezpośrednio na
+                        skrzynkę e-mail Kancelarii.
                       </Typography>
 
                       <Button

@@ -15,7 +15,9 @@ interface CookieBannerProps {
 
 export default function CookieBanner({ onPolicyClick, onChange }: CookieBannerProps) {
   // Na serwerze (prerender) banner się nie renderuje – pojawia się dopiero w przeglądarce
-  const [open, setOpen] = useState(() => typeof window !== 'undefined' && getCookieConsent() === null);
+  const [open, setOpen] = useState(
+    () => typeof window !== 'undefined' && getCookieConsent() === null,
+  );
 
   const save = (consent: CookieConsent) => {
     try {

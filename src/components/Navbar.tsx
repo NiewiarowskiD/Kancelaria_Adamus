@@ -44,7 +44,9 @@ export default function Navbar() {
   const [mobileSpecOpen, setMobileSpecOpen] = useState(false);
 
   const isActive = (key: PageKey) =>
-    key === 'home' ? pathname === '/' : pathname === PATHS[key] || pathname.startsWith(`${PATHS[key]}/`);
+    key === 'home'
+      ? pathname === '/'
+      : pathname === PATHS[key] || pathname.startsWith(`${PATHS[key]}/`);
   const closeMobile = () => setMobileOpen(false);
 
   return (
@@ -72,7 +74,7 @@ export default function Navbar() {
             component={Link}
             to={PATHS.home}
             aria-label="Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk – strona główna"
-            sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer', my: -4, }}
+            sx={{ flexShrink: 0, display: 'flex', alignItems: 'center', cursor: 'pointer', my: -4 }}
           >
             <Box
               component="img"
@@ -87,7 +89,7 @@ export default function Navbar() {
           </Box>
 
           {/* 2. Dane kontaktowe (od xl w górę) */}
-          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0, paddingLeft: 15,  }}>
+          <Box sx={{ display: { xs: 'none', xl: 'flex' }, flexShrink: 0, paddingLeft: 15 }}>
             <Stack direction="row" spacing={4}>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
@@ -95,7 +97,12 @@ export default function Navbar() {
                   variant="body2"
                   component="a"
                   href="tel:+48505810279"
-                  sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.9rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  sx={{
+                    color: 'rgba(255,255,255,0.85)',
+                    fontSize: '0.9rem',
+                    textDecoration: 'none',
+                    '&:hover': { textDecoration: 'underline' },
+                  }}
                 >
                   +48 505 810 279
                 </Typography>
@@ -106,7 +113,12 @@ export default function Navbar() {
                   variant="body2"
                   component="a"
                   href="mailto:kancelaria@radcaprawnylegnica.com.pl"
-                  sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.9rem', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  sx={{
+                    color: 'rgba(255,255,255,0.85)',
+                    fontSize: '0.9rem',
+                    textDecoration: 'none',
+                    '&:hover': { textDecoration: 'underline' },
+                  }}
                 >
                   kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
@@ -228,7 +240,11 @@ export default function Navbar() {
               component="img"
               src="/logo_KIRP_noback.svg"
               alt="Krajowa Izba Radców Prawnych"
-              sx={{ display: { xs: 'none', md: 'block' }, height: { md: 60, lg: 80 }, width: 'auto' }}
+              sx={{
+                display: { xs: 'none', md: 'block' },
+                height: { md: 60, lg: 80 },
+                width: 'auto',
+              }}
             />
             <IconButton
               aria-label="Otwórz menu"

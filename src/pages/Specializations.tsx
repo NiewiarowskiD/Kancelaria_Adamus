@@ -94,7 +94,7 @@ const specializations: Specialization[] = [
           </ul>
         `,
       },
-    ]
+    ],
   },
   {
     title: 'Prawo karne',
@@ -191,9 +191,9 @@ const specializations: Specialization[] = [
             <li><strong>Ubezwłasnowolnienie oraz opieka nad osobą ubezwłasnowolnioną.</strong> Reprezentujemy wnioskodawców i uczestników postępowania o ubezwłasnowolnienie całkowite (art. 13 k.c.) lub częściowe (art. 16 k.c.), a także o jego uchylenie lub zmianę. Znamy niuanse dotyczące wymagań dowodowych, w tym opinii biegłych lekarzy i psychologa, oraz tego, że ubezwłasnowolnienie jest środkiem ostatecznym, stosowanym dopiero wtedy, gdy inne formy wsparcia nie wystarczają. Pomagamy również w sprawach o ustanowienie opiekuna (art. 145 i n. k.r.o.) lub kuratora (art. 178 § 2 i art. 183 k.r.o.), w rozliczaniu sprawowanej opieki oraz w uzyskiwaniu zgody sądu na czynności przekraczające zakres zwykłego zarządu majątkiem.</li>
             <li><strong>Wygaśnięcie obowiązku alimentacyjnego.</strong> Prowadzimy sprawy o uchylenie obowiązku alimentacyjnego, w szczególności gdy dziecko osiągnęło samodzielność finansową lub zaniechało nauki, gdy zmieniła się sytuacja życiowa stron (art. 138 k.r.o.) albo gdy obowiązek wobec byłego małżonka wygasa z mocy prawa, np. po zawarciu przez niego nowego małżeństwa lub po upływie pięciu lat od rozwodu w razie braku wyłącznej winy (art. 60 § 3 k.r.o.). Znamy niuanse dotyczące tego, że pełnoletność dziecka sama w sobie nie kończy obowiązku alimentacyjnego, oraz tego, że do czasu prawomocnego orzeczenia należy płacić zasądzone alimenty, aby nie narazić się na egzekucję lub odpowiedzialność karną.</li>
           </ul>
-        `
-      }
-    ]
+        `,
+      },
+    ],
   },
   {
     title: 'Prawo spadkowe',
@@ -229,9 +229,9 @@ const specializations: Specialization[] = [
             <li><strong>Uznanie spadkobiercy za niegodnego dziedziczenia.</strong> Prowadzimy sprawy o uznanie spadkobiercy za niegodnego (art. 928 k.c.), w szczególności gdy dopuścił się ciężkiego przestępstwa przeciwko spadkodawcy, podstępnie lub przemocą nakłonił go do sporządzenia lub odwołania testamentu albo uporczywie działał wbrew jego woli. Znamy niuanse dotyczące tego, że takie roszczenie można zgłosić tylko w terminie roku od dowiedzenia się o przyczynie niegodności, a nie później niż w trzy lata od otwarcia spadku (art. 928 § 2 k.c.), oraz że uznanie za niegodnego traktuje się tak, jakby spadkobierca nie dożył otwarcia spadku. Reprezentujemy również osoby, przeciwko którym takie roszczenie wniesiono.</li>
             <li><strong>Odpowiedzialność za długi spadkowe.</strong> Doradzamy spadkobiercom, czy przyjąć spadek, czy go odrzucić (art. 1012 i n. k.c.), i bronimy ich przed roszczeniami wierzycieli spadkodawcy. Znamy niuanse dotyczące tego, że brak oświadczenia w terminie oznacza przyjęcie spadku z dobrodziejstwem inwentarza (art. 1015 § 2 k.c.), przy którym spadkobierca odpowiada za długi tylko do wartości stanu czynnego spadku (art. 1031 § 2 k.c.), a przy przyjęciu wprost odpowiada całym majątkiem (art. 1030 k.c.). Pomagamy w sporządzaniu inwentarza, w sporach z wierzycielami oraz w sprawach o stwierdzenie, czy spadek nie jest nadmiernie zadłużony.</li>
           </ul>
-        `
-      }
-    ]
+        `,
+      },
+    ],
   },
   {
     title: 'Prawo gospodarcze',
@@ -261,9 +261,9 @@ const specializations: Specialization[] = [
             <li><strong>Spory z kontrahentami dotyczące niewykonania lub nienależytego wykonania umów handlowych.</strong> Prowadzimy sprawy dotyczące spóźnionych lub niekompletnych dostaw, wadliwych towarów i usług, odstąpienia od umowy (art. 491 k.c.), naliczania i miarkowania kar umownych (art. 483 i 484 k.c.) oraz odszkodowań za niewykonanie zobowiązania (art. 471 k.c.), w tym utraconych korzyści. Znamy niuanse oceny staranności wymaganej od profesjonalisty (art. 355 § 2 k.c.), obowiązków kupującego związanych z badaniem towaru i zawiadomieniem o wadach w obrocie między przedsiębiorcami (art. 563 k.c.) oraz możliwości zmiany lub rozwiązania umowy w razie nadzwyczajnej zmiany stosunków (art. 357¹ k.c.). Przy umowach z kontrahentami zagranicznymi oceniamy również prawo właściwe i właściwość sądu.</li>
             <li><strong>Reprezentacja przed sądami gospodarczymi oraz w postępowaniach mediacyjnych i arbitrażowych.</strong> Reprezentujemy przedsiębiorców w sprawach gospodarczych przed sądami rejonowymi i okręgowymi, w postępowaniu odrębnym w sprawach gospodarczych (art. 458¹ i n. k.p.c.), a także w mediacji (art. 183¹ i n. k.p.c.) oraz w postępowaniu przed sądem polubownym (art. 1154 i n. k.p.c.), jeśli strony zawarły zapis na sąd polubowny. Znamy niuanse specyfiki postępowania w sprawach gospodarczych, w tym rygory dowodowe i szczegółowe wymogi pism procesowych, dlatego już na etapie planowania sporu dbamy o zebranie dokumentów i dowodów. Wskazujemy też, kiedy szybsza i tańsza ugoda przed mediatorem lub arbitrem lepiej służy interesom firmy niż długi proces.</li>
           </ul>
-        `
-      }
-    ]
+        `,
+      },
+    ],
   },
   {
     title: 'Prawo pracy',
@@ -294,9 +294,9 @@ const specializations: Specialization[] = [
             <li><strong>Dochodzenie zaległego wynagrodzenia oraz innych świadczeń pracowniczych.</strong> Prowadzimy sprawy o zapłatę zaległego wynagrodzenia (art. 80 k.p.), wynagrodzenia za nadgodziny wraz z dodatkami (art. 151¹ k.p.), ekwiwalentu za niewykorzystany urlop (art. 171 k.p.), odpraw, premii i nagród oraz odsetek za opóźnienie. Znamy niuanse dotyczące trzyletniego terminu przedawnienia roszczeń pracowniczych (art. 291 k.p.), dowodzenia pracy w godzinach nadliczbowych oraz sytuacji, gdy pracodawca jest niewypłacalny i możliwe jest uzyskanie świadczeń z Funduszu Gwarantowanych Świadczeń Pracowniczych. W razie uporczywego naruszania praw pracownika oceniamy również możliwość odpowiedzialności karnej pracodawcy (art. 218 k.k.).</li>
             <li><strong>Wypadki przy pracy oraz choroby zawodowe.</strong> Reprezentujemy pracowników oraz ich rodziny w sprawach o świadczenia z ubezpieczenia wypadkowego, w tym jednorazowe odszkodowanie za uszczerbek na zdrowiu, zasiłek chorobowy, świadczenie rehabilitacyjne oraz renty (ustawa o ubezpieczeniu społecznym z tytułu wypadków przy pracy i chorób zawodowych), oraz w odwołaniach od decyzji ZUS do sądu ubezpieczeń społecznych w terminie miesiąca od doręczenia decyzji. Znamy niuanse związane z protokołem powypadkowym, kwalifikacją zdarzenia jako wypadku przy pracy oraz stwierdzeniem choroby zawodowej przez organy sanitarne. Pomagamy też dochodzić od pracodawcy zadośćuczynienia i odszkodowania uzupełniającego, jeśli wypadek wynikał z niedopełnienia obowiązków w zakresie bezpieczeństwa i higieny pracy.</li>
           </ul>
-        `
-      }
-    ]
+        `,
+      },
+    ],
   },
   {
     title: 'Upadłość konsumencka',
@@ -318,9 +318,9 @@ const specializations: Specialization[] = [
         title: 'Sprawy, które znamy najlepiej',
         description: `
           <p><strong>Upadłość konsumencka.</strong> Prowadzimy sprawy o ogłoszenie upadłości osób fizycznych nieprowadzących działalności gospodarczej, w tym także byłych przedsiębiorców, którzy zakończyli działalność (art. 491¹ i n. ustawy Prawo upadłościowe), od oceny sytuacji finansowej i przygotowania wniosku, przez reprezentację przed sądem i syndykiem, po uzyskanie oddłużenia. Znamy niuanse dotyczące oceny, czy dłużnik jest niewypłacalny, czy niewypłacalność nie wynika z umyślnego lub rażąco niedbałego działania, oraz skutków czynności dokonanych przed ogłoszeniem upadłości, takich jak darowizny czy sprzedaż majątku, które mogą być uznane za bezskuteczne wobec masy upadłości (art. 127 i n. Prawa upadłościowego). Pomagamy sporządzić wykaz majątku i listę wierzycieli, złożyć wniosek na urzędowym formularzu, współpracować z syndykiem w likwidacji majątku oraz przygotować plan spłaty wierzycieli, po wykonaniu którego pozostałe zobowiązania mogą zostać umorzone. Wskazujemy też, które długi nie podlegają umorzeniu (m.in. alimenty, renty odszkodowawcze i niektóre odszkodowania za czyny umyślne), oraz rozwiązania dotyczące zamieszkiwanego lokalu i minimalnego utrzymania dłużnika. W razie potrzeby doradzamy, czy lepszym wyjściem nie będzie ugoda z wierzycielami lub inny sposób restrukturyzacji zadłużenia.</p>
-        `
-      }
-    ]
+        `,
+      },
+    ],
   },
 ];
 
@@ -349,16 +349,24 @@ export default function Specializations() {
 
   const handleChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
-    setExpandedSub(false); 
+    setExpandedSub(false);
   };
 
-  const handleSubChange = (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpandedSub(isExpanded ? panel : false);
-  };
+  const handleSubChange =
+    (panel: number) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
+      setExpandedSub(isExpanded ? panel : false);
+    };
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-      <Seo {...PAGE_META['/specjalizacje']} path={PATHS.specializations} jsonLd={breadcrumbLd([{ name: 'Strona główna', path: '/' }, { name: 'Specjalizacje', path: PATHS.specializations }])} />
+      <Seo
+        {...PAGE_META['/specjalizacje']}
+        path={PATHS.specializations}
+        jsonLd={breadcrumbLd([
+          { name: 'Strona główna', path: '/' },
+          { name: 'Specjalizacje', path: PATHS.specializations },
+        ])}
+      />
       <Box sx={{ maxWidth: 900, mx: 'auto' }}>
         <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 } }}>
           <Typography variant="overline" sx={{ color: 'secondary.main', letterSpacing: '0.2em' }}>
@@ -368,7 +376,8 @@ export default function Specializations() {
             Obszary praktyki kancelarii
           </Typography>
           <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 720, mx: 'auto' }}>
-            Wybierz obszar, aby poznać zakres pomocy prawnej. Każda sprawa jest analizowana indywidualnie i z pełnym zaangażowaniem.
+            Wybierz obszar, aby poznać zakres pomocy prawnej. Każda sprawa jest analizowana
+            indywidualnie i z pełnym zaangażowaniem.
           </Typography>
         </Box>
 
@@ -380,7 +389,7 @@ export default function Specializations() {
               <Accordion
                 key={title}
                 expanded={isExpanded}
-                id={`spec-${index}`} 
+                id={`spec-${index}`}
                 onChange={handleChange(index)}
                 disableGutters
                 elevation={0}
@@ -421,10 +430,14 @@ export default function Specializations() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails sx={{ p: { xs: 2, md: 4 }, pt: 0 }}>
-                  
                   {description && (
                     <Box
-                      sx={{ color: 'text.secondary', lineHeight: 1.8, textAlign: 'justify', ...richTextStyles }}
+                      sx={{
+                        color: 'text.secondary',
+                        lineHeight: 1.8,
+                        textAlign: 'justify',
+                        ...richTextStyles,
+                      }}
                       dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
                     />
                   )}
@@ -464,7 +477,12 @@ export default function Specializations() {
                             </AccordionSummary>
                             <AccordionDetails sx={{ pt: 0, pb: 2, px: 2 }}>
                               <Box
-                                sx={{ color: 'text.secondary', lineHeight: 1.7, textAlign: 'justify', ...richTextStyles }}
+                                sx={{
+                                  color: 'text.secondary',
+                                  lineHeight: 1.7,
+                                  textAlign: 'justify',
+                                  ...richTextStyles,
+                                }}
                                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(sub.description) }}
                               />
                             </AccordionDetails>
@@ -473,42 +491,64 @@ export default function Specializations() {
                       })}
                     </Box>
                   )}
-
                 </AccordionDetails>
               </Accordion>
             );
-
           })}
           <Box sx={{ mt: { xs: 6, md: 10 }, textAlign: 'center' }}>
-          <Card sx={{ bgcolor: 'primary.main', color: 'common.white', py: { xs: 5, md: 7 }, px: { xs: 3, md: 5 } }}>
-            <CardContent>
-              <Typography variant="h3" component="h2" sx={{ color: 'secondary.main', mb: 2 }}>
-                Skontaktuj się z nami
-              </Typography>
-              <Typography align='justify'variant="body1" sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}>
-                Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę. Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej skuteczne w Państwa sytuacji.
-              </Typography>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-                <Typography
-                  variant="h6"
-                  component="a"
-                  href="tel:+48505810279"
-                  sx={{ color: 'secondary.main', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
-                >
-                  📞 +48 505 810 279
+            <Card
+              sx={{
+                bgcolor: 'primary.main',
+                color: 'common.white',
+                py: { xs: 5, md: 7 },
+                px: { xs: 3, md: 5 },
+              }}
+            >
+              <CardContent>
+                <Typography variant="h3" component="h2" sx={{ color: 'secondary.main', mb: 2 }}>
+                  Skontaktuj się z nami
                 </Typography>
                 <Typography
-                  variant="h6"
-                  component="a"
-                  href="mailto:kancelaria@radcaprawnylegnica.com.pl"
-                  sx={{ color: 'secondary.main', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                  align="justify"
+                  variant="body1"
+                  sx={{ color: 'rgba(255,255,255,0.8)', mb: 4 }}
                 >
-                  ✉️ kancelaria@radcaprawnylegnica.com.pl
+                  Niezależnie od tego, z jaką sprawą Państwo się do nas zwracają — nawet jeśli nie
+                  jest ona wprost wymieniona powyżej — zapraszamy do kontaktu. Zakres naszej
+                  praktyki stale się rozwija, a jeśli dana sprawa wykracza poza naszą bieżącą
+                  specjalizację, wskażemy właściwy kierunek działania lub zaufanego specjalistę.
+                  Pierwsza rozmowa pomoże ustalić, jak możemy pomóc i jakie kroki będą najbardziej
+                  skuteczne w Państwa sytuacji.
                 </Typography>
-              </Stack>
-            </CardContent>
-          </Card>
-        </Box>
+                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    href="tel:+48505810279"
+                    sx={{
+                      color: 'secondary.main',
+                      textDecoration: 'none',
+                      '&:hover': { textDecoration: 'underline' },
+                    }}
+                  >
+                    📞 +48 505 810 279
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    href="mailto:kancelaria@radcaprawnylegnica.com.pl"
+                    sx={{
+                      color: 'secondary.main',
+                      textDecoration: 'none',
+                      '&:hover': { textDecoration: 'underline' },
+                    }}
+                  >
+                    ✉️ kancelaria@radcaprawnylegnica.com.pl
+                  </Typography>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Box>
         </Box>
       </Box>
     </Box>

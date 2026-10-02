@@ -33,7 +33,14 @@ function ScrollToTop() {
 
 function Layout() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        bgcolor: 'background.default',
+      }}
+    >
       <ScrollToTop />
       <Navbar />
       <Box component="main" sx={{ flexGrow: 1 }}>
@@ -48,9 +55,15 @@ function NotFound() {
   return (
     <Box sx={{ py: 12, px: 2, textAlign: 'center' }}>
       <Seo title="Nie znaleziono strony" description="Nie znaleziono strony." path="/404" noindex />
-      <Typography variant="h2" component="h1" sx={{ mb: 2 }}>Nie znaleziono strony</Typography>
-      <Typography variant="body1" sx={{ mb: 4 }}>Adres, który otworzyłeś, nie istnieje lub został zmieniony.</Typography>
-      <Button component={Link} to={PATHS.home} variant="outlined" color="secondary">Wróć na stronę główną</Button>
+      <Typography variant="h2" component="h1" sx={{ mb: 2 }}>
+        Nie znaleziono strony
+      </Typography>
+      <Typography variant="body1" sx={{ mb: 4 }}>
+        Adres, który otworzyłeś, nie istnieje lub został zmieniony.
+      </Typography>
+      <Button component={Link} to={PATHS.home} variant="outlined" color="secondary">
+        Wróć na stronę główną
+      </Button>
     </Box>
   );
 }
@@ -75,7 +88,12 @@ export function AppRoutes() {
             path={PATHS.admin}
             element={
               <>
-                <Seo title="Panel administracyjny" description="Panel administracyjny" path={PATHS.admin} noindex />
+                <Seo
+                  title="Panel administracyjny"
+                  description="Panel administracyjny"
+                  path={PATHS.admin}
+                  noindex
+                />
                 <Admin />
               </>
             }
