@@ -114,13 +114,23 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
             <Stack direction="row" spacing={4}>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  + 48 505 810 279
+                <Typography
+                  variant="body2"
+                  component="a"
+                  href="tel:+48505810279"
+                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  +48 505 810 279
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <EmailIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
+                <Typography
+                  variant="body2"
+                  component="a"
+                  href="mailto:kancelaria@radcaprawnylegnica.com.pl"
+                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
                   kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
               </Stack>

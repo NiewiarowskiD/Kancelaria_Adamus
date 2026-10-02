@@ -44,20 +44,30 @@ export default function Footer({ onNavigate }: FooterProps) {
             <Stack spacing={1.5}>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <PhoneIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  +48 600 123 456
+                <Typography
+                  variant="body2"
+                  component="a"
+                  href="tel:+48505810279"
+                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  +48 505 810 279
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <EmailIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  kancelaria@prawo.pl
+                <Typography
+                  variant="body2"
+                  component="a"
+                  href="mailto:kancelaria@radcaprawnylegnica.com.pl"
+                  sx={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
+                >
+                  kancelaria@radcaprawnylegnica.com.pl
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1.5} alignItems="flex-start">
                 <LocationOnIcon sx={{ color: 'secondary.main', fontSize: 20, mt: 0.2 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  ul. Marszałkowska 10/15<br />00-001 Warszawa
+                  Obszar działania: Legnica i całe województwo dolnośląskie<br />Porady prawne online (e-porada) dla Klientów z całej Polski
                 </Typography>
               </Stack>
             </Stack>
@@ -70,14 +80,14 @@ export default function Footer({ onNavigate }: FooterProps) {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <AccessTimeIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  Pon-Pt: 9:00 - 18:00
+                  Pon.–pt.: 9:00–20:00
                 </Typography>
               </Stack>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)', pl: 4.5 }}>
-                Sob: 10:00 - 14:00
+                Sob.: 10:00–16:00
               </Typography>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)', pl: 4.5 }}>
-                Nd: nieczynne
+                Nd.: nieczynne
               </Typography>
             </Stack>
           

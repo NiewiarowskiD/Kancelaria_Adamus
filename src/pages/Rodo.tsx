@@ -22,7 +22,7 @@ export default function Rodo() {
               § 1. Postanowienia ogólne
             </Typography>
             <Typography variant="body1" align="justify" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-              Właścicielem serwisu internetowego oraz Administratorem Danych Osobowych jest <strong>Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk</strong>, z siedzibą w: [Adres], NIP: [Numer NIP], e-mail: kancelaria@prawo.pl, tel.: +48 600 123 456.
+              Właścicielem serwisu internetowego oraz Administratorem Danych Osobowych jest <strong>Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk</strong>, z siedzibą w: [Adres], NIP: [Numer NIP], e-mail: <a href="mailto:kancelaria@radcaprawnylegnica.com.pl">kancelaria@radcaprawnylegnica.com.pl</a>, tel.: <a href="tel:+48505810279">+48 505 810 279</a>.
             </Typography>
             <Typography variant="body1" align="justify" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
               Niniejszy dokument określa zasady korzystania z bezpłatnej usługi świadczonej drogą elektroniczną (formularza kontaktowego) oraz zasady przetwarzania danych osobowych zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO).
