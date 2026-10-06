@@ -17,6 +17,7 @@ import CookieBanner from './components/CookieBanner';
 import Navbar from './components/Navbar';
 import Price from './pages/PriceList';
 import Rodo from './pages/Rodo';
+import Kontakt from './pages/Kontakt';
 import NotaPrawna from './pages/NotaPrawna';
 import Regulamin from './pages/Regulamin';
 import Seo from './seo/Seo';
@@ -119,6 +120,7 @@ export function AppRoutes() {
           <Route path={PATHS.price} element={<Price />} />
           <Route path={PATHS.online} element={<OnlineAdvice />} />
           <Route path={PATHS.blog} element={<Blog />} />
+          <Route path={PATHS.contact} element={<Kontakt />} />
           <Route path={`${PATHS.blog}/:slug`} element={<Blog />} />
           <Route path={PATHS.rodo} element={<Rodo />} />
           <Route path={PATHS.notaPrawna} element={<NotaPrawna />} />
