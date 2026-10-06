@@ -99,7 +99,7 @@ export default function Footer() {
               <Stack direction="row" spacing={1.5} alignItems="center">
                 <AccessTimeIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.85)' }}>
-                  Pon.–pt.: 9:00–20:00
+                  Pon.–pt.: 8:00–20:00
                 </Typography>
               </Stack>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.6)', pl: 4.5 }}>

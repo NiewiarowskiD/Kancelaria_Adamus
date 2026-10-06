@@ -5,6 +5,7 @@ export const PATHS = {
   price: '/cennik',
   online: '/porady-online',
   blog: '/blog',
+  contact: '/kontakt',
   rodo: '/polityka-prywatnosci',
   notaPrawna: '/nota-prawna',
   regulamin: '/regulamin',
@@ -108,6 +109,11 @@ export const PAGE_META: Record<string, PageMeta> = {
     title: 'Regulamin serwisu i e-porad | Kancelaria Adamus-Mielniczuk',
     description:
       'Regulamin serwisu i świadczenia porad prawnych online (e-porad): zawarcie umowy, cena 300 zł, odstąpienie od umowy, reklamacje, wzór formularza.',
+  },
+  '/kontakt': {
+    title: 'Kontakt – radca prawny Legnica | Adamus-Mielniczuk',
+    description:
+      'Telefon 505 810 279, e-mail, godziny pracy, jak umówić poradę prawną w Legnicy lub online (300 zł) oraz dane do przelewu.',
   },
   '/polityka-prywatnosci': {
     title: 'Polityka prywatności i cookies | Kancelaria Adamus-Mielniczuk',

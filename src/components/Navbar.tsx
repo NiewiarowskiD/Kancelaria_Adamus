@@ -31,6 +31,7 @@ const navItems: { key: PageKey; label: string }[] = [
   { key: 'price', label: 'Cennik' },
   { key: 'online', label: 'Porady online' },
   { key: 'blog', label: 'Blog' },
+  { key: 'contact', label: 'Kontakt' },
 ];
 
 const specializationList = SPECIALIZATION_LABELS.map((label, i) => ({
@@ -155,14 +156,14 @@ export default function Navbar() {
                   to={PATHS[item.key]}
                   sx={{
                     fontFamily: navFont,
-                    fontSize: { md: '0.8rem', lg: '0.875rem' },
+                    fontSize: { md: '0.75rem', lg: '0.875rem' },
                     whiteSpace: 'nowrap',
                     color: isActive(item.key) ? 'secondary.main' : 'common.white',
                     fontWeight: isActive(item.key) ? 600 : 400,
                     borderBottom: '2px solid',
                     borderColor: isActive(item.key) ? 'secondary.main' : 'transparent',
                     borderRadius: 0,
-                    px: { md: 1, lg: 1.5 },
+                    px: { md: 0.6, lg: 1.5 },
                     height: '100%',
                     '&:hover': {
                       color: 'secondary.main',
@@ -241,7 +242,7 @@ export default function Navbar() {
               src="/logo_KIRP_noback.svg"
               alt="Krajowa Izba Radców Prawnych"
               sx={{
-                display: { xs: 'none', md: 'block' },
+                display: { xs: 'none', lg: 'block' },
                 height: { md: 60, lg: 80 },
                 width: 'auto',
               }}
