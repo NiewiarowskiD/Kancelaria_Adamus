@@ -101,18 +101,18 @@ export const PAGE_META: Record<string, PageMeta> = {
   },
   '/nota-prawna': {
     title: 'Nota prawna | Kancelaria Adamus-Mielniczuk',
-    description: 'Nota prawna serwisu Kancelarii Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
+    description:
+      'Nota prawna serwisu: dane usługodawcy, informacje o wykonywanym zawodzie radcy prawnego, tajemnica zawodowa, prawa autorskie i charakter treści.',
   },
   '/regulamin': {
-    title:
-      'Regulamin serwisu i świadczenia porad prawnych online (e-porad) | Kancelaria Adamus-Mielniczuk',
+    title: 'Regulamin serwisu i e-porad | Kancelaria Adamus-Mielniczuk',
     description:
-      'Regulamin serwisu oraz świadczenia porad prawnych online (e-porad) przez Kancelarię Radcy Prawnego Katarzyna Adamus-Mielniczuk.',
+      'Regulamin serwisu i świadczenia porad prawnych online (e-porad): zawarcie umowy, cena 300 zł, odstąpienie od umowy, reklamacje, wzór formularza.',
   },
   '/polityka-prywatnosci': {
-    title: 'Regulamin i polityka prywatności | Kancelaria Adamus-Mielniczuk',
+    title: 'Polityka prywatności i cookies | Kancelaria Adamus-Mielniczuk',
     description:
-      'Regulamin serwisu, zasady korzystania z formularza kontaktowego oraz informacje o przetwarzaniu danych osobowych (RODO).',
+      'Polityka prywatności i plików cookies: administrator danych, cele i podstawy przetwarzania, okres przechowywania, prawa osób, pliki cookies.',
   },
 };
 

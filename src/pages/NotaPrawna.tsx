@@ -1,174 +1,139 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Divider from '@mui/material/Divider';
-import Seo from '../seo/Seo';
-import { PAGE_META } from '../seo/routes';
+import { Link } from 'react-router-dom';
+import {
+  LegalEmail,
+  LegalList,
+  LegalP,
+  LegalPage,
+  LegalPhone,
+  LegalSection,
+} from '../components/Legal';
+import { PATHS } from '../seo/routes';
 
 export default function NotaPrawna() {
   return (
-    <Box sx={{ py: { xs: 6, md: 10 }, px: { xs: 2, md: 4 } }}>
-      <Seo {...PAGE_META['/nota-prawna']} path="/nota-prawna" />
-      <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
-        <Typography
-          variant="overline"
-          component="h1"
-          sx={{ color: 'secondary.main', letterSpacing: '0.2em', display: 'block', mb: 2 }}
-        >
-          Nota prawna
-        </Typography>
+    <LegalPage path="/nota-prawna" title="Nota prawna">
+      <LegalSection first heading="Informacje o usługodawcy">
+        <LegalP>
+          Właścicielem i administratorem serwisu internetowego www.radcaprawnylegnica.com.pl jest:
+        </LegalP>
+        <LegalP>
+          <strong>Katarzyna Adamus-Mielniczuk, radca prawny</strong>, prowadząca działalność pod
+          nazwą <strong>Kancelaria Radcy Prawnego Katarzyna Adamus-Mielniczuk</strong>.
+        </LegalP>
+        <LegalP>
+          Adres do korespondencji: Szczedrzykowice 32/6, 59-230 Prochowice
+          <br />
+          NIP: 6443407442
+          <br />
+          Telefon: <LegalPhone />
+          <br />
+          E-mail: <LegalEmail />
+        </LegalP>
+      </LegalSection>
 
-        <Card
-          sx={{
-            bgcolor: 'background.paper',
-            border: '1px solid',
-            borderColor: 'divider',
-            p: { xs: 3, md: 5 },
-          }}
-        >
-          <CardContent sx={{ '& .MuiTypography-root': { mb: 2 } }}>
-            <Typography
-              variant="h5"
-              component="h2"
-              sx={{ fontWeight: 600, color: 'text.primary', mb: 2 }}
-            >
-              § 1. Lorem ipsum
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-
-            <Divider sx={{ my: 4 }} />
-
-            <Typography
-              variant="h5"
-              component="h2"
-              sx={{ fontWeight: 600, color: 'text.primary', mb: 2 }}
-            >
-              § 2. Lorem ipsum
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-            <Typography
-              variant="body1"
-              align="justify"
-              sx={{ color: 'text.secondary', lineHeight: 1.8 }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </Typography>
-
-            <Divider sx={{ my: 4 }} />
-
-            <Typography
-              variant="h5"
-              component="h2"
-              sx={{ fontWeight: 600, color: 'text.primary', mb: 2 }}
-            >
-              § 3. Lorem ipsum
-            </Typography>
-
-            <Box
-              component="ul"
-              sx={{
-                color: 'text.secondary',
-                pl: 3,
-                mb: 2,
-                lineHeight: 1.8,
-                '& li': { mb: 2, textAlign: 'justify' },
-              }}
-            >
+      <LegalSection heading="Informacje o wykonywanym zawodzie">
+        <LegalList>
+          <li>Tytuł zawodowy: radca prawny, nadany w Rzeczypospolitej Polskiej.</li>
+          <li>Samorząd zawodowy: Okręgowa Izba Radców Prawnych w Wałbrzychu.</li>
+          <li>
+            Numer wpisu na listę radców prawnych: WŁ-1118. Wpis można zweryfikować w Krajowym
+            Rejestrze Radców Prawnych pod adresem{' '}
+            <a href="https://rejestrradcow.pl" target="_blank" rel="noopener noreferrer">
+              rejestrradcow.pl
+            </a>
+            .
+          </li>
+          <li>
+            Zasady wykonywania zawodu określają:
+            <ul>
               <li>
-                <strong>Lorem ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
+                ustawa z dnia 6 lipca 1982 r. o radcach prawnych (t.j. Dz.U. z 2024 r. poz. 499 ze
+                zm.),
               </li>
               <li>
-                <strong>Lorem ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
+                Kodeks Etyki Radcy Prawnego, uchwalony uchwałą nr 3/2014 Nadzwyczajnego Krajowego
+                Zjazdu Radców Prawnych z dnia 22 listopada 2014 r. (tekst jednolity ogłoszony
+                uchwałą nr 884/XI/2023 Prezydium Krajowej Rady Radców Prawnych z dnia 7 lutego 2023
+                r.).
               </li>
-              <li>
-                <strong>Lorem ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-              </li>
-              <li>
-                <strong>Lorem ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-              </li>
-              <li>
-                <strong>Lorem ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-              </li>
-              <li>
-                <strong>Lorem ipsum:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat.
-              </li>
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
-    </Box>
+            </ul>
+          </li>
+          <li>
+            Kodeks Etyki Radcy Prawnego jest dostępny na stronie internetowej Krajowej Izby Radców
+            Prawnych:{' '}
+            <a href="https://kirp.pl" target="_blank" rel="noopener noreferrer">
+              kirp.pl
+            </a>
+            .
+          </li>
+          <li>
+            Radca prawny podlega obowiązkowemu ubezpieczeniu od odpowiedzialności cywilnej za szkody
+            wyrządzone w związku z wykonywaniem czynności zawodowych.
+          </li>
+        </LegalList>
+      </LegalSection>
+
+      <LegalSection heading="Charakter informacji zamieszczonych w serwisie">
+        <LegalP>
+          Treści publikowane w serwisie, w tym artykuły w zakładce „Blog”, mają charakter wyłącznie
+          informacyjny i edukacyjny. Nie stanowią porady prawnej ani opinii prawnej w rozumieniu
+          przepisów ustawy o radcach prawnych i nie mogą zastąpić indywidualnej konsultacji z radcą
+          prawnym. Każda sprawa wymaga odrębnej analizy stanu faktycznego i prawnego.
+        </LegalP>
+        <LegalP>
+          Treści opisują stan prawny z dnia ich publikacji. Kancelaria dokłada starań, aby były
+          rzetelne i aktualne, nie ponosi jednak odpowiedzialności za skutki decyzji podjętych
+          wyłącznie na ich podstawie.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="Nawiązanie współpracy">
+        <LegalP>
+          Samo przesłanie wiadomości e-mail, kontakt telefoniczny lub skorzystanie z formularza w
+          serwisie nie oznacza zawarcia umowy o świadczenie pomocy prawnej. Do zawarcia umowy
+          dochodzi po uzgodnieniu jej warunków, w tym zasad wynagrodzenia, przed rozpoczęciem
+          świadczenia pomocy prawnej.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="Tajemnica zawodowa">
+        <LegalP>
+          Informacje przekazane radcy prawnemu w związku z udzielaniem pomocy prawnej, również w
+          formie porady online (e-porady), są objęte tajemnicą zawodową na zasadach określonych w
+          art. 3 ust. 3–6 ustawy o radcach prawnych. Prosimy jednak, aby przy pierwszym kontakcie
+          nie przekazywać szczegółowych informacji o sprawie ani dokumentów, dopóki forma i warunki
+          współpracy nie zostaną ustalone.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="Prawa autorskie">
+        <LegalP>
+          Treści, grafiki, logo i układ serwisu są chronione na podstawie ustawy z dnia 4 lutego
+          1994 r. o prawie autorskim i prawach pokrewnych (t.j. Dz.U. z 2025 r. poz. 24 ze zm.).
+          Kopiowanie, rozpowszechnianie lub wykorzystywanie ich w celach komercyjnych bez zgody
+          właściciela serwisu jest zabronione. Dozwolone jest przytaczanie fragmentów w granicach
+          dozwolonego użytku, z podaniem źródła.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="Odnośniki do innych stron">
+        <LegalP>
+          Serwis może zawierać odnośniki do stron internetowych podmiotów trzecich. Kancelaria nie
+          odpowiada za treść tych stron ani za stosowane przez nie zasady ochrony prywatności.
+        </LegalP>
+      </LegalSection>
+
+      <LegalSection heading="Ochrona danych osobowych">
+        <LegalP>
+          Zasady przetwarzania danych osobowych oraz stosowania plików cookies określa{' '}
+          <Link to={PATHS.rodo}>Polityka prywatności</Link>.
+        </LegalP>
+        <LegalP>
+          Informacje zamieszczone na tej stronie stanowią wykonanie obowiązku informacyjnego
+          określonego w art. 5 ustawy z dnia 18 lipca 2002 r. o świadczeniu usług drogą
+          elektroniczną (t.j. Dz.U. z 2024 r. poz. 1513 ze zm.).
+        </LegalP>
+      </LegalSection>
+    </LegalPage>
   );
 }
