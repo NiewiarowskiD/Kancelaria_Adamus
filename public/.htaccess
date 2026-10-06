@@ -1,8 +1,26 @@
-# Hosting Apache: statyczne podstrony + powrót do index.html dla nowych artykułów bloga
+# Hosting Apache – statyczne podstrony + obsługa artykułów bloga i panelu admina
 RewriteEngine On
+
+# /cennik -> /cennik/ (statyczne podstrony leżą w katalogach z index.html)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}/index.html -f
 RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+# Strony wczytywane przez aplikację: nowy artykuł bloga (/blog/slug) i panel (/admin)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ /index.html [L]
+RewriteRule ^(blog/.+|admin/?)$ /index.html [L]
+
+# Pozostałe nieistniejące adresy -> prawdziwy błąd 404
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(js|css|webp|png|svg)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
