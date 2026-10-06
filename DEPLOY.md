@@ -1,6 +1,7 @@
 # Wdrożenie na własny serwer
 
 ## 1. Przed buildem
+
 Utwórz plik `.env` w katalogu projektu (nie trafia do gita):
 
 ```
@@ -15,17 +16,21 @@ VITE_SITE_URL=https://radcaprawnylegnica.com.pl
 - W `public/robots.txt` popraw adres w linii `Sitemap:`, jeśli domena jest inna.
 
 ## 2. Build
+
 ```
 npm ci
 npm run build
 ```
+
 Wynik jest w katalogu `dist/`.
 
 ## 3. Wgraj na serwer
+
 Wgraj **całą zawartość** katalogu `dist/` do katalogu głównego domeny (np. `public_html`),
 razem z plikami ukrytymi (`.htaccess`). Nic więcej nie jest potrzebne (bez Node.js na serwerze).
 
 ## 4. Konfiguracja serwera
+
 - **Apache:** wystarczy `.htaccess` z `dist/` (wymaga `mod_rewrite`; `mod_headers` jest opcjonalny).
 - **nginx:**
   ```
@@ -39,6 +44,7 @@ razem z plikami ukrytymi (`.htaccess`). Nic więcej nie jest potrzebne (bez Node
 - Włącz HTTPS (Let's Encrypt) i przekierowanie `http` → `https` oraz `www` → domena główna.
 
 ## 5. Supabase
+
 - Wdróż funkcję formularza: `supabase functions deploy send-contact-email`.
 - Sekrety funkcji: `RESEND_API_KEY`, oraz (po zweryfikowaniu domeny w Resend) `OWNER_EMAIL`
   i `FROM_EMAIL`.
@@ -46,6 +52,7 @@ razem z plikami ukrytymi (`.htaccess`). Nic więcej nie jest potrzebne (bez Node
 - Sprawdź zasady dostępu (RLS) tabel `blog_articles` i `contact_requests`.
 
 ## 6. Po uruchomieniu
+
 - Sprawdź: `/`, `/kontakt`, `/blog`, `/robots.txt`, `/sitemap.xml`, formularz na `/porady-online`.
 - Dodaj domenę w Google Search Console i wyślij `sitemap.xml`.
 - Nowe artykuły dodane w panelu są widoczne od razu, a w statycznym HTML i `sitemap.xml` pojawiają
