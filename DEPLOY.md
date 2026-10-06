@@ -57,3 +57,16 @@ razem z plikami ukrytymi (`.htaccess`). Nic więcej nie jest potrzebne (bez Node
 - Dodaj domenę w Google Search Console i wyślij `sitemap.xml`.
 - Nowe artykuły dodane w panelu są widoczne od razu, a w statycznym HTML i `sitemap.xml` pojawiają
   się po kolejnym `npm run build` i wgraniu `dist/`.
+
+## Podtrzymanie bazy Supabase (darmowy plan)
+
+Plik `.github/workflows/supabase-keepalive.yml` co 3 dni wysyła zapytanie do bazy i zapisuje kopię
+artykułów (plik do pobrania w zakładce Actions). Konfiguracja:
+
+1. GitHub → repozytorium → **Settings → Secrets and variables → Actions → New repository secret**:
+   `SUPABASE_URL` (adres projektu) i `SUPABASE_ANON_KEY` (klucz `anon public`).
+2. Workflow zaczyna działać po scaleniu do gałęzi `main` (harmonogram działa tylko z gałęzi
+   domyślnej).
+3. Test: zakładka **Actions → Supabase keep-alive i kopia artykułów → Run workflow**.
+4. GitHub wyłącza harmonogramy w repozytoriach bez żadnej aktywności przez 60 dni – wtedy włącz je
+   ponownie w zakładce Actions (albo zrób dowolny commit).

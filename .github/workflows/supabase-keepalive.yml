@@ -1,0 +1,50 @@
+# Podtrzymanie aktywności projektu Supabase (darmowy plan usypia projekty po 7 dniach bez aktywności)
+# + cotygodniowa kopia zapasowa artykułów bloga.
+#
+# Wymagane sekrety (GitHub → Settings → Secrets and variables → Actions → New repository secret):
+#   SUPABASE_URL       np. https://abcdefgh.supabase.co
+#   SUPABASE_ANON_KEY  klucz "anon public" (Supabase → Project Settings → API)
+name: Supabase keep-alive i kopia artykułów
+
+on:
+  schedule:
+    - cron: '17 6 */3 * *' # co 3 dni, ok. 6:17 UTC
+  workflow_dispatch: # ręczne uruchomienie przyciskiem "Run workflow"
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zapytanie do bazy (podtrzymanie)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "Brak sekretów SUPABASE_URL / SUPABASE_ANON_KEY" >&2
+            exit 1
+          fi
+          curl --fail --silent --show-error \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            "$SUPABASE_URL/rest/v1/blog_articles?select=id&limit=1" > /dev/null
+          echo "Baza odpowiada – projekt aktywny."
+
+      - name: Kopia artykułów (JSON)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          curl --fail --silent --show-error \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            "$SUPABASE_URL/rest/v1/blog_articles?select=*&order=created_at.desc" \
+            > blog_articles_backup.json
+          echo "Zapisano $(wc -c < blog_articles_backup.json) bajtów."
+
+      - name: Zapis kopii jako plik do pobrania
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-articles-backup
+          path: blog_articles_backup.json
+          retention-days: 90
