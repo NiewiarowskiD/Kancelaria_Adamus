@@ -1,6 +1,13 @@
 # Hosting Apache – statyczne podstrony + obsługa artykułów bloga i panelu admina
 RewriteEngine On
 
+# ---- HTTPS (odkomentuj dopiero, gdy certyfikat SSL jest aktywny, inaczej strona przestanie się otwierać) ----
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://radcaprawnylegnica.com.pl%{REQUEST_URI} [L,R=301]
+# RewriteCond %{HTTP_HOST} ^www\. [NC]
+# RewriteRule ^ https://radcaprawnylegnica.com.pl%{REQUEST_URI} [L,R=301]
+# -----------------------------------------------------------------------------------------------------------
+
 # /cennik -> /cennik/ (statyczne podstrony leżą w katalogach z index.html)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}/index.html -f
